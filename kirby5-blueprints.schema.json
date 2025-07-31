@@ -1024,6 +1024,14 @@
         "type": "boolean",
         "description": "Enables/disables reverse sorting"
       },
+      "@font": {
+        "enum": [
+          "sans",
+          "monospace"
+        ],
+        "description": "Sets the font family (sans or monospace)",
+        "default": "sans"
+      },
       "@headline": {
         "$ref": "#/$defs/nonEmptyString"
       },
@@ -1427,6 +1435,14 @@
         "type": "boolean",
         "description": "Enables/disables manual sorting"
       },
+      "@store": {
+        "enum": [
+          "uuid",
+          "id"
+        ],
+        "description": "Whether to store UUID or ID in the content file of the model",
+        "default": "uuid"
+      },
       "@spellcheck": {
         "type": "boolean"
       },
@@ -1473,6 +1489,27 @@
           "positive",
           "info",
           "negative"
+        ]
+      },
+      "@toolbar": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/objectWithStringValues"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "marks": {
+                "type": "array"
+              },
+              "nodes": {
+                "type": "array"
+              },
+              "inline": {
+                "type": "boolean"
+              }
+            }
+          }
         ]
       },
       "@translate": {
@@ -1869,6 +1906,9 @@
           "disabled": {
             "$ref": "#/$defs/field-properties/@disabled"
           },
+          "font": {
+            "$ref": "#/$defs/field-properties/@font"
+          },
           "help": {
             "$ref": "#/$defs/field-properties/@help"
           },
@@ -1930,18 +1970,14 @@
           "extends": {
             "$ref": "#/$defs/field-properties/@extends"
           },
+          "autofocus": {
+            "$ref": "#/$defs/field-properties/@autofocus"
+          },
           "default": {
             "$ref": "#/$defs/field-properties/@default"
           },
           "disabled": {
             "$ref": "#/$defs/field-properties/@disabled"
-          },
-          "duplicate": {
-            "type": "boolean",
-            "default": true
-          },
-          "empty": {
-            "$ref": "#/$defs/field-properties/@empty"
           },
           "field": {
             "anyOf": [
@@ -1992,16 +2028,9 @@
           "min": {
             "$ref": "#/$defs/field-properties/@min"
           },
-          "prepend": {
-            "type": "boolean",
-            "default": true
-          },
           "required": {
             "$ref": "#/$defs/field-properties/@required",
             "default": false
-          },
-          "sortBy": {
-            "$ref": "#/$defs/field-properties/@sortBy"
           },
           "sortable": {
             "$ref": "#/$defs/field-properties/@sortable"
@@ -2088,6 +2117,9 @@
           "size": {
             "$ref": "#/$defs/field-properties/@size",
             "default": "auto"
+          },
+          "store": {
+            "$ref": "#/$defs/field-properties/@store"
           },
           "text": {
             "$ref": "#/$defs/field-properties/@text"
@@ -2184,9 +2216,6 @@
           },
           "label": {
             "$ref": "#/$defs/field-properties/@label"
-          },
-          "numbered": {
-            "type": "boolean"
           },
           "when": {
             "$ref": "#/$defs/field-properties/@when"
@@ -2408,6 +2437,9 @@
           "marks": {
             "$ref": "#/$defs/field-properties/@marks"
           },
+          "nodes": {
+            "$ref": "#/$defs/field-properties/@nodes"
+          },
           "placeholder": {
             "$ref": "#/$defs/field-properties/@placeholder"
           },
@@ -2446,6 +2478,13 @@
           },
           "extends": {
             "$ref": "#/$defs/field-properties/@extends"
+          },
+          "accept": {
+            "enum": [
+              "options",
+              "all"
+            ],
+            "default": "options"
           },
           "api": {
             "$ref": "#/$defs/field-properties/@api"
@@ -2662,6 +2701,9 @@
           "disabled": {
             "$ref": "#/$defs/field-properties/@disabled"
           },
+          "empty": {
+            "$ref": "#/$defs/field-properties/@empty"
+          },
           "help": {
             "$ref": "#/$defs/field-properties/@help"
           },
@@ -2699,6 +2741,9 @@
           "search": {
             "$ref": "#/$defs/field-properties/@search",
             "default": true
+          },
+          "store": {
+            "$ref": "#/$defs/field-properties/@store"
           },
           "size": {
             "$ref": "#/$defs/field-properties/@size"
@@ -2903,6 +2948,9 @@
           "options": {
             "$ref": "#/$defs/field-properties/@options"
           },
+          "placeholder": {
+            "$ref": "#/$defs/field-properties/@placeholder"
+          },
           "query": {
             "$ref": "#/$defs/field-properties/@query"
           },
@@ -2959,6 +3007,9 @@
           },
           "disabled": {
             "$ref": "#/$defs/field-properties/@disabled"
+          },
+          "font": {
+            "$ref": "#/$defs/field-properties/@font"
           },
           "help": {
             "$ref": "#/$defs/field-properties/@help"
@@ -3116,7 +3167,10 @@
             "$ref": "#/$defs/field-properties/@extends"
           },
           "accept": {
-            "$ref": "#/$defs/nonEmptyString",
+            "enum": [
+              "all",
+              "options"
+            ],
             "default": "all"
           },
           "api": {
@@ -3159,9 +3213,16 @@
             "$ref": "#/$defs/field-properties/@required",
             "default": false
           },
+          "search": {
+            "$ref": "#/$defs/field-properties/@search"
+          },
           "separator": {
             "$ref": "#/$defs/field-properties/@separator",
             "default": ","
+          },
+          "sort": {
+            "$ref": "#/$defs/field-properties/@sort",
+            "default": false
           },
           "translate": {
             "$ref": "#/$defs/field-properties/@translate",
@@ -3212,6 +3273,9 @@
           },
           "disabled": {
             "$ref": "#/$defs/field-properties/@disabled"
+          },
+          "font": {
+            "$ref": "#/$defs/field-properties/@font"
           },
           "help": {
             "$ref": "#/$defs/field-properties/@help"
@@ -3289,6 +3353,9 @@
           },
           "disabled": {
             "$ref": "#/$defs/field-properties/@disabled"
+          },
+          "font": {
+            "$ref": "#/$defs/field-properties/@font"
           },
           "help": {
             "$ref": "#/$defs/field-properties/@help"
@@ -3369,11 +3436,7 @@
             "$ref": "#/$defs/field-properties/@files"
           },
           "font": {
-            "enum": [
-              "sans",
-              "monospace"
-            ],
-            "default": "sans"
+            "$ref": "#/$defs/field-properties/@font"
           },
           "help": {
             "$ref": "#/$defs/field-properties/@help"
@@ -3682,6 +3745,9 @@
           "disabled": {
             "$ref": "#/$defs/field-properties/@disabled"
           },
+          "font": {
+            "$ref": "#/$defs/field-properties/@font"
+          },
           "help": {
             "$ref": "#/$defs/field-properties/@help"
           },
@@ -3786,6 +3852,9 @@
             "$ref": "#/$defs/field-properties/@size",
             "default": "auto"
           },
+          "store": {
+            "$ref": "#/$defs/field-properties/@store"
+          },
           "text": {
             "$ref": "#/$defs/field-properties/@text"
           },
@@ -3830,6 +3899,9 @@
           "before": {
             "$ref": "#/$defs/field-properties/@before"
           },
+          "counter": {
+            "$ref": "#/$defs/field-properties/@counter"
+          },
           "default": {
             "$ref": "#/$defs/field-properties/@default"
           },
@@ -3852,6 +3924,12 @@
           "marks": {
             "$ref": "#/$defs/field-properties/@marks"
           },
+          "maxlength": {
+            "$ref": "#/$defs/field-properties/@maxlength"
+          },
+          "minlength": {
+            "$ref": "#/$defs/field-properties/@minlength"
+          },
           "nodes": {
             "$ref": "#/$defs/field-properties/@nodes"
           },
@@ -3860,6 +3938,9 @@
           },
           "required": {
             "$ref": "#/$defs/field-properties/@required"
+          },
+          "toolbar": {
+            "$ref": "#/$defs/field-properties/@toolbar"
           },
           "translate": {
             "$ref": "#/$defs/field-properties/@translate",
