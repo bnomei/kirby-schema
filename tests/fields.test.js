@@ -96,6 +96,10 @@ test('structure', () => {
     expect(validate('./tests/fixtures/fields/structure.yml')).toBeTruthy();
 });
 
+test('stats', () => {
+    expect(validate('./tests/fixtures/fields/stats.yml')).toBeTruthy();
+});
+
 test('tags', () => {
     expect(validate('./tests/fixtures/fields/tags.yml')).toBeTruthy();
 });

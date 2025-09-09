@@ -76,6 +76,9 @@
       "$ref": "#/$defs/fields/structure"
     },
     {
+      "$ref": "#/$defs/fields/stats"
+    },
+    {
       "$ref": "#/$defs/fields/tags"
     },
     {
@@ -121,6 +124,9 @@
       "$ref": "#/$defs/sections/stats"
     },
     {
+      "$ref": "#/$defs/blueprints/block"
+    },
+    {
       "$ref": "#/$defs/blueprints/file"
     },
     {
@@ -128,6 +134,9 @@
     },
     {
       "$ref": "#/$defs/blueprints/site"
+    },
+    {
+      "$ref": "#/$defs/blueprints/tab"
     },
     {
       "$ref": "#/$defs/blueprints/user"
@@ -493,6 +502,12 @@
       "@title": {
         "$ref": "#/$defs/stringOrTranslated"
       },
+      "@label": {
+        "$ref": "#/$defs/stringOrTranslated"
+      },
+      "@name": {
+        "$ref": "#/$defs/stringOrTranslated"
+      },
       "@create": {
         "type": "object",
         "properties": {
@@ -645,6 +660,45 @@
       }
     },
     "blueprints": {
+      "block": {
+        "type": "object",
+        "required": [
+          "blueprint"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "blueprint": {
+            "enum": [
+              "block"
+            ]
+          },
+          "name": {
+            "$ref": "#/$defs/blueprint-properties/@name"
+          },
+          "icon": {
+            "$ref": "#/$defs/blueprint-properties/@icon"
+          },
+          "preview": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "wysiwyg": {
+            "type": "boolean",
+            "default": false
+          },
+          "fields": {
+            "$ref": "#/$defs/wrappers/fields"
+          },
+          "sections": {
+            "$ref": "#/$defs/wrappers/sections"
+          },
+          "columns": {
+            "$ref": "#/$defs/wrappers/columns"
+          },
+          "tabs": {
+            "$ref": "#/$defs/wrappers/tabs"
+          }
+        }
+      },
       "file": {
         "type": "object",
         "required": [
@@ -712,8 +766,8 @@
                 "$ref": "#/$defs/numberInPixel"
               },
               "crop": {
-                  "type": "boolean",
-                  "default": false
+                "type": "boolean",
+                "default": false
               }
             }
           },
@@ -855,6 +909,38 @@
           },
           "permissions": {
             "$ref": "#/$defs/blueprint-properties/@permissions"
+          },
+          "fields": {
+            "$ref": "#/$defs/wrappers/fields"
+          },
+          "sections": {
+            "$ref": "#/$defs/wrappers/sections"
+          },
+          "columns": {
+            "$ref": "#/$defs/wrappers/columns"
+          },
+          "tabs": {
+            "$ref": "#/$defs/wrappers/tabs"
+          }
+        }
+      },
+      "tab": {
+        "type": "object",
+        "required": [
+          "blueprint"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "blueprint": {
+            "enum": [
+              "tab"
+            ]
+          },
+          "label": {
+            "$ref": "#/$defs/blueprint-properties/@label"
+          },
+          "icon": {
+            "$ref": "#/$defs/blueprint-properties/@icon"
           },
           "fields": {
             "$ref": "#/$defs/wrappers/fields"
@@ -3147,6 +3233,38 @@
           }
         }
       },
+      "stats": {
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "enum": [
+              "stats"
+            ]
+          },
+          "blueprint": {
+            "enum": [
+              "field"
+            ]
+          },
+          "headline": {
+            "$ref": "#/$defs/field-properties/@headline"
+          },
+          "label": {
+            "$ref": "#/$defs/field-properties/@label"
+          },
+          "reports": {
+            "$ref": "#/$defs/blueprint-properties/@reports"
+          },
+          "size": {
+            "$ref": "#/$defs/field-properties/@size",
+            "default": "large"
+          }
+        }
+      },
       "tags": {
         "required": [
           "type"
@@ -3969,6 +4087,9 @@
               "fields"
             ]
           },
+          "blueprint": {
+            "const": "section"
+          },
           "fields": {
             "$ref": "#/$defs/wrappers/fields"
           }
@@ -4316,6 +4437,9 @@
                 "$ref": "#/$defs/fields/structure"
               },
               {
+                "$ref": "#/$defs/fields/stats"
+              },
+              {
                 "$ref": "#/$defs/fields/tags"
               },
               {
@@ -4369,6 +4493,9 @@
               },
               {
                 "$ref": "#/$defs/sections/pages"
+              },
+              {
+                "$ref": "#/$defs/sections/stats"
               }
             ]
           }

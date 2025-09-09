@@ -1,7 +1,7 @@
-blueprint: section
+blueprint: field
 type: stats
 # Available size options: small, medium, large, huge. Default is large
-size: huge
+size: large
 reports:
   - label: Revenue
     value: €29,682

@@ -51,7 +51,7 @@ You can use the schema in Sublime Text by cloning this repo to your local machin
 
 ## Blueprint detection
 
-Since Kirby reuses some types like `file`, `info`, `pages` in fields and sections the schema can not always determine which blueprint you are working on with absolute certainty. For now, I introduced a `blueprint` property to solve this. Use it in your `file`, `page`, `user` and `site` blueprints.  
+Since Kirby reuses some types like `file`, `info`, `pages` in fields and sections the schema cannot always determine which blueprint you are working on with absolute certainty. For now, I introduced a `blueprint` property to solve this. Use it in your `block`, `field`, `file`, `page`, `section`, `site`, `tab` and `user` blueprints.  
 
 ```diff
 + blueprint: site
@@ -72,6 +72,13 @@ fields:
   text:
     type: text
 ```
+
+> [!IMPORTANT]
+> Adding the `blueprint` property does not affect Kirby in any way. It is just a hint for your IDE. It's safe to share such blueprints with colleagues that do not have the schema installed.
+
+## Validate
+
+Check out the test files in the `tests` folder on how to programmatically validate your blueprints with the schema. You can use a similar setup in your CI pipeline.
 
 ## Disclaimer
 
