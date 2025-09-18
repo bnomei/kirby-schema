@@ -28,13 +28,13 @@ You will need the [Red Hat VS Code YAML Extension](https://github.com/redhat-dev
 
 ```yaml
   "yaml.schemas": {
-    "/path/to/your/schema/kirby4-blueprints.schema.json": "site/blueprints/**/*.yml"
+    "/path/to/your/schema/kirby5-blueprints.schema.json": "site/blueprints/**/*.yml"
   }
 ```
 
 This will automatically use the schema for all blueprint files.
 
-The extension prepends `/` on the path so its `/~/YOUR_FOLDER/kirby3-schema/kirby4-blueprints.schema.json`.
+The extension prepends `/` on the path so its `/~/YOUR_FOLDER/kirby3-schema/kirby5-blueprints.schema.json`.
 
 > [!NOTE]
 > thanks @tobimori and @iskrisis
