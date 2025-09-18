@@ -2303,6 +2303,10 @@
           "label": {
             "$ref": "#/$defs/field-properties/@label"
           },
+          "numbered": {
+            "type": "boolean",
+            "default": false
+          },
           "when": {
             "$ref": "#/$defs/field-properties/@when"
           },
