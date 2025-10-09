@@ -76,6 +76,12 @@ fields:
 > [!IMPORTANT]
 > Adding the `blueprint` property does not affect Kirby in any way. It is just a hint for your IDE. It's safe to share such blueprints with colleagues that do not have the schema installed.
 
+## Known Limitations
+
+### Extends - Here be Dragons
+
+The `extends` property on blueprint definitions is an edge case for the schema. The schema is a pattern matcher at heart, and it cannot validate what you are extending from in inspecting referenced files. There is no way that I am aware of to make `extends` play nice. For that reason I decided to have the schema surface an error instead of muting/hiding the inability to validate that part of the blueprint.
+
 ## Validate
 
 Check out the test files in the `tests` folder on how to programmatically validate your blueprints with the schema. You can use a similar setup in your CI pipeline.
