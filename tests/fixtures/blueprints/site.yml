@@ -1,5 +1,7 @@
 blueprint: site
 
+icon: home
+
 title:
   en: Site
   de: Webseite

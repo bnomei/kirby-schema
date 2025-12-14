@@ -16,7 +16,7 @@ accept:
 
 image:
   back: blue-200
-  icon: 📝
+  icon: page
 
 options:
   delete:

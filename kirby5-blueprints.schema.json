@@ -387,7 +387,7 @@
               "$ref": "#/$defs/field-properties/@label"
             },
             "text": {
-              "$ref": "#/$defs/nonEmptyString"
+              "$ref": "#/$defs/stringOrTranslated"
             }
           }
         }
@@ -432,6 +432,9 @@
         },
         "theme": {
           "$ref": "#/$defs/field-properties/@theme"
+        },
+        "icon": {
+          "$ref": "#/$defs/field-properties/@icon"
         }
       }
     },
@@ -860,6 +863,9 @@
               "site"
             ]
           },
+          "icon": {
+            "$ref": "#/$defs/blueprint-properties/@icon"
+          },
           "title": {
             "$ref": "#/$defs/blueprint-properties/@title"
           },
@@ -1157,7 +1163,7 @@
         "description": "Image options to control the source and look of file previews"
       },
       "@icon": {
-        "oneOf": [
+        "anyOf": [
           {
             "$ref": "#/$defs/nonEmptyString"
           },
@@ -1574,7 +1580,10 @@
           "none",
           "positive",
           "info",
-          "negative"
+          "negative",
+          "warning",
+          "notice",
+          "love"
         ]
       },
       "@toolbar": {
