@@ -387,7 +387,7 @@
               "$ref": "#/$defs/field-properties/@label"
             },
             "text": {
-              "$ref": "#/$defs/nonEmptyString"
+              "$ref": "#/$defs/stringOrTranslated"
             }
           }
         }

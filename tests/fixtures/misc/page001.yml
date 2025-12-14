@@ -10,6 +10,15 @@ create:
   redirect: false
   status: draft
 
+status:
+  draft:
+    label:
+      en: English label
+      de: Deutscher Titel
+    text:
+      en: English subtext
+      de: Deutscher Untertitel
+
 options:
   preview: "{{ site.url }}?preview={{ page.slug }}"
 
