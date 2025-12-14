@@ -860,6 +860,9 @@
               "site"
             ]
           },
+          "icon": {
+            "$ref": "#/$defs/blueprint-properties/@icon"
+          },
           "title": {
             "$ref": "#/$defs/blueprint-properties/@title"
           },
