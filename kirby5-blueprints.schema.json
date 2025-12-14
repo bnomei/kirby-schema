@@ -1163,7 +1163,7 @@
         "description": "Image options to control the source and look of file previews"
       },
       "@icon": {
-        "oneOf": [
+        "anyOf": [
           {
             "$ref": "#/$defs/nonEmptyString"
           },
