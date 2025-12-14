@@ -432,6 +432,9 @@
         },
         "theme": {
           "$ref": "#/$defs/field-properties/@theme"
+        },
+        "icon": {
+          "$ref": "#/$defs/field-properties/@icon"
         }
       }
     },
