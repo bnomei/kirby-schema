@@ -1577,7 +1577,10 @@
           "none",
           "positive",
           "info",
-          "negative"
+          "negative",
+          "warning",
+          "notice",
+          "love"
         ]
       },
       "@toolbar": {
