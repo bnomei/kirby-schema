@@ -295,6 +295,21 @@
         }
       }
     },
+    "objectWithBooleanOrNonEmptyStringValues": {
+      "type": "object",
+      "patternProperties": {
+        ".*": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "#/$defs/nonEmptyString"
+            }
+          ]
+        }
+      }
+    },
     "objectWithStringValues": {
       "type": "object",
       "patternProperties": {
@@ -1634,10 +1649,7 @@
       "@when": {
         "oneOf": [
           {
-            "$ref": "#/$defs/nonEmptyString"
-          },
-          {
-            "$ref": "#/$defs/objectWithStringValues"
+            "$ref": "#/$defs/objectWithBooleanOrNonEmptyStringValues"
           }
         ]
       },

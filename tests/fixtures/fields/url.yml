@@ -1,2 +1,4 @@
 label: URL
 type: url
+when:
+  something: true
