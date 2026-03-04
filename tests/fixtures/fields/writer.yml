@@ -1,5 +1,8 @@
 type: writer
 inline: true
+headings:
+  - 2
+  - 4
 marks:
   - bold
   - italic
