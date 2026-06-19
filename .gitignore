@@ -4,3 +4,6 @@
 *.cache
 
 node_modules
+.frigg
+.orchid
+/specs
