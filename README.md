@@ -16,22 +16,6 @@ Kirby 5 is the active schema target. New docs-parity fixes, fixture updates and 
 
 The Kirby 3 and Kirby 4 schemas remain downloadable as frozen legacy artifacts, but they do not receive new docs-parity fixes or refactor work.
 
-## What v5.4.0 Is About
-
-v5.4.0 is not just a version bump. It is a Kirby 5 schema parity release.
-
-The schema was audited against Kirby 5's upstream blueprint, field, section and Panel code. The main goal was to reduce false errors in IDEs for blueprint shapes that Kirby 5 really accepts, while also rejecting shapes that were only accepted by this schema by accident.
-
-Highlights:
-
-- `kirby5-blueprints.schema.json` is now generated from smaller source files in `schema/kirby5/**`.
-- The test suite now validates canonical fixtures, official docs examples, Starterkit blueprints, reusable shape variants and pinned property manifests.
-- Kirby 5-only support was expanded for translated labels/text, richer `options` forms, query/API option providers, fieldset shorthands, optional column widths, blueprint buttons, page preset inputs, boolean blueprint `options`/`permissions`, file `accept: true` and additional field properties.
-- Over-accepted shapes were tightened for picker and section `query`/`search`, files/pages sections, `link.options`, `headline.numbered`, stats sizes and numeric `step` values.
-- Known defaults were corrected for `date.calendar`, `textarea.spellcheck`, `files.multiple` and `structure.prepend`.
-
-In short: v5.4.0 makes the Kirby 5 schema more faithful to Kirby itself. It does not try to model dynamic behavior such as `extends` resolution, plugin-defined fields/sections or runtime blueprint mutations.
-
 ## Install
 
 ### Schemastore (not yet)
@@ -111,6 +95,23 @@ fields:
 ### Extends - Here be Dragons
 
 The `extends` property on blueprint definitions is an edge case for the schema. The schema is a pattern matcher at heart, and it cannot validate what you are extending from in inspecting referenced files. There is no way that I am aware of to make `extends` play nice. For that reason I decided to have the schema surface an error instead of muting/hiding the inability to validate that part of the blueprint.
+
+## What v5.4.0 Is About
+
+v5.4.0 is not just a version bump. It is a Kirby 5 schema parity release.
+
+The schema was audited against Kirby 5's upstream blueprint, field, section and Panel code. The main goal was to reduce false errors in IDEs for blueprint shapes that Kirby 5 really accepts, while also rejecting shapes that were only accepted by this schema by accident.
+
+Highlights:
+
+- `kirby5-blueprints.schema.json` is now generated from smaller source files in `schema/kirby5/**`.
+- The test suite now validates canonical fixtures, official docs examples, Starterkit blueprints, reusable shape variants and pinned property manifests.
+- The current test suite covers 1742 tests.
+- Kirby 5-only support was expanded for translated labels/text, richer `options` forms, query/API option providers, fieldset shorthands, optional column widths, blueprint buttons, page preset inputs, boolean blueprint `options`/`permissions`, file `accept: true` and additional field properties.
+- Over-accepted shapes were tightened for picker and section `query`/`search`, files/pages sections, `link.options`, `headline.numbered`, stats sizes and numeric `step` values.
+- Known defaults were corrected for `date.calendar`, `textarea.spellcheck`, `files.multiple` and `structure.prepend`.
+
+In short: v5.4.0 makes the Kirby 5 schema more faithful to Kirby itself. It does not try to model dynamic behavior such as `extends` resolution, plugin-defined fields/sections or runtime blueprint mutations.
 
 ## Validate
 
