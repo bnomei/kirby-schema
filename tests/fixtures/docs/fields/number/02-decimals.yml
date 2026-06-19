@@ -1,0 +1,6 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/number#decimals
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_number/reference-panelfield.txt
+blueprint: field
+label: Price
+type: number
+step: 0.01

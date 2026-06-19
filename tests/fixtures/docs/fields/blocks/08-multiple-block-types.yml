@@ -1,0 +1,12 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/blocks#default-values__multiple-block-types
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_blocks/reference-panelfield.txt
+blueprint: field
+type: blocks
+default:
+  - type: heading
+    content:
+      level: h2
+      text: A heading
+  - type: text
+    content:
+      text: Write something great…

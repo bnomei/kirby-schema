@@ -1,0 +1,8 @@
+# Source: https://getkirby.com/docs/reference/panel/blueprints/block
+blueprint: block
+extends: blocks/base
+name: Custom block
+label: '{{ title }}'
+fields:
+  title:
+    type: text

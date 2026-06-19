@@ -7,6 +7,8 @@
     "test": "tests"
   },
   "scripts": {
+    "build:schema": "node scripts/build-kirby5-schema.js",
+    "check:schema": "node scripts/build-kirby5-schema.js --check",
     "test": "jest"
   },
   "repository": {

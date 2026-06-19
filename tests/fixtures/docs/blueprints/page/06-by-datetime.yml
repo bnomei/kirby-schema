@@ -1,0 +1,4 @@
+# Source: https://getkirby.com/docs/reference/panel/blueprints/page#sorting__chronological-sorting-by-date-field__by-datetime
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/1_blueprints/0_page/reference-article.txt
+blueprint: page
+num: '{{ page.created.toDate("YmdHi") }}'

@@ -1,0 +1,11 @@
+# Source: https://getkirby.com/docs/reference/panel/blueprints/page
+blueprint: page
+sections:
+  files: true
+  pages:
+    headline: Pages
+    status: draft
+    when:
+      showPages: true
+  meta:
+    extends: sections/meta

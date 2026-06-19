@@ -1,0 +1,12 @@
+# Covers: #/$defs/fields/stats
+type: stats
+blueprint: field
+headline: Headline
+help:
+  en: Help
+  de: Help DE
+label:
+  en: Label
+  de: Label DE
+reports: []
+size: large

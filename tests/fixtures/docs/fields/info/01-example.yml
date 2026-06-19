@@ -1,0 +1,16 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/info#example
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_info/reference-panelfield.txt
+blueprint: field
+label: Info
+type: info
+text: >
+  Dear editor,
+
+
+  each project should have a **cover.jpg**, which will be displayed in the project overview. You should also make sure
+  to fill in all fields correctly.
+
+
+  In love,
+
+  Your admin

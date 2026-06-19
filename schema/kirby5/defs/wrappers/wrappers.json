@@ -1,0 +1,78 @@
+{
+  "fields": {
+    "type": "object",
+    "patternProperties": {
+      "^gap$": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/fieldShortcuts/gap"
+          },
+          {
+            "$ref": "#/$defs/wrapperField"
+          }
+        ]
+      },
+      "^(?!gap$).*": {
+        "$ref": "#/$defs/wrapperField"
+      }
+    }
+  },
+  "sections": {
+    "type": "object",
+    "patternProperties": {
+      ".*": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "$ref": "#/$defs/nonEmptyString",
+            "description": "shorthand version of extends property"
+          },
+          {
+            "$ref": "#/$defs/sectionShortcut"
+          }
+        ]
+      }
+    }
+  },
+  "columns": {
+    "oneOf": [
+      {
+        "type": "object",
+        "patternProperties": {
+          ".*": {
+            "$ref": "#/$defs/column"
+          }
+        }
+      },
+      {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/column"
+        }
+      }
+    ]
+  },
+  "tabs": {
+    "type": "object",
+    "patternProperties": {
+      ".*": {
+        "anyOf": [
+          {
+            "enum": [
+              false
+            ]
+          },
+          {
+            "$ref": "#/$defs/nonEmptyString",
+            "description": "shorthand version of extends property"
+          },
+          {
+            "$ref": "#/$defs/tab"
+          }
+        ]
+      }
+    }
+  }
+}

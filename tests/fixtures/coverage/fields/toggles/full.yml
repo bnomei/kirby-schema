@@ -1,0 +1,40 @@
+# Covers: #/$defs/fields/toggles
+type: toggles
+extends: fields/base
+blueprint: field
+api:
+  fetch: site.children
+  text: '{{ item.title }}'
+  value: '{{ item.id }}'
+  icon: page
+  info: '{{ item.info }}'
+autofocus: true
+default:
+  value: default
+disabled: false
+grow: true
+help:
+  en: Help
+  de: Help DE
+label:
+  en: Label
+  de: Label DE
+labels: true
+options:
+  draft:
+    en: Draft
+    de: Draft DE
+  listed: Listed
+query:
+  fetch: site.children
+  text: '{{ item.title }}'
+  value: '{{ item.id }}'
+  icon: page
+  info: '{{ item.info }}'
+required: true
+reset: true
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

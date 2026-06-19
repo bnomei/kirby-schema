@@ -1,0 +1,41 @@
+# Covers: #/$defs/fields/files
+type: files
+blueprint: field
+extends: fields/base
+default:
+  value: default
+disabled: false
+empty: Nothing here yet
+help:
+  en: Help
+  de: Help DE
+image:
+  back: blue-200
+  color: white
+  cover: true
+  icon: image
+  ratio: 16/9
+  query: page.cover
+info: '{{ item.info }}'
+label:
+  en: Label
+  de: Label DE
+layout: cards
+link: true
+max: 10
+min: 1
+multiple: true
+query: site.files
+required: true
+search: true
+size: large
+store: uuid
+text: '{{ item.title }}'
+translate: false
+uploads:
+  parent: site.find("uploads")
+  template: image
+when:
+  template: article
+  isPublished: true
+width: 1/2

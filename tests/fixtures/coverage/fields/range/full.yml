@@ -1,0 +1,29 @@
+# Covers: #/$defs/fields/range
+type: range
+blueprint: field
+extends: fields/base
+after: after text
+autofocus: true
+before: before text
+default:
+  value: default
+disabled: false
+help:
+  en: Help
+  de: Help DE
+icon: page
+label:
+  en: Label
+  de: Label DE
+max: 10
+min: 1
+required: true
+step: 5
+tooltip:
+  before: $
+  after: ' USD'
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

@@ -1,0 +1,22 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/structure#table-columns__example
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_structure/reference-panelfield.txt
+blueprint: field
+label: Structure
+type: structure
+columns:
+  title:
+    width: 3/5
+  images:
+    width: 1/5
+  price:
+    width: 1/10
+fields:
+  title:
+    label: A
+    type: text
+  images:
+    label: B
+    type: text
+  price:
+    label: C
+    type: text

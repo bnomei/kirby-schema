@@ -1,0 +1,146 @@
+# Covers: #/$defs/blueprints/page
+blueprint: page
+preset: pages
+extends: fields/base
+title:
+  en: Title
+  de: Title DE
+create:
+  title:
+    label:
+      en: Create title
+      de: Create title DE
+    text:
+      en: Create text
+      de: Create text DE
+  fields:
+    - title
+    - slug
+  redirect: false
+  status: draft
+  slug:
+    label:
+      en: Slug
+      de: Slug DE
+    text:
+      en: Create slug
+      de: Slug erstellen
+num: '{{ page.sort }}'
+status:
+  draft:
+    label:
+      en: Draft
+      de: Draft DE
+    text:
+      en: Draft text
+      de: Draft text DE
+  unlisted: Unlisted
+  listed: true
+icon: page
+image:
+  back: blue-200
+  icon: image
+options:
+  changeSlug:
+    admin: true
+  changeStatus: true
+  changeTemplate:
+    - article
+    - note
+  changeTitle:
+    admin: true
+  delete: false
+  duplicate:
+    admin: true
+  preview: /preview
+  read: true
+  update:
+    editor: true
+  changeName:
+    admin: true
+  replace: false
+navigation:
+  status:
+    - listed
+    - unlisted
+  template: article
+  sortBy: title asc
+buttons:
+  - preview
+  - '-'
+  - icon: open
+    text:
+      en: Open
+      de: Oeffnen
+    link: /panel/site
+pages: true
+files: Files
+drafts:
+  label:
+    en: Drafts
+    de: Entwuerfe
+unlisted: Unlisted pages
+listed: true
+templates:
+  - article
+  - note
+sidebar:
+  details:
+    type: info
+    text: Sidebar info
+headline:
+  en: Pages
+  de: Seiten
+label:
+  en: Label
+  de: Label DE
+layout: cards
+template: article
+fields:
+  text:
+    type: text
+    label:
+      en: Text
+      de: Text DE
+  toggle:
+    type: toggle
+    text:
+      - 'Off'
+      - 'On'
+sections:
+  content:
+    type: fields
+    fields:
+      text:
+        type: text
+  info:
+    type: info
+    text: Section info
+columns:
+  main:
+    width: 2/3
+    fields:
+      text:
+        type: text
+  sidebar:
+    width: 1/3
+    sections:
+      info:
+        type: info
+        text: Info
+tabs:
+  content:
+    label:
+      en: Content
+      de: Content DE
+    fields:
+      text:
+        type: text
+  seo:
+    icon: search
+    sections:
+      meta:
+        type: fields
+        fields:
+          description:
+            type: textarea

@@ -1,0 +1,6 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/list
+type: list
+marks:
+  - bold
+  - italic
+  - strike

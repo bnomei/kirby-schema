@@ -1,0 +1,16 @@
+# Source: https://getkirby.com/docs/guide/blueprints/translations#options
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/1_guide/7_blueprints/6_translations/guide.txt
+blueprint: page
+fields:
+  category:
+    label:
+      en: Category
+      de: Kategorie
+    type: select
+    options:
+      architecture:
+        en: Architecture
+        de: Architektur
+      photography:
+        en: Photography
+        de: Fotografie

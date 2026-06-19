@@ -1,0 +1,23 @@
+# Source: https://getkirby.com/docs/guide/blueprints/layout#columns__sidebar-on-the-left
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/1_guide/7_blueprints/1_layout/guide.txt
+blueprint: page
+title: My blueprint
+columns:
+  sidebar:
+    width: 1/3
+    sections:
+      pages:
+        type: pages
+        label: Subpages
+      files:
+        type: files
+        label: Files
+  main:
+    width: 2/3
+    fields:
+      headline:
+        label: Headline
+        type: text
+      text:
+        label: Text
+        type: textarea

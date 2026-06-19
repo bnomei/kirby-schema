@@ -1,0 +1,52 @@
+{
+  "anyOf": [
+    {
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "required": [
+        "extends"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "info"
+      ]
+    },
+    "blueprint": {
+      "enum": [
+        "field"
+      ]
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "help": {
+      "$ref": "#/$defs/field-properties/@help"
+    },
+    "icon": {
+      "$ref": "#/$defs/field-properties/@icon"
+    },
+    "label": {
+      "$ref": "#/$defs/field-properties/@label"
+    },
+    "text": {
+      "$ref": "#/$defs/field-properties/@text"
+    },
+    "theme": {
+      "$ref": "#/$defs/field-properties/@theme"
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    },
+    "width": {
+      "$ref": "#/$defs/field-properties/@width",
+      "default": "1/1"
+    }
+  }
+}

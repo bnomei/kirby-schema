@@ -1,0 +1,14 @@
+# Covers: #/$defs/fields/headline
+type: headline
+blueprint: field
+extends: fields/base
+help:
+  en: Help
+  de: Help DE
+label:
+  en: Label
+  de: Label DE
+when:
+  template: article
+  isPublished: true
+width: 1/2

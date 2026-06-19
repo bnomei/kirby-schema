@@ -1,0 +1,5 @@
+# Source: https://getkirby.com/docs/reference/panel/blueprints/user#image-options__custom-colors__css-color-property-shorthands
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/1_blueprints/0_user/reference-article.txt
+blueprint: user
+image:
+  back: purple-400

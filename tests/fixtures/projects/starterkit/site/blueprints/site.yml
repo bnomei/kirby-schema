@@ -1,0 +1,17 @@
+blueprint: site
+columns:
+  - width: 1/2
+    sections:
+      albums: sections/albums
+  - width: 1/2
+    sections:
+      notes:
+        extends: sections/notes
+        status: listed
+      pages:
+        type: pages
+        create: default
+        templates:
+          - about
+          - home
+          - default

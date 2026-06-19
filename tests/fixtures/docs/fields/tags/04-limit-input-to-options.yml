@@ -1,0 +1,9 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/tags#limit-input-to-options
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_tags/reference-panelfield.txt
+blueprint: field
+type: tags
+label: Tags
+accept: options
+options: query
+query:
+  fetch: site.tags.split

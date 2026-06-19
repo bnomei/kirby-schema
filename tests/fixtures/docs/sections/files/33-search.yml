@@ -1,0 +1,7 @@
+# Source: https://getkirby.com/docs/reference/panel/sections/files#search
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/4_sections/0_files/reference-panelsection.txt
+blueprint: page
+sections:
+  gallery:
+    type: files
+    search: true

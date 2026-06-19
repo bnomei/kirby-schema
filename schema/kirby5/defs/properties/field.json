@@ -1,0 +1,917 @@
+{
+  "@after": {
+    "$ref": "#/$defs/stringOrTranslated"
+  },
+  "@api": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/booleanOrString"
+      },
+      {
+        "$ref": "#/$defs/queryObject"
+      }
+    ]
+  },
+  "@autocomplete": {
+    "$ref": "#/$defs/nonEmptyString"
+  },
+  "@align": {
+    "enum": [
+      "left",
+      "center",
+      "right"
+    ],
+    "default": "left"
+  },
+  "@autofocus": {
+    "type": "boolean"
+  },
+  "@batch": {
+    "type": "boolean"
+  },
+  "@before": {
+    "$ref": "#/$defs/stringOrTranslated"
+  },
+  "@buttons": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "type": "array",
+        "items": {
+          "enum": [
+            "headlines",
+            "italic",
+            "bold",
+            "link",
+            "email",
+            "file",
+            "code",
+            "ul",
+            "ol",
+            "|"
+          ]
+        }
+      }
+    ]
+  },
+  "@columns": {
+    "type": "object",
+    "patternProperties": {
+      ".*": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "label": {
+                "$ref": "#/$defs/field-properties/@label"
+              },
+              "align": {
+                "$ref": "#/$defs/field-properties/@align"
+              },
+              "width": {
+                "$ref": "#/$defs/fraction"
+              },
+              "value": {
+                "$ref": "#/$defs/field-properties/@value"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "@converter": {
+    "enum": [
+      "lower",
+      "upper",
+      "ucfirst",
+      "slug"
+    ]
+  },
+  "@counter": {
+    "type": "boolean"
+  },
+  "@create": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "$ref": "#/$defs/booleanOrStringArrayUnique"
+      }
+    ]
+  },
+  "@default": {
+    "$ref": "#/$defs/arrayOrBooleanOrNumberOrObjectOrString",
+    "description": "Default value for the field, which will be used when a page/file/user is created"
+  },
+  "@disabled": {
+    "type": "boolean"
+  },
+  "@empty": {
+    "$ref": "#/$defs/stringOrTranslated",
+    "description": "Sets the text for the empty state box"
+  },
+  "@extends": {
+    "$ref": "#/$defs/nonEmptyString"
+  },
+  "@fieldsets": {
+    "anyOf": [
+      {
+        "$ref": "#/$defs/stringArrayUnique"
+      },
+      {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/fieldsetsItem"
+        }
+      },
+      {
+        "type": "object",
+        "patternProperties": {
+          ".*": {
+            "$ref": "#/$defs/fieldsetEntry"
+          }
+        }
+      }
+    ]
+  },
+  "@files": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "$ref": "#/$defs/field-properties/@pickerQuery"
+          },
+          "image": {
+            "$ref": "#/$defs/field-properties/@image"
+          }
+        }
+      }
+    ]
+  },
+  "@flip": {
+    "type": "boolean",
+    "description": "Enables/disables reverse sorting"
+  },
+  "@font": {
+    "enum": [
+      "sans",
+      "monospace"
+    ],
+    "description": "Sets the font family (sans or monospace)",
+    "default": "sans"
+  },
+  "@headings": {
+    "type": "array",
+    "items": {
+      "type": "integer",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  "@headline": {
+    "$ref": "#/$defs/stringOrTranslated"
+  },
+  "@help": {
+    "$ref": "#/$defs/stringOrTranslated",
+    "description": "Optional help text below the field"
+  },
+  "@image": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/booleanOrString"
+      },
+      {
+        "type": "object",
+        "properties": {
+          "back": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "color": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "cover": {
+            "type": "boolean"
+          },
+          "icon": {
+            "$ref": "#/$defs/field-properties/@icon"
+          },
+          "ratio": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "query": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      }
+    ],
+    "description": "Image options to control the source and look of file previews"
+  },
+  "@icon": {
+    "anyOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "enum": [
+          "accessibility",
+          "account",
+          "add",
+          "ai",
+          "alert",
+          "anchor",
+          "angle-down",
+          "angle-left",
+          "angle-right",
+          "angle-up",
+          "archive",
+          "asterix",
+          "attachment",
+          "audio",
+          "badge",
+          "bars",
+          "bell",
+          "blank",
+          "bold",
+          "bolt",
+          "book",
+          "bookmark",
+          "box",
+          "brush",
+          "bug",
+          "calendar",
+          "cancel",
+          "cancel-small",
+          "car",
+          "cart",
+          "chart",
+          "chat",
+          "check",
+          "checklist",
+          "circle",
+          "circle-filled",
+          "circle-filled",
+          "circle-half",
+          "circle-nested",
+          "circle-outline",
+          "clear",
+          "clock",
+          "cloud",
+          "code",
+          "cog",
+          "collapse",
+          "collapse-horizontal",
+          "copy",
+          "credit-card",
+          "crop",
+          "dashboard",
+          "discord",
+          "discount",
+          "display",
+          "divider",
+          "document",
+          "dots",
+          "download",
+          "draft",
+          "edit",
+          "editv",
+          "email",
+          "expand",
+          "expand-horizontal",
+          "facebook",
+          "file",
+          "file-audio",
+          "file-code",
+          "file-document",
+          "file-image",
+          "file-spreadsheet",
+          "file-text",
+          "file-video",
+          "file-word",
+          "file-zip",
+          "filter",
+          "flag",
+          "folder",
+          "folder-structure",
+          "food",
+          "funnel",
+          "github",
+          "globe",
+          "google",
+          "grid",
+          "grid-bottom",
+          "grid-bottom-left",
+          "grid-bottom-right",
+          "grid-full",
+          "grid-left",
+          "grid-right",
+          "grid-top",
+          "grid-top-left",
+          "grid-top-right",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6",
+          "headline",
+          "heart",
+          "heart-filled",
+          "heart-outline",
+          "hidden",
+          "home",
+          "image",
+          "images",
+          "import",
+          "info",
+          "info-card",
+          "instagram",
+          "italic",
+          "key",
+          "kirby",
+          "layers",
+          "layout-columns",
+          "layout-left",
+          "layout-right",
+          "linkedin",
+          "list-bullet",
+          "list-numbers",
+          "live",
+          "loader",
+          "lock",
+          "logout",
+          "map",
+          "markdown",
+          "mastodon",
+          "megaphone",
+          "menu",
+          "merge",
+          "mobile",
+          "money",
+          "moon",
+          "open",
+          "order-alpha-asc",
+          "order-alpha-desc",
+          "order-num-asc",
+          "order-num-desc",
+          "page",
+          "palette",
+          "paragraph",
+          "parent",
+          "paypal",
+          "pen",
+          "phone",
+          "pin",
+          "pinterest",
+          "pipette",
+          "plane",
+          "play",
+          "plus",
+          "preview",
+          "print",
+          "protected",
+          "qr-code",
+          "question",
+          "quote",
+          "refresh",
+          "remove",
+          "rocket",
+          "rss",
+          "search",
+          "server",
+          "settings",
+          "share",
+          "shield",
+          "shuffle",
+          "shut-down",
+          "sitemap",
+          "smile",
+          "sort",
+          "sparkling",
+          "split",
+          "star",
+          "star-filled",
+          "star-outline",
+          "status-draft",
+          "status-listed",
+          "status-unlisted",
+          "store",
+          "strikethrough",
+          "subscript",
+          "sun",
+          "superscript",
+          "table",
+          "tablet",
+          "tag",
+          "template",
+          "terminal",
+          "text",
+          "text-center",
+          "text-justify",
+          "text-left",
+          "text-right",
+          "ticket",
+          "tiktok",
+          "title",
+          "toggle-off",
+          "toggle-on",
+          "trash",
+          "underline",
+          "undo",
+          "unlock",
+          "upload",
+          "url",
+          "user",
+          "users",
+          "video",
+          "vimeo",
+          "wallet",
+          "wand",
+          "whatsapp",
+          "wheelchair",
+          "window",
+          "youtube"
+        ]
+      }
+    ]
+  },
+  "@info": {
+    "$ref": "#/$defs/nonEmptyString",
+    "description": "Optional info text setup"
+  },
+  "@label": {
+    "$ref": "#/$defs/stringOrTranslated",
+    "description": "label is the new official replacement for headline"
+  },
+  "@layout": {
+    "$ref": "#/$defs/nonEmptyString",
+    "description": "Section layout"
+  },
+  "@limit": {
+    "type": "number",
+    "exclusiveMinimum": 0,
+    "description": "Sets the number of items per page"
+  },
+  "@link": {
+    "type": "boolean"
+  },
+  "@linkUrl": {
+    "$ref": "#/$defs/nonEmptyString"
+  },
+  "@marks": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/marks"
+        }
+      }
+    ]
+  },
+  "@max": {
+    "type": "number"
+  },
+  "@maxlength": {
+    "type": "number"
+  },
+  "@min": {
+    "type": "number"
+  },
+  "@minlength": {
+    "type": "number"
+  },
+  "@multiple": {
+    "type": "boolean",
+    "description": "If false, only a single one can be selected"
+  },
+  "@nodes": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/nodes"
+        }
+      }
+    ]
+  },
+  "@options": {
+    "anyOf": [
+      {
+        "$ref": "#/$defs/stringOrStringArrayUnique"
+      },
+      {
+        "$ref": "#/$defs/optionsArray"
+      },
+      {
+        "$ref": "#/$defs/optionsMap"
+      },
+      {
+        "$ref": "#/$defs/optionsProvider"
+      }
+    ]
+  },
+  "@page": {
+    "type": "number",
+    "exclusiveMinimum": 0,
+    "description": "Sets the default page for the pagination"
+  },
+  "@parent": {
+    "$ref": "#/$defs/nonEmptyString",
+    "description": "Sets the query to a parent to find items for the list"
+  },
+  "@pattern": {
+    "$ref": "#/$defs/nonEmptyString",
+    "description": "A regular expression, which will be used to validate the input"
+  },
+  "@placeholder": {
+    "$ref": "#/$defs/stringOrTranslated"
+  },
+  "@query": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "$ref": "#/$defs/queryObject"
+      }
+    ]
+  },
+  "@required": {
+    "type": "boolean"
+  },
+  "@search": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "display": {
+            "$ref": "#/$defs/stringOrTranslated"
+          },
+          "info": {
+            "$ref": "#/$defs/stringOrTranslated"
+          },
+          "placeholder": {
+            "$ref": "#/$defs/stringOrTranslated"
+          }
+        }
+      }
+    ]
+  },
+  "@separator": {
+    "$ref": "#/$defs/nonEmptyString"
+  },
+  "@size": {
+    "enum": [
+      "tiny",
+      "small",
+      "medium",
+      "large",
+      "huge",
+      "auto",
+      "full"
+    ],
+    "description": "The size option controls the size of cards"
+  },
+  "@sortBy": {
+    "$ref": "#/$defs/nonEmptyString",
+    "description": "Overwrites manual sorting and sorts by the given field and sorting direction"
+  },
+  "@sort": {
+    "type": "boolean"
+  },
+  "@sortable": {
+    "type": "boolean",
+    "description": "Enables/disables manual sorting"
+  },
+  "@store": {
+    "enum": [
+      "uuid",
+      "id"
+    ],
+    "description": "Whether to store UUID or ID in the content file of the model",
+    "default": "uuid"
+  },
+  "@spellcheck": {
+    "type": "boolean"
+  },
+  "@step": {
+    "oneOf": [
+      {
+        "type": "number"
+      },
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    ]
+  },
+  "@status": {
+    "enum": [
+      "draft",
+      "unlisted",
+      "listed",
+      "published",
+      "all"
+    ]
+  },
+  "@template": {
+    "$ref": "#/$defs/stringOrStringArrayUnique",
+    "description": "Filters all files by template and also sets the template, which will be used for all uploads"
+  },
+  "@templates": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "$ref": "#/$defs/stringArrayUnique"
+      }
+    ]
+  },
+  "@text": {
+    "$ref": "#/$defs/stringOrTranslated",
+    "description": "Setup for the main text in the list or cards"
+  },
+  "@theme": {
+    "enum": [
+      "none",
+      "positive",
+      "info",
+      "negative",
+      "warning",
+      "notice",
+      "love",
+      "passive",
+      "text",
+      "dark",
+      "code",
+      "empty"
+    ]
+  },
+  "@toolbar": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/objectWithStringValues"
+      },
+      {
+        "type": "object",
+        "properties": {
+          "marks": {
+            "type": "array"
+          },
+          "nodes": {
+            "type": "array"
+          },
+          "inline": {
+            "type": "boolean"
+          }
+        }
+      }
+    ]
+  },
+  "@translate": {
+    "type": "boolean"
+  },
+  "@uploads": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/booleanOrString"
+      },
+      {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "parent": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "template": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      },
+      {
+        "type": "array",
+        "items": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "parent": {
+                  "$ref": "#/$defs/nonEmptyString"
+                },
+                "template": {
+                  "$ref": "#/$defs/nonEmptyString"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "@value": {
+    "$ref": "#/$defs/stringOrNumber"
+  },
+  "@when": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/objectWithBooleanOrNonEmptyStringValues"
+      }
+    ]
+  },
+  "@width": {
+    "enum": [
+      "1/1",
+      "1/2",
+      "1/3",
+      "1/4",
+      "2/3",
+      "3/4"
+    ],
+    "default": "1/1"
+  },
+  "@pickerQuery": {
+    "$ref": "#/$defs/notRequiredNonEmptyString"
+  },
+  "@pickerSearch": {
+    "type": "boolean"
+  },
+  "@dateTimeBoundary": {
+    "$ref": "#/$defs/notRequiredNonEmptyString"
+  },
+  "@dateTimeStep": {
+    "oneOf": [
+      {
+        "type": "number"
+      },
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "size": {
+            "type": "number"
+          }
+        }
+      }
+    ]
+  },
+  "@numericStep": {
+    "oneOf": [
+      {
+        "type": "number"
+      },
+      {
+        "enum": [
+          "any"
+        ]
+      }
+    ]
+  },
+  "@rangeTooltip": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "before": {
+            "$ref": "#/$defs/stringOrTranslated"
+          },
+          "after": {
+            "$ref": "#/$defs/stringOrTranslated"
+          }
+        }
+      }
+    ]
+  },
+  "@sectionLayout": {
+    "enum": [
+      "list",
+      "cardlets",
+      "cards",
+      "table"
+    ]
+  },
+  "@filesSectionCreate": {
+    "type": "boolean"
+  },
+  "@pagesSectionCreate": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "$ref": "#/$defs/stringArrayUnique"
+      }
+    ]
+  },
+  "@pagesSectionStatus": {
+    "enum": [
+      "draft",
+      "drafts",
+      "unlisted",
+      "listed",
+      "published",
+      "all"
+    ]
+  },
+  "@filesSectionTemplate": {
+    "$ref": "#/$defs/notRequiredNonEmptyString"
+  },
+  "@linkOptions": {
+    "type": "array",
+    "items": {
+      "enum": [
+        "url",
+        "page",
+        "file",
+        "email",
+        "tel",
+        "anchor",
+        "custom"
+      ]
+    },
+    "uniqueItems": true,
+    "minItems": 1
+  },
+  "@toggleText": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/stringOrTranslated"
+      },
+      {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 2,
+        "items": {
+          "$ref": "#/$defs/stringOrTranslated"
+        }
+      }
+    ]
+  },
+  "@slugOption": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "type": "null"
+      },
+      {
+        "const": false
+      }
+    ]
+  },
+  "@statsSize": {
+    "enum": [
+      "small",
+      "medium",
+      "large",
+      "huge"
+    ]
+  }
+}

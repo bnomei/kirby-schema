@@ -1,0 +1,11 @@
+# Source: https://getkirby.com/docs/reference/panel/sections/files
+blueprint: section
+type: files
+create: false
+columns:
+  dimensions:
+    label: Dimensions
+    value: '{{ file.dimensions }}'
+rawvalues: true
+when:
+  showFiles: true

@@ -1,0 +1,14 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/structure#default-values
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_structure/reference-panelfield.txt
+blueprint: field
+label: Emails
+type: structure
+default:
+  - email: bastian@getkirby.com
+  - email: lukas@getkirby.com
+  - email: nico@getkirby.com
+  - email: sonja@getkirby.com
+fields:
+  email:
+    label: Email
+    type: email

@@ -1,0 +1,25 @@
+# Source: https://getkirby.com/docs/reference/panel/blueprints/block#full-example-blueprint
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/1_blueprints/0_block/reference-article.txt
+blueprint: block
+name: Custom block
+icon: info
+label: '{{ title }}'
+wysiwyg: true
+preview: fields
+tabs:
+  content:
+    fields:
+      title:
+        type: text
+      description:
+        type: writer
+  settings:
+    fields:
+      background:
+        type: color
+      icon:
+        type: select
+        options:
+          - alert
+          - info
+          - lab

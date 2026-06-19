@@ -1,0 +1,13 @@
+# Covers: variant/options-query
+blueprint: page
+fields:
+  category:
+    type: select
+    options: query
+    query:
+      fetch: site.children
+      query: page.children
+      text: '{{ item.title }}'
+      value: '{{ item.id }}'
+      icon: page
+      info: '{{ item.info }}'

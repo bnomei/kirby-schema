@@ -1,0 +1,45 @@
+# Covers: variant/labels-translations
+blueprint: page
+title:
+  en: Translated page
+  de: Translated page DE
+fields:
+  title:
+    type: text
+    before:
+      en: Before
+      de: Vorher
+    after:
+      en: After
+      de: Nachher
+    label:
+      en: Title
+      de: Title DE
+    help:
+      en: Help
+      de: Help DE
+    placeholder:
+      en: Title placeholder
+      de: Titel Platzhalter
+  files:
+    type: files
+    empty:
+      en: No files
+      de: Keine Dateien
+  note:
+    type: info
+    text:
+      en: Field info
+      de: Feldinfo
+sections:
+  intro:
+    type: info
+    headline:
+      en: Intro headline
+      de: Intro Ueberschrift
+    label:
+      en: Intro
+      de: Intro DE
+    text:
+      en: Translated labels fixture
+      de: Uebersetztes Label Fixture

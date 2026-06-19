@@ -1,0 +1,121 @@
+{
+  "type": "object",
+  "anyOf": [
+    {
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "required": [
+        "extends"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "pages"
+      ]
+    },
+    "blueprint": {
+      "enum": [
+        "section"
+      ]
+    },
+    "batch": {
+      "$ref": "#/$defs/field-properties/@batch"
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "create": {
+      "$ref": "#/$defs/field-properties/@pagesSectionCreate"
+    },
+    "columns": {
+      "$ref": "#/$defs/field-properties/@columns"
+    },
+    "empty": {
+      "$ref": "#/$defs/field-properties/@empty"
+    },
+    "flip": {
+      "$ref": "#/$defs/field-properties/@flip",
+      "default": false
+    },
+    "headline": {
+      "$ref": "#/$defs/field-properties/@headline"
+    },
+    "help": {
+      "$ref": "#/$defs/field-properties/@help"
+    },
+    "image": {
+      "$ref": "#/$defs/field-properties/@image"
+    },
+    "info": {
+      "$ref": "#/$defs/field-properties/@info"
+    },
+    "label": {
+      "$ref": "#/$defs/field-properties/@label"
+    },
+    "layout": {
+      "$ref": "#/$defs/field-properties/@sectionLayout",
+      "default": "list"
+    },
+    "limit": {
+      "$ref": "#/$defs/field-properties/@limit",
+      "default": 20
+    },
+    "max": {
+      "$ref": "#/$defs/field-properties/@max"
+    },
+    "min": {
+      "$ref": "#/$defs/field-properties/@min"
+    },
+    "page": {
+      "$ref": "#/$defs/field-properties/@page"
+    },
+    "parent": {
+      "$ref": "#/$defs/field-properties/@parent"
+    },
+    "query": {
+      "$ref": "#/$defs/field-properties/@pickerQuery"
+    },
+    "rawvalues": {
+      "type": "boolean"
+    },
+    "search": {
+      "$ref": "#/$defs/field-properties/@pickerSearch"
+    },
+    "size": {
+      "$ref": "#/$defs/field-properties/@size",
+      "default": "auto"
+    },
+    "sortBy": {
+      "$ref": "#/$defs/field-properties/@sortBy"
+    },
+    "sortable": {
+      "$ref": "#/$defs/field-properties/@sortable",
+      "default": true
+    },
+    "status": {
+      "$ref": "#/$defs/field-properties/@pagesSectionStatus"
+    },
+    "template": {
+      "$ref": "#/$defs/field-properties/@template"
+    },
+    "templates": {
+      "$ref": "#/$defs/field-properties/@templates"
+    },
+    "templatesIgnore": {
+      "$ref": "#/$defs/field-properties/@templates"
+    },
+    "text": {
+      "$ref": "#/$defs/nonEmptyString",
+      "default": "'{{ page.title }}'"
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    }
+  }
+}

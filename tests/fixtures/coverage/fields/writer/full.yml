@@ -1,0 +1,44 @@
+# Covers: #/$defs/fields/writer
+type: writer
+blueprint: field
+extends: fields/base
+after: after text
+autofocus: true
+before: before text
+counter: true
+default:
+  value: default
+disabled: false
+headings:
+  - 2
+  - 3
+help:
+  en: Help
+  de: Help DE
+icon: page
+inline: true
+label:
+  en: Label
+  de: Label DE
+marks:
+  - bold
+  - italic
+  - link
+maxlength: 120
+minlength: 2
+nodes:
+  - paragraph
+  - heading
+placeholder: Placeholder
+required: true
+toolbar:
+  inline: false
+  marks:
+    - bold
+  nodes:
+    - bulletList
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

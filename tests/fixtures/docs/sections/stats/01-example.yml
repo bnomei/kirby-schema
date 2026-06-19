@@ -1,0 +1,29 @@
+# Source: https://getkirby.com/docs/reference/panel/sections/stats#example
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/4_sections/0_stats/reference-panelsection.txt
+blueprint: page
+title: Shop
+sections:
+  stats:
+    type: stats
+    size: huge
+    reports:
+      - label: Revenue
+        value: €29,682
+        info: +112.5%
+        link: https://getkirby.com/shop
+        theme: positive
+      - label: Orders
+        value: 265
+        info: +82.8%
+        theme: positive
+      - label: Avg. Transaction
+        value: €112.01
+        info: +16.3%
+        theme: positive
+      - label: Refunds
+        value: €15.20
+        info: +10.5%
+        theme: positive
+      - label: Discount sales
+        value: €1,422
+        info: n/a

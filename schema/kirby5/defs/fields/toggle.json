@@ -1,0 +1,72 @@
+{
+  "anyOf": [
+    {
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "required": [
+        "extends"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "toggle"
+      ]
+    },
+    "blueprint": {
+      "enum": [
+        "field"
+      ]
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "after": {
+      "$ref": "#/$defs/field-properties/@after"
+    },
+    "autofocus": {
+      "$ref": "#/$defs/field-properties/@autofocus"
+    },
+    "before": {
+      "$ref": "#/$defs/field-properties/@before"
+    },
+    "default": {
+      "$ref": "#/$defs/field-properties/@default"
+    },
+    "disabled": {
+      "$ref": "#/$defs/field-properties/@disabled"
+    },
+    "help": {
+      "$ref": "#/$defs/field-properties/@help"
+    },
+    "icon": {
+      "$ref": "#/$defs/field-properties/@icon"
+    },
+    "label": {
+      "$ref": "#/$defs/field-properties/@label"
+    },
+    "required": {
+      "$ref": "#/$defs/field-properties/@required",
+      "default": false
+    },
+    "text": {
+      "$ref": "#/$defs/field-properties/@toggleText"
+    },
+    "translate": {
+      "$ref": "#/$defs/field-properties/@translate",
+      "default": true
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    },
+    "width": {
+      "$ref": "#/$defs/field-properties/@width",
+      "default": "1/1"
+    }
+  }
+}

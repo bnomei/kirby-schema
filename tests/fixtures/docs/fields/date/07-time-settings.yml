@@ -1,0 +1,8 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/date#time-settings
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_date/reference-panelfield.txt
+blueprint: field
+label: Published on
+type: date
+display: MM/DD/YYYY
+time:
+  display: h.mm a

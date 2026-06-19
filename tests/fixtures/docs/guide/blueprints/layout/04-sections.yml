@@ -1,0 +1,15 @@
+# Source: https://getkirby.com/docs/guide/blueprints/layout#sections
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/1_guide/7_blueprints/1_layout/guide.txt
+blueprint: page
+title: My blueprint
+sections:
+  pages:
+    type: pages
+    label: Pages
+  fields:
+    type: fields
+    fields:
+      text:
+        type: text
+      description:
+        type: text

@@ -1,0 +1,48 @@
+# Covers: #/$defs/fields/structure
+type: structure
+blueprint: field
+extends: fields/base
+batch: true
+columns:
+  title:
+    label:
+      en: Title
+      de: Title DE
+    align: left
+    width: 1/2
+    value: '{{ item.title }}'
+  visible: true
+default:
+  value: default
+disabled: false
+duplicate: true
+empty: Nothing here yet
+fields:
+  text:
+    type: text
+    label:
+      en: Text
+      de: Text DE
+  toggle:
+    type: toggle
+    text:
+      - 'Off'
+      - 'On'
+help:
+  en: Help
+  de: Help DE
+label:
+  en: Label
+  de: Label DE
+limit: 10
+max: 10
+min: 1
+prepend: true
+required: true
+sortBy: title asc
+sortable: true
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

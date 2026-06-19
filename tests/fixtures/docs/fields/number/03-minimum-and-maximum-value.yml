@@ -1,0 +1,7 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/number#minimum-and-maximum-value
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_number/reference-panelfield.txt
+blueprint: field
+label: Temperature
+type: number
+min: -50
+max: 250

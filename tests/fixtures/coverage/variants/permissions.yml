@@ -1,0 +1,13 @@
+# Covers: variant/permissions
+blueprint: user
+options: false
+permissions:
+  access:
+    panel: true
+  files: true
+  pages:
+    create: true
+  site: true
+  users: false
+  user:
+    changeRole: false

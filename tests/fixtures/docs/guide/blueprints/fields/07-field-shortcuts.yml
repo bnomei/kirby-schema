@@ -1,0 +1,6 @@
+# Source: https://getkirby.com/docs/guide/blueprints/fields#field-shortcuts
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/1_guide/7_blueprints/2_fields/guide.txt
+blueprint: page
+fields:
+  tags: true
+  text: true

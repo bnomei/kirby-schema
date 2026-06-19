@@ -1,0 +1,6 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/select
+type: select
+options:
+  summer:
+    en: Summer
+    de: Sommer

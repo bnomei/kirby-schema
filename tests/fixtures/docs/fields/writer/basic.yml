@@ -1,0 +1,26 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/writer
+type: writer
+inline: true
+headings:
+  - 2
+  - 4
+marks:
+  - bold
+  - italic
+  - strike
+  - email
+nodes:
+  - paragraph
+toolbar:
+  toolbar:
+    inline: false
+    marks:
+      - bold
+      - italic
+      - underline
+      - '|'
+      - link
+      - email
+    nodes:
+      - bulletList
+      - orderedList

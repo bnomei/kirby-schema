@@ -1,0 +1,21 @@
+# Covers: variant/buttons
+blueprint: page
+buttons:
+  preview: true
+  open:
+    icon: open
+    text:
+      en: Open
+      de: Oeffnen
+    link: /panel/site
+fields:
+  body:
+    type: textarea
+    buttons:
+      - headlines
+      - bold
+      - '|'
+      - link
+  notes:
+    type: textarea
+    buttons: false

@@ -1,0 +1,26 @@
+# Covers: #/$defs/fields/toggle
+type: toggle
+blueprint: field
+extends: fields/base
+after: after text
+autofocus: true
+before: before text
+default:
+  value: default
+disabled: false
+help:
+  en: Help
+  de: Help DE
+icon: page
+label:
+  en: Label
+  de: Label DE
+required: true
+text:
+  en: Enabled
+  de: Aktiv
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

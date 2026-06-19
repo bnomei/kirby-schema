@@ -1,0 +1,15 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/structure#example
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_structure/reference-panelfield.txt
+blueprint: field
+label: Addresses
+type: structure
+fields:
+  street:
+    label: Street
+    type: text
+  zip:
+    label: ZIP
+    type: text
+  city:
+    label: City
+    type: text

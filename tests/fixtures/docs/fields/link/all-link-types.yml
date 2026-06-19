@@ -1,0 +1,10 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/link
+type: link
+options:
+  - url
+  - page
+  - file
+  - email
+  - tel
+  - anchor
+  - custom

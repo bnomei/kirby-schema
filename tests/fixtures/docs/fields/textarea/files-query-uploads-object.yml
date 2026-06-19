@@ -1,0 +1,9 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/textarea
+type: textarea
+files:
+  query: site.find("media").files.template("textarea-upload")
+  image:
+    cover: true
+uploads:
+  parent: site.find("media")
+  template: textarea-upload

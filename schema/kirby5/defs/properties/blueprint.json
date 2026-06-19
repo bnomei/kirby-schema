@@ -1,0 +1,341 @@
+{
+  "@title": {
+    "$ref": "#/$defs/stringOrTranslated"
+  },
+  "@label": {
+    "$ref": "#/$defs/stringOrTranslated"
+  },
+  "@name": {
+    "$ref": "#/$defs/stringOrTranslated"
+  },
+  "@create": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "$ref": "#/$defs/stringOrLabelAndText"
+      },
+      "fields": {
+        "$ref": "#/$defs/stringArrayUnique"
+      },
+      "redirect": {
+        "type": "boolean",
+        "default": true
+      },
+      "status": {
+        "enum": [
+          "draft",
+          "unlisted",
+          "listed"
+        ],
+        "default": "draft"
+      },
+      "slug": {
+        "$ref": "#/$defs/stringOrLabelAndText"
+      }
+    }
+  },
+  "@description": {
+    "$ref": "#/$defs/stringOrTranslated"
+  },
+  "@num": {
+    "$ref": "#/$defs/nonEmptyString",
+    "default": "zero"
+  },
+  "@reports": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "type": "array",
+        "minItems": 0,
+        "items": {
+          "$ref": "#/$defs/report"
+        }
+      }
+    ]
+  },
+  "@status": {
+    "type": "object",
+    "properties": {
+      "draft": {
+        "$ref": "#/$defs/stringOrLabelAndText"
+      },
+      "unlisted": {
+        "$ref": "#/$defs/stringOrLabelAndText"
+      },
+      "listed": {
+        "$ref": "#/$defs/stringOrLabelAndText"
+      }
+    }
+  },
+  "@icon": {
+    "$ref": "#/$defs/nonEmptyString"
+  },
+  "@image": {
+    "type": "object",
+    "properties": {
+      "back": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "icon": {
+        "$ref": "#/$defs/field-properties/@icon"
+      }
+    }
+  },
+  "@home": {
+    "$ref": "#/$defs/nonEmptyString"
+  },
+  "@preset": {
+    "enum": [
+      "files",
+      "page",
+      "pages"
+    ]
+  },
+  "@options": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "access": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "changeSlug": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "changeStatus": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "changeTemplate": {
+            "$ref": "#/$defs/booleanOrStringArrayUnique"
+          },
+          "changeTitle": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "create": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "delete": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "duplicate": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "list": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "move": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "preview": {
+            "$ref": "#/$defs/booleanOrString"
+          },
+          "read": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "sort": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "update": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "changeName": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "changeEmail": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "changeLanguage": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "changePassword": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "changeRole": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "replace": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "status": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "template": {
+            "$ref": "#/$defs/booleanOrStringArrayUnique"
+          },
+          "title": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "url": {
+            "$ref": "#/$defs/booleanOrObject"
+          }
+        }
+      }
+    ]
+  },
+  "@permissions": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "type": "object",
+        "properties": {
+          "access": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "files": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "pages": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "site": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "users": {
+            "$ref": "#/$defs/booleanOrObject"
+          },
+          "user": {
+            "$ref": "#/$defs/booleanOrObject"
+          }
+        }
+      }
+    ]
+  },
+  "@navigation": {
+    "type": "object",
+    "properties": {
+      "status": {
+        "$ref": "#/$defs/stringOrStringArrayUnique"
+      },
+      "template": {
+        "$ref": "#/$defs/stringOrStringArrayUnique"
+      },
+      "sortBy": {
+        "$ref": "#/$defs/stringOrStringArrayUnique"
+      }
+    }
+  },
+  "@buttons": {
+    "oneOf": [
+      {
+        "const": false
+      },
+      {
+        "type": "array",
+        "items": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            {
+              "const": "-"
+            },
+            {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "component": {
+                  "$ref": "#/$defs/nonEmptyString"
+                },
+                "icon": {
+                  "$ref": "#/$defs/field-properties/@icon"
+                },
+                "text": {
+                  "$ref": "#/$defs/stringOrTranslated"
+                },
+                "title": {
+                  "$ref": "#/$defs/stringOrTranslated"
+                },
+                "link": {
+                  "$ref": "#/$defs/nonEmptyString"
+                },
+                "dialog": {
+                  "$ref": "#/$defs/nonEmptyString"
+                },
+                "drawer": {
+                  "$ref": "#/$defs/nonEmptyString"
+                },
+                "theme": {
+                  "$ref": "#/$defs/nonEmptyString"
+                },
+                "disabled": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "object",
+        "patternProperties": {
+          ".*": {
+            "oneOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "component": {
+                    "$ref": "#/$defs/nonEmptyString"
+                  },
+                  "icon": {
+                    "$ref": "#/$defs/field-properties/@icon"
+                  },
+                  "text": {
+                    "$ref": "#/$defs/stringOrTranslated"
+                  },
+                  "title": {
+                    "$ref": "#/$defs/stringOrTranslated"
+                  },
+                  "link": {
+                    "$ref": "#/$defs/nonEmptyString"
+                  },
+                  "dialog": {
+                    "$ref": "#/$defs/nonEmptyString"
+                  },
+                  "drawer": {
+                    "$ref": "#/$defs/nonEmptyString"
+                  },
+                  "theme": {
+                    "$ref": "#/$defs/nonEmptyString"
+                  },
+                  "disabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "@presetSectionInput": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "$ref": "#/$defs/stringOrTranslated"
+      },
+      {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {}
+      }
+    ]
+  }
+}

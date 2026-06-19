@@ -1,0 +1,12 @@
+blueprint: section
+type: pages
+label: Notes
+parent: kirby.page("notes")
+info: '{{ page.published }}'
+template: note
+empty: No notes yet
+sortBy: date desc
+image:
+  query: page.cover
+  cover: true
+  ratio: 3/2

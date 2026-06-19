@@ -1,0 +1,5 @@
+# Covers: #/$defs/fields/hidden
+type: hidden
+extends: fields/base
+default: hidden value
+translate: false

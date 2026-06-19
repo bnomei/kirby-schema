@@ -1,0 +1,126 @@
+{
+  "anyOf": [
+    {
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "required": [
+        "extends"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "date"
+      ]
+    },
+    "blueprint": {
+      "enum": [
+        "field"
+      ]
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "after": {
+      "$ref": "#/$defs/field-properties/@after"
+    },
+    "autofocus": {
+      "$ref": "#/$defs/field-properties/@autofocus"
+    },
+    "before": {
+      "$ref": "#/$defs/field-properties/@before"
+    },
+    "calendar": {
+      "type": "boolean",
+      "default": true
+    },
+    "default": {
+      "$ref": "#/$defs/field-properties/@default"
+    },
+    "disabled": {
+      "$ref": "#/$defs/field-properties/@disabled"
+    },
+    "display": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "format": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "help": {
+      "$ref": "#/$defs/field-properties/@help"
+    },
+    "icon": {
+      "$ref": "#/$defs/field-properties/@icon"
+    },
+    "label": {
+      "$ref": "#/$defs/field-properties/@label"
+    },
+    "max": {
+      "$ref": "#/$defs/field-properties/@dateTimeBoundary"
+    },
+    "min": {
+      "$ref": "#/$defs/field-properties/@dateTimeBoundary"
+    },
+    "required": {
+      "$ref": "#/$defs/field-properties/@required",
+      "default": false
+    },
+    "step": {
+      "$ref": "#/$defs/field-properties/@dateTimeStep"
+    },
+    "time": {
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "step": {
+              "$ref": "#/$defs/field-properties/@dateTimeStep"
+            },
+            "display": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "min": {
+              "$ref": "#/$defs/field-properties/@dateTimeBoundary"
+            },
+            "max": {
+              "$ref": "#/$defs/field-properties/@dateTimeBoundary"
+            },
+            "notation": {
+              "enum": [
+                12,
+                24
+              ],
+              "default": 24
+            },
+            "times": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "times": {
+      "type": "boolean"
+    },
+    "translate": {
+      "$ref": "#/$defs/field-properties/@translate",
+      "default": true
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    },
+    "width": {
+      "$ref": "#/$defs/field-properties/@width",
+      "default": "1/1"
+    }
+  }
+}

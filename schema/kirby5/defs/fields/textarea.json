@@ -1,0 +1,93 @@
+{
+  "anyOf": [
+    {
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "required": [
+        "extends"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "textarea"
+      ]
+    },
+    "blueprint": {
+      "enum": [
+        "field"
+      ]
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "autofocus": {
+      "$ref": "#/$defs/field-properties/@autofocus"
+    },
+    "buttons": {
+      "$ref": "#/$defs/field-properties/@buttons"
+    },
+    "counter": {
+      "$ref": "#/$defs/field-properties/@counter",
+      "default": true
+    },
+    "default": {
+      "$ref": "#/$defs/field-properties/@default"
+    },
+    "disabled": {
+      "$ref": "#/$defs/field-properties/@disabled"
+    },
+    "files": {
+      "$ref": "#/$defs/field-properties/@files"
+    },
+    "font": {
+      "$ref": "#/$defs/field-properties/@font"
+    },
+    "help": {
+      "$ref": "#/$defs/field-properties/@help"
+    },
+    "icon": {
+      "$ref": "#/$defs/field-properties/@icon"
+    },
+    "label": {
+      "$ref": "#/$defs/field-properties/@label"
+    },
+    "maxlength": {
+      "$ref": "#/$defs/field-properties/@maxlength"
+    },
+    "minlength": {
+      "$ref": "#/$defs/field-properties/@minlength"
+    },
+    "placeholder": {
+      "$ref": "#/$defs/field-properties/@placeholder"
+    },
+    "required": {
+      "$ref": "#/$defs/field-properties/@required"
+    },
+    "size": {
+      "$ref": "#/$defs/field-properties/@size"
+    },
+    "spellcheck": {
+      "$ref": "#/$defs/field-properties/@spellcheck",
+      "default": true
+    },
+    "translate": {
+      "$ref": "#/$defs/field-properties/@translate",
+      "default": true
+    },
+    "uploads": {
+      "$ref": "#/$defs/field-properties/@uploads"
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    },
+    "width": {
+      "$ref": "#/$defs/field-properties/@width"
+    }
+  }
+}

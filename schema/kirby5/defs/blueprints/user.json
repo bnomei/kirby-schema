@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "required": [
+    "blueprint"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "blueprint": {
+      "enum": [
+        "user"
+      ]
+    },
+    "title": {
+      "$ref": "#/$defs/stringOrTranslated"
+    },
+    "description": {
+      "$ref": "#/$defs/stringOrTranslated"
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "options": {
+      "$ref": "#/$defs/blueprint-properties/@options"
+    },
+    "home": {
+      "$ref": "#/$defs/blueprint-properties/@home"
+    },
+    "image": {
+      "$ref": "#/$defs/blueprint-properties/@image"
+    },
+    "permissions": {
+      "$ref": "#/$defs/blueprint-properties/@permissions"
+    },
+    "buttons": {
+      "$ref": "#/$defs/blueprint-properties/@buttons"
+    },
+    "fields": {
+      "$ref": "#/$defs/wrappers/fields"
+    },
+    "sections": {
+      "$ref": "#/$defs/wrappers/sections"
+    },
+    "columns": {
+      "$ref": "#/$defs/wrappers/columns"
+    },
+    "tabs": {
+      "$ref": "#/$defs/wrappers/tabs"
+    }
+  }
+}

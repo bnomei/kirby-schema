@@ -1,0 +1,31 @@
+# Covers: #/$defs/fields/text
+type: text
+blueprint: field
+extends: fields/base
+after: after text
+autofocus: true
+before: before text
+converter: slug
+counter: true
+default:
+  value: default
+disabled: false
+font: monospace
+help:
+  en: Help
+  de: Help DE
+icon: page
+label:
+  en: Label
+  de: Label DE
+maxlength: 120
+minlength: 2
+pattern: ^[a-z0-9-]+$
+placeholder: Placeholder
+required: true
+spellcheck: false
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

@@ -1,0 +1,6 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/users#limit-selection__multiple-or-single-mode
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_users/reference-panelfield.txt
+blueprint: field
+label: Author
+type: users
+multiple: false

@@ -1,0 +1,6 @@
+# Source: https://getkirby.com/docs/reference/panel/sections/stats#section-shortcuts
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/4_sections/0_stats/reference-panelsection.txt
+blueprint: page
+sections:
+  stats:
+    reports: ...

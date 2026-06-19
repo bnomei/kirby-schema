@@ -1,0 +1,4 @@
+# Source: https://getkirby.com/docs/reference/panel/blueprints/file
+blueprint: file
+accept:
+  mime: image/jpeg

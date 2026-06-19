@@ -1,0 +1,7 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/textarea
+type: textarea
+uploads: false
+files:
+  query: page.images
+  image:
+    cover: true

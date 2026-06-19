@@ -1,0 +1,22 @@
+# Covers: variant/query
+blueprint: page
+fields:
+  related:
+    type: select
+    options: query
+    query:
+      fetch: site.children
+      query: page.children
+      text: '{{ item.title }}'
+      value: '{{ item.id }}'
+      icon: page
+      info: '{{ item.info }}'
+  cover:
+    type: files
+    query: site.files
+    search: false
+sections:
+  children:
+    type: pages
+    query: page.children.listed
+    search: true

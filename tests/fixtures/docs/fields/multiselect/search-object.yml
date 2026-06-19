@@ -1,0 +1,6 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/multiselect
+type: multiselect
+search:
+  min: 2
+  display: '{{ item.title }}'
+  info: '{{ item.slug }}'

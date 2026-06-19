@@ -1,0 +1,9 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/tags
+label: Tags
+type: tags
+options:
+  - Design
+  - Architecture
+  - Photography
+  - 3D
+  - Web

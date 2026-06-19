@@ -1,0 +1,5 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/users
+label: Author
+type: users
+default: johndoe@company.com
+multiple: false

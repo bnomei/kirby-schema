@@ -1,0 +1,13 @@
+# Source: https://getkirby.com/docs/reference/panel/blueprints/page#statuses__extended-example
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/1_blueprints/0_page/reference-article.txt
+blueprint: page
+status:
+  draft:
+    label: Draft
+    text: The article is still in draft mode. It can only be seen by editors with Panel access.
+  unlisted:
+    label: In Review
+    text: The article is online and can be visited with the direct URL. The team must still give the final go to publish it.
+  listed:
+    label: Published
+    text: The article is online and listed in the blog

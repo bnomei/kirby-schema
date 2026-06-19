@@ -1,0 +1,6 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/layout
+type: layout
+selector:
+  size: huge
+  columns: 6
+settings: fields/layout-settings

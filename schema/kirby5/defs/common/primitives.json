@@ -1,0 +1,134 @@
+{
+  "arrayOrBooleanOrNumberOrObjectOrString": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "type": "boolean"
+      },
+      {
+        "type": "number"
+      },
+      {
+        "type": "array"
+      },
+      {
+        "type": "object"
+      }
+    ]
+  },
+  "nonEmptyString": {
+    "type": "string",
+    "minLength": 1
+  },
+  "notRequiredNonEmptyString": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "type": "null"
+      }
+    ]
+  },
+  "stringArrayUnique": {
+    "type": "array",
+    "uniqueItems": true,
+    "minItems": 1,
+    "items": {
+      "$ref": "#/$defs/nonEmptyString"
+    }
+  },
+  "stringOrStringArrayUnique": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "$ref": "#/$defs/stringArrayUnique"
+      }
+    ]
+  },
+  "booleanOrString": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "type": "string"
+      }
+    ]
+  },
+  "booleanOrObject": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "type": "object"
+      }
+    ]
+  },
+  "booleanOrStringArrayUnique": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "$ref": "#/$defs/stringArrayUnique"
+      }
+    ]
+  },
+  "stringOrNumber": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "type": "number"
+      }
+    ]
+  },
+  "stringOrTranslated": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "$ref": "#/$defs/translated"
+      }
+    ]
+  },
+  "stringOrLabelAndText": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/booleanOrString"
+      },
+      {
+        "type": "object",
+        "properties": {
+          "label": {
+            "$ref": "#/$defs/field-properties/@label"
+          },
+          "text": {
+            "$ref": "#/$defs/stringOrTranslated"
+          }
+        }
+      }
+    ]
+  },
+  "numberInPixel": {
+    "type": "number",
+    "exclusiveMinimum": 0,
+    "description": "in px"
+  },
+  "numberInBytes": {
+    "type": "number",
+    "exclusiveMinimum": 0,
+    "description": "in bytes"
+  },
+  "fraction": {
+    "$ref": "#/$defs/nonEmptyString"
+  }
+}

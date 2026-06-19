@@ -1,0 +1,6 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/pages#query-pages__only-pages-with-a-given-template
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_pages/reference-panelfield.txt
+blueprint: field
+label: Related Pages
+type: pages
+query: page.index.filterBy('template', 'in', ['template-a', 'template-b'])

@@ -1,0 +1,13 @@
+{
+  "anyOf": [
+    {
+      "enum": [
+        false
+      ]
+    },
+    {
+      "$ref": "#/$defs/nonEmptyString",
+      "description": "shorthand version of extends property"
+    }
+  ]
+}

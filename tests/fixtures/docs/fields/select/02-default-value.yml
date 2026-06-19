@@ -1,0 +1,12 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/select#default-value
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_select/reference-panelfield.txt
+blueprint: field
+label: Category
+type: select
+default: architecture
+options:
+  design: Design
+  architecture: Architecture
+  photography: Photography
+  3d: 3D
+  web: Web

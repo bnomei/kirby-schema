@@ -1,0 +1,5 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/files#querying-files__limit-the-set-to-images
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_files/reference-panelfield.txt
+blueprint: field
+type: files
+query: page.images

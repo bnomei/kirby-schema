@@ -1,0 +1,23 @@
+blueprint: page
+title: Home
+icon: 🏠
+options:
+  changeStatus: false
+sections:
+  content:
+    type: fields
+    fields:
+      headline:
+        type: text
+        width: 1/2
+      gap:
+        width: 1/2
+      subheadline:
+        type: text
+        width: 1/2
+  photography:
+    label: Photography
+    extends: sections/albums
+    status: listed
+    size: small
+    help: All projects for the homepage are being pulled from the photography page.

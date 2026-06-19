@@ -1,0 +1,13 @@
+blueprint: section
+type: pages
+label: Photography
+parent: kirby.page("photography")
+size: small
+info: '{{ page.images.count }} image(s)'
+layout: cards
+template: album
+empty: No albums yet
+image:
+  query: page.cover
+  cover: true
+  ratio: 5/4

@@ -1,0 +1,30 @@
+# Covers: #/$defs/fields/url
+type: url
+blueprint: field
+extends: fields/base
+after: after text
+autocomplete: email
+autofocus: true
+before: before text
+default:
+  value: default
+disabled: false
+font: monospace
+help:
+  en: Help
+  de: Help DE
+icon: page
+label:
+  en: Label
+  de: Label DE
+link: true
+maxlength: 120
+minlength: 2
+pattern: ^[a-z0-9-]+$
+placeholder: Placeholder
+required: true
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

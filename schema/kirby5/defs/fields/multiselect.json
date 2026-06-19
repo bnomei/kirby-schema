@@ -1,0 +1,99 @@
+{
+  "anyOf": [
+    {
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "required": [
+        "extends"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "multiselect"
+      ]
+    },
+    "blueprint": {
+      "enum": [
+        "field"
+      ]
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "accept": {
+      "enum": [
+        "options",
+        "all"
+      ],
+      "default": "options"
+    },
+    "api": {
+      "$ref": "#/$defs/field-properties/@api"
+    },
+    "autofocus": {
+      "$ref": "#/$defs/field-properties/@autofocus"
+    },
+    "default": {
+      "$ref": "#/$defs/field-properties/@default"
+    },
+    "disabled": {
+      "$ref": "#/$defs/field-properties/@disabled"
+    },
+    "help": {
+      "$ref": "#/$defs/field-properties/@help"
+    },
+    "icon": {
+      "$ref": "#/$defs/field-properties/@icon"
+    },
+    "label": {
+      "$ref": "#/$defs/field-properties/@label"
+    },
+    "layout": {
+      "$ref": "#/$defs/field-properties/@layout"
+    },
+    "max": {
+      "$ref": "#/$defs/field-properties/@max"
+    },
+    "min": {
+      "$ref": "#/$defs/field-properties/@min"
+    },
+    "options": {
+      "$ref": "#/$defs/field-properties/@options"
+    },
+    "query": {
+      "$ref": "#/$defs/field-properties/@query"
+    },
+    "required": {
+      "$ref": "#/$defs/field-properties/@required",
+      "default": false
+    },
+    "search": {
+      "$ref": "#/$defs/field-properties/@search"
+    },
+    "separator": {
+      "$ref": "#/$defs/field-properties/@separator",
+      "default": ","
+    },
+    "sort": {
+      "$ref": "#/$defs/field-properties/@sort",
+      "default": false
+    },
+    "translate": {
+      "$ref": "#/$defs/field-properties/@translate",
+      "default": true
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    },
+    "width": {
+      "$ref": "#/$defs/field-properties/@width",
+      "default": "1/1"
+    }
+  }
+}

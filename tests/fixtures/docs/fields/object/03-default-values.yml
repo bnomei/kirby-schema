@@ -1,0 +1,17 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/object#default-values
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_object/reference-panelfield.txt
+blueprint: field
+type: object
+default:
+  name: Nandi Peters
+  email: nandi@example.com
+  phone: 1234 5678
+fields:
+  photo:
+    type: files
+  name:
+    type: text
+  email:
+    type: email
+  phone:
+    type: tel

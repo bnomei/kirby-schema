@@ -1,0 +1,11 @@
+# Source: https://getkirby.com/docs/reference/panel/sections/info#themes__positive
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/4_sections/0_info/reference-panelsection.txt
+blueprint: page
+title: Gallery
+sections:
+  info:
+    type: info
+    label: Wohooww
+    theme: positive
+    text: |
+      Just upload whatever you want. We get sued anyway.

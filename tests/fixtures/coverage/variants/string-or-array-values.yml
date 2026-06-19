@@ -1,0 +1,17 @@
+# Covers: variant/string-or-array-values
+blueprint: page
+navigation:
+  status:
+    - listed
+    - unlisted
+  template: article
+  sortBy:
+    - date desc
+    - title asc
+sections:
+  pages:
+    type: pages
+    template:
+      - article
+      - note
+    templates: article

@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "anyOf": [
+    {
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "required": [
+        "extends"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "stats"
+      ]
+    },
+    "blueprint": {
+      "enum": [
+        "field"
+      ]
+    },
+    "headline": {
+      "$ref": "#/$defs/field-properties/@headline"
+    },
+    "help": {
+      "$ref": "#/$defs/field-properties/@help"
+    },
+    "label": {
+      "$ref": "#/$defs/field-properties/@label"
+    },
+    "reports": {
+      "$ref": "#/$defs/blueprint-properties/@reports"
+    },
+    "size": {
+      "$ref": "#/$defs/field-properties/@statsSize",
+      "default": "large"
+    }
+  }
+}

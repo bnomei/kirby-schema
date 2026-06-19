@@ -1,0 +1,39 @@
+# Covers: #/$defs/fields/select
+type: select
+blueprint: field
+extends: fields/base
+api:
+  fetch: site.children
+  text: '{{ item.title }}'
+  value: '{{ item.id }}'
+  icon: page
+  info: '{{ item.info }}'
+autofocus: true
+default:
+  value: default
+disabled: false
+help:
+  en: Help
+  de: Help DE
+icon: page
+label:
+  en: Label
+  de: Label DE
+options:
+  draft:
+    en: Draft
+    de: Draft DE
+  listed: Listed
+placeholder: Placeholder
+query:
+  fetch: site.children
+  text: '{{ item.title }}'
+  value: '{{ item.id }}'
+  icon: page
+  info: '{{ item.info }}'
+required: true
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

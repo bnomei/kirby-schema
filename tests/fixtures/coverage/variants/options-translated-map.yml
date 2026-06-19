@@ -1,0 +1,12 @@
+# Covers: variant/options-translated-map
+blueprint: page
+fields:
+  category:
+    type: select
+    options:
+      design:
+        en: Design
+        de: Design DE
+      architecture:
+        en: Architecture
+        de: Architecture DE

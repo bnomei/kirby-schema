@@ -1,0 +1,55 @@
+# Covers: #/$defs/blueprints/tab
+blueprint: tab
+label:
+  en: Label
+  de: Label DE
+icon: page
+extends: fields/base
+fields:
+  text:
+    type: text
+    label:
+      en: Text
+      de: Text DE
+  toggle:
+    type: toggle
+    text:
+      - 'Off'
+      - 'On'
+sections:
+  content:
+    type: fields
+    fields:
+      text:
+        type: text
+  info:
+    type: info
+    text: Section info
+columns:
+  main:
+    width: 2/3
+    fields:
+      text:
+        type: text
+  sidebar:
+    width: 1/3
+    sections:
+      info:
+        type: info
+        text: Info
+tabs:
+  content:
+    label:
+      en: Content
+      de: Content DE
+    fields:
+      text:
+        type: text
+  seo:
+    icon: search
+    sections:
+      meta:
+        type: fields
+        fields:
+          description:
+            type: textarea

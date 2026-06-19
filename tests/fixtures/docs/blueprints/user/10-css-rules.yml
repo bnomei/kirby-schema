@@ -1,0 +1,5 @@
+# Source: https://getkirby.com/docs/reference/panel/blueprints/user#image-options__custom-colors__css-rules
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/1_blueprints/0_user/reference-article.txt
+blueprint: user
+image:
+  back: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);

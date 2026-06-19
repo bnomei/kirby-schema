@@ -1,0 +1,13 @@
+# Covers: #/$defs/sections/stats
+type: stats
+blueprint: section
+extends: fields/base
+headline: Headline
+label:
+  en: Label
+  de: Label DE
+reports: []
+size: large
+when:
+  template: article
+  isPublished: true

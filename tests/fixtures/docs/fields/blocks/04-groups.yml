@@ -1,0 +1,24 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/blocks#defining-fieldsets__groups
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_blocks/reference-panelfield.txt
+blueprint: field
+type: blocks
+fieldsets:
+  text:
+    label: Text
+    type: group
+    fieldsets:
+      - heading
+      - text
+      - list
+  media:
+    label: Media
+    type: group
+    fieldsets:
+      - image
+      - video
+  code:
+    label: Code
+    type: group
+    fieldsets:
+      - code
+      - markdown

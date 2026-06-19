@@ -1,0 +1,9 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/multiselect
+label: Category
+type: multiselect
+options:
+  type: api
+  url: https://example.com/companies.json
+  query: Companies
+  text: '{{ item.name }}'
+  value: '{{ item.name.slug }}'

@@ -1,0 +1,10 @@
+# Source: https://getkirby.com/docs/guide/blueprints/extending-blueprints#reusing-and-extending-sections
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/1_guide/7_blueprints/3_extending-blueprints/guide.txt
+# Docs path: /site/blueprints/pages/product.yml
+blueprint: page
+sections:
+  cover:
+    extends: sections/image
+    template: cover
+    min: 1
+    max: 3

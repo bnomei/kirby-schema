@@ -1,0 +1,14 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/layout#reusing-and-extending-layout-settings
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_layout/reference-panelfield.txt
+# Docs path: /site/blueprints/fields/settings.yml
+blueprint: page
+fields:
+  class:
+    type: text
+    width: 1/2
+  id:
+    type: text
+    width: 1/2
+  image:
+    label: Background image
+    type: files

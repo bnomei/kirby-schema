@@ -1,0 +1,17 @@
+# Source: https://getkirby.com/docs/guide/blueprints/fields#conditional-fields
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/1_guide/7_blueprints/2_fields/guide.txt
+blueprint: page
+fields:
+  toggle:
+    type: toggle
+  category:
+    type: select
+    options:
+      - A
+      - B
+      - C
+  text:
+    type: text
+    when:
+      toggle: true
+      category: B

@@ -1,0 +1,19 @@
+# Covers: variant/accept
+blueprint: file
+accept:
+  extension:
+    - jpg
+    - png
+  mime: image/jpeg
+  maxheight: 1200
+  maxsize: 2048000
+  maxwidth: 1600
+  minheight: 400
+  minsize: 1024
+  minwidth: 600
+  orientation: landscape
+  type:
+    - image
+fields:
+  alt:
+    type: text

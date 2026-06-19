@@ -1,0 +1,29 @@
+# Covers: #/$defs/fields/color
+type: color
+alpha: true
+autofocus: true
+default:
+  value: default
+disabled: false
+extends: fields/base
+format: hex
+help:
+  en: Help
+  de: Help DE
+icon: page
+label:
+  en: Label
+  de: Label DE
+mode: picker
+options:
+  draft:
+    en: Draft
+    de: Draft DE
+  listed: Listed
+placeholder: Placeholder
+required: true
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

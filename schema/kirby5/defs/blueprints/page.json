@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "required": [
+    "blueprint"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "blueprint": {
+      "enum": [
+        "page"
+      ]
+    },
+    "preset": {
+      "$ref": "#/$defs/blueprint-properties/@preset"
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "title": {
+      "$ref": "#/$defs/blueprint-properties/@title"
+    },
+    "create": {
+      "$ref": "#/$defs/blueprint-properties/@create"
+    },
+    "num": {
+      "$ref": "#/$defs/blueprint-properties/@num"
+    },
+    "status": {
+      "$ref": "#/$defs/blueprint-properties/@status"
+    },
+    "icon": {
+      "$ref": "#/$defs/blueprint-properties/@icon"
+    },
+    "image": {
+      "$ref": "#/$defs/blueprint-properties/@image"
+    },
+    "options": {
+      "$ref": "#/$defs/blueprint-properties/@options"
+    },
+    "navigation": {
+      "$ref": "#/$defs/blueprint-properties/@navigation"
+    },
+    "buttons": {
+      "$ref": "#/$defs/blueprint-properties/@buttons"
+    },
+    "pages": {
+      "$ref": "#/$defs/blueprint-properties/@presetSectionInput"
+    },
+    "files": {
+      "$ref": "#/$defs/blueprint-properties/@presetSectionInput"
+    },
+    "drafts": {
+      "$ref": "#/$defs/blueprint-properties/@presetSectionInput"
+    },
+    "unlisted": {
+      "$ref": "#/$defs/blueprint-properties/@presetSectionInput"
+    },
+    "listed": {
+      "$ref": "#/$defs/blueprint-properties/@presetSectionInput"
+    },
+    "templates": {
+      "$ref": "#/$defs/field-properties/@templates"
+    },
+    "sidebar": {
+      "$ref": "#/$defs/wrappers/sections"
+    },
+    "headline": {
+      "$ref": "#/$defs/stringOrTranslated"
+    },
+    "label": {
+      "$ref": "#/$defs/stringOrTranslated"
+    },
+    "layout": {
+      "$ref": "#/$defs/field-properties/@sectionLayout"
+    },
+    "template": {
+      "$ref": "#/$defs/field-properties/@filesSectionTemplate"
+    },
+    "fields": {
+      "$ref": "#/$defs/wrappers/fields"
+    },
+    "sections": {
+      "$ref": "#/$defs/wrappers/sections"
+    },
+    "columns": {
+      "$ref": "#/$defs/wrappers/columns"
+    },
+    "tabs": {
+      "$ref": "#/$defs/wrappers/tabs"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/headline#example
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_headline/reference-panelfield.txt
+blueprint: page
+fields:
+  pageSettings:
+    label: Page Settings
+    type: headline
+  type:
+    label: Page type
+    type: text
+  state:
+    label: Draft
+    type: toggle
+  content:
+    label: Content
+    type: headline
+  text:
+    label: Text
+    type: textarea

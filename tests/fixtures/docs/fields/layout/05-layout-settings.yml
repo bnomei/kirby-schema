@@ -1,0 +1,26 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/layout#layout-settings
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_layout/reference-panelfield.txt
+blueprint: field
+type: layout
+layouts:
+  - 1/1
+  - 1/2, 1/2
+  - 1/4, 1/4, 1/4, 1/4
+  - 1/3, 2/3
+  - 2/3, 1/3
+  - 1/3, 1/3, 1/3
+fieldsets:
+  - heading
+  - text
+  - image
+settings:
+  fields:
+    class:
+      type: text
+      width: 1/2
+    id:
+      type: text
+      width: 1/2
+    image:
+      label: Background image
+      type: files

@@ -1,0 +1,26 @@
+# Covers: #/$defs/fields/entries
+type: entries
+blueprint: field
+extends: fields/base
+autofocus: true
+default:
+  value: default
+disabled: false
+empty: Nothing here yet
+field: value
+help:
+  en: Help
+  de: Help DE
+label:
+  en: Label
+  de: Label DE
+limit: 10
+max: 10
+min: 1
+required: true
+sortable: true
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

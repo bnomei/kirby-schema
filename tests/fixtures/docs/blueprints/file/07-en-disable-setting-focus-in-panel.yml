@@ -1,0 +1,5 @@
+# Source: https://getkirby.com/docs/reference/panel/blueprints/file#en-disable-setting-focus-in-panel
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/1_blueprints/0_file/reference-article.txt
+# Docs path: site/blueprints/files/image.yml
+blueprint: file
+focus: false

@@ -1,0 +1,8 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/toggles
+label: Contact person
+type: toggles
+options:
+  type: query
+  query: site.contactoptions.toStructure
+  text: '{{ item.name }}'
+  value: '{{ item.fediverse }}'

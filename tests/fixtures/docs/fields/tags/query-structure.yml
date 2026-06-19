@@ -1,0 +1,8 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/tags
+label: Contact person
+type: tags
+options:
+  type: query
+  query: site.contactoptions.toStructure
+  text: '{{ item.name }}'
+  value: '{{ item.fediverse }}'

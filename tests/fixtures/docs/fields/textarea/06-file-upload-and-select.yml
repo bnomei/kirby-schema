@@ -1,0 +1,11 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/textarea#file-upload-and-select
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_textarea/reference-panelfield.txt
+blueprint: field
+type: textarea
+files:
+  query: site.find("media").files.template("textarea-upload")
+  image:
+    cover: true
+uploads:
+  parent: site.find("media")
+  template: textarea-upload

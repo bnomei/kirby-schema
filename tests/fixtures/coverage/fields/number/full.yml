@@ -1,0 +1,27 @@
+# Covers: #/$defs/fields/number
+type: number
+blueprint: field
+extends: fields/base
+after: after text
+autofocus: true
+before: before text
+default:
+  value: default
+disabled: false
+help:
+  en: Help
+  de: Help DE
+icon: page
+label:
+  en: Label
+  de: Label DE
+max: 10
+min: 1
+placeholder: Placeholder
+required: true
+step: any
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

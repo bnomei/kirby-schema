@@ -1,0 +1,39 @@
+# Covers: #/$defs/fields/pages
+type: pages
+blueprint: field
+extends: fields/base
+default:
+  value: default
+disabled: false
+empty: Nothing here yet
+help:
+  en: Help
+  de: Help DE
+image:
+  back: blue-200
+  color: white
+  cover: true
+  icon: image
+  ratio: 16/9
+  query: page.cover
+info: '{{ item.info }}'
+label:
+  en: Label
+  de: Label DE
+layout: cards
+link: true
+max: 10
+min: 1
+multiple: true
+query: site.children
+required: true
+search: true
+store: uuid
+size: large
+subpages: true
+text: '{{ item.title }}'
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

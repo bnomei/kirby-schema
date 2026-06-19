@@ -1,0 +1,4 @@
+# Source: https://getkirby.com/docs/reference/panel/sections/stats
+blueprint: section
+type: stats
+reports: page.reports

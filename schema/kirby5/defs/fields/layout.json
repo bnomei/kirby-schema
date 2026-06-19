@@ -1,0 +1,111 @@
+{
+  "anyOf": [
+    {
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "required": [
+        "extends"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "layout"
+      ]
+    },
+    "blueprint": {
+      "enum": [
+        "field"
+      ]
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "autofocus": {
+      "$ref": "#/$defs/field-properties/@autofocus"
+    },
+    "default": {
+      "$ref": "#/$defs/field-properties/@default"
+    },
+    "disabled": {
+      "$ref": "#/$defs/field-properties/@disabled"
+    },
+    "empty": {
+      "$ref": "#/$defs/field-properties/@empty"
+    },
+    "fieldsets": {
+      "$ref": "#/$defs/field-properties/@fieldsets"
+    },
+    "group": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "help": {
+      "$ref": "#/$defs/field-properties/@help"
+    },
+    "label": {
+      "$ref": "#/$defs/field-properties/@label"
+    },
+    "layouts": {
+      "$ref": "#/$defs/stringArrayUnique"
+    },
+    "max": {
+      "$ref": "#/$defs/field-properties/@max"
+    },
+    "min": {
+      "$ref": "#/$defs/field-properties/@min"
+    },
+    "pretty": {
+      "type": "boolean",
+      "default": false
+    },
+    "required": {
+      "$ref": "#/$defs/field-properties/@required",
+      "default": false
+    },
+    "selector": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "size": {
+          "enum": [
+            "small",
+            "medium",
+            "large",
+            "huge"
+          ],
+          "default": "medium"
+        },
+        "columns": {
+          "type": "number",
+          "default": 3
+        }
+      }
+    },
+    "settings": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "translate": {
+      "$ref": "#/$defs/field-properties/@translate",
+      "default": true
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    },
+    "width": {
+      "$ref": "#/$defs/field-properties/@width",
+      "default": "1/1"
+    }
+  }
+}

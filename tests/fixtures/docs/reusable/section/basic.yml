@@ -1,0 +1,5 @@
+# Source: https://getkirby.com/docs/guide/blueprints
+blueprint: section
+type: info
+label: some section
+text: options

@@ -1,0 +1,7 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/link#customize-allowed-link-types
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_link/reference-panelfield.txt
+blueprint: field
+type: link
+options:
+  - page
+  - anchor

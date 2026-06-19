@@ -1,0 +1,26 @@
+# Covers: variant/columns
+blueprint: page
+columns:
+  main:
+    width: 2/3
+    fields:
+      text:
+        type: text
+  sidebar:
+    sections:
+      info:
+        type: info
+        text: Info
+fields:
+  products:
+    type: structure
+    columns:
+      title:
+        label: Title
+        align: left
+        width: 1/2
+        value: '{{ item.title }}'
+      visible: true
+    fields:
+      title:
+        type: text

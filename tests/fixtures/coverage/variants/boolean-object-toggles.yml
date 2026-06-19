@@ -1,0 +1,8 @@
+# Covers: variant/boolean-object-toggles
+blueprint: page
+options:
+  preview: false
+  update:
+    admin: true
+    editor: false
+  delete: true

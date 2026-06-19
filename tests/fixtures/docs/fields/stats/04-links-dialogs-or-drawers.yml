@@ -1,0 +1,15 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/stats#reports__links-dialogs-or-drawers
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_stats/reference-panelfield.txt
+blueprint: field
+type: stats
+reports:
+  - label: Revenue
+    value: €29,682
+    info: +112.5%
+    link: /revenue
+  - label: Orders
+    value: 265
+    dialog: orders/details
+  - label: Top customers
+    value: 12
+    drawer: customers/top

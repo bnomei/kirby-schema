@@ -1,0 +1,535 @@
+{
+  "queryObject": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "url": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "fetch": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "text": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "value": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "icon": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "info": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "query": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    }
+  },
+  "textValuePair": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "text": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "value": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    }
+  },
+  "fieldsetsItem": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "type": "object",
+        "patternProperties": {
+          ".*": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/fieldsetEntry"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/fieldsetEntry"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "fieldsetsGroup": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "type": {
+        "enum": [
+          "group"
+        ]
+      },
+      "label": {
+        "$ref": "#/$defs/field-properties/@label"
+      },
+      "fieldsets": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/fieldsetsItem"
+        }
+      },
+      "open": {
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "required": [
+      "type"
+    ]
+  },
+  "objectWithBooleanOrNonEmptyStringValues": {
+    "type": "object",
+    "patternProperties": {
+      ".*": {
+        "oneOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        ]
+      }
+    }
+  },
+  "objectWithStringValues": {
+    "type": "object",
+    "patternProperties": {
+      ".*": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    }
+  },
+  "objectWithStringOrTranslatedValues": {
+    "type": "object",
+    "patternProperties": {
+      ".*": {
+        "$ref": "#/$defs/stringOrTranslated"
+      }
+    }
+  },
+  "translated": {
+    "type": "object",
+    "patternProperties": {
+      "[a-z]{2}": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        ]
+      }
+    }
+  },
+  "field": {
+    "type": "object",
+    "properties": {
+      "label": {
+        "$ref": "#/$defs/field-properties/@label"
+      }
+    }
+  },
+  "report": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "label": {
+        "$ref": "#/$defs/field-properties/@label"
+      },
+      "value": {
+        "$ref": "#/$defs/field-properties/@value"
+      },
+      "info": {
+        "$ref": "#/$defs/field-properties/@info"
+      },
+      "link": {
+        "$ref": "#/$defs/field-properties/@linkUrl"
+      },
+      "theme": {
+        "$ref": "#/$defs/field-properties/@theme"
+      },
+      "icon": {
+        "$ref": "#/$defs/field-properties/@icon"
+      },
+      "dialog": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "drawer": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    }
+  },
+  "section": {
+    "type": "object",
+    "properties": {
+      "sec-label": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    }
+  },
+  "column": {
+    "properties": {
+      "width": {
+        "$ref": "#/$defs/fraction"
+      },
+      "sticky": {
+        "type": "boolean",
+        "default": false
+      },
+      "fields": {
+        "$ref": "#/$defs/wrappers/fields"
+      },
+      "sections": {
+        "$ref": "#/$defs/wrappers/sections"
+      }
+    }
+  },
+  "tab": {
+    "type": "object",
+    "properties": {
+      "label": {
+        "$ref": "#/$defs/field-properties/@label"
+      },
+      "icon": {
+        "$ref": "#/$defs/blueprint-properties/@icon"
+      },
+      "extends": {
+        "$ref": "#/$defs/field-properties/@extends"
+      },
+      "fields": {
+        "$ref": "#/$defs/wrappers/fields"
+      },
+      "sections": {
+        "$ref": "#/$defs/wrappers/sections"
+      },
+      "columns": {
+        "$ref": "#/$defs/wrappers/columns"
+      }
+    },
+    "patternProperties": {
+      "^(?!label$|icon$|extends$|fields$|sections$|columns$).*$": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/wrappers/fields"
+          },
+          {
+            "$ref": "#/$defs/wrappers/sections"
+          },
+          {
+            "$ref": "#/$defs/wrappers/columns"
+          }
+        ]
+      }
+    }
+  },
+  "sectionShortcut": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "extends": {
+        "$ref": "#/$defs/field-properties/@extends"
+      },
+      "batch": {
+        "$ref": "#/$defs/field-properties/@batch"
+      },
+      "create": {
+        "$ref": "#/$defs/field-properties/@create"
+      },
+      "columns": {
+        "$ref": "#/$defs/field-properties/@columns"
+      },
+      "empty": {
+        "$ref": "#/$defs/field-properties/@empty"
+      },
+      "flip": {
+        "$ref": "#/$defs/field-properties/@flip"
+      },
+      "headline": {
+        "$ref": "#/$defs/field-properties/@headline"
+      },
+      "help": {
+        "$ref": "#/$defs/field-properties/@help"
+      },
+      "icon": {
+        "$ref": "#/$defs/field-properties/@icon"
+      },
+      "image": {
+        "$ref": "#/$defs/field-properties/@image"
+      },
+      "info": {
+        "$ref": "#/$defs/field-properties/@info"
+      },
+      "label": {
+        "$ref": "#/$defs/field-properties/@label"
+      },
+      "layout": {
+        "$ref": "#/$defs/field-properties/@layout"
+      },
+      "limit": {
+        "$ref": "#/$defs/field-properties/@limit"
+      },
+      "max": {
+        "$ref": "#/$defs/field-properties/@max"
+      },
+      "min": {
+        "$ref": "#/$defs/field-properties/@min"
+      },
+      "page": {
+        "$ref": "#/$defs/field-properties/@page"
+      },
+      "parent": {
+        "$ref": "#/$defs/field-properties/@parent"
+      },
+      "query": {
+        "$ref": "#/$defs/field-properties/@query"
+      },
+      "rawvalues": {
+        "type": "boolean"
+      },
+      "reports": {
+        "$ref": "#/$defs/blueprint-properties/@reports"
+      },
+      "search": {
+        "$ref": "#/$defs/field-properties/@search"
+      },
+      "size": {
+        "$ref": "#/$defs/field-properties/@size"
+      },
+      "sortBy": {
+        "$ref": "#/$defs/field-properties/@sortBy"
+      },
+      "sortable": {
+        "$ref": "#/$defs/field-properties/@sortable"
+      },
+      "status": {
+        "$ref": "#/$defs/field-properties/@status"
+      },
+      "template": {
+        "$ref": "#/$defs/field-properties/@template"
+      },
+      "templates": {
+        "$ref": "#/$defs/field-properties/@templates"
+      },
+      "templatesIgnore": {
+        "$ref": "#/$defs/field-properties/@templates"
+      },
+      "text": {
+        "$ref": "#/$defs/field-properties/@text"
+      },
+      "uploads": {
+        "$ref": "#/$defs/field-properties/@uploads"
+      },
+      "when": {
+        "$ref": "#/$defs/field-properties/@when"
+      }
+    }
+  },
+  "optionValue": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "type": "number"
+      },
+      {
+        "type": "null"
+      }
+    ]
+  },
+  "optionText": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/stringOrTranslated"
+      },
+      {
+        "type": "null"
+      }
+    ]
+  },
+  "optionItem": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "value": {
+        "$ref": "#/$defs/optionValue"
+      },
+      "text": {
+        "$ref": "#/$defs/optionText"
+      },
+      "disabled": {
+        "type": "boolean"
+      },
+      "icon": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "info": {
+        "$ref": "#/$defs/optionText"
+      }
+    },
+    "required": [
+      "value"
+    ]
+  },
+  "optionsArray": {
+    "type": "array",
+    "items": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/optionValue"
+        },
+        {
+          "$ref": "#/$defs/optionItem"
+        }
+      ]
+    }
+  },
+  "optionsMap": {
+    "type": "object",
+    "patternProperties": {
+      ".*": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/optionText"
+          },
+          {
+            "$ref": "#/$defs/optionValue"
+          },
+          {
+            "$ref": "#/$defs/optionItem"
+          }
+        ]
+      }
+    }
+  },
+  "optionsProvider": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "type": {
+        "enum": [
+          "array",
+          "api",
+          "query"
+        ]
+      },
+      "options": {
+        "$ref": "#/$defs/optionsArray"
+      },
+      "url": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "query": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "fetch": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "text": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "value": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "icon": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "info": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    },
+    "required": [
+      "type"
+    ]
+  },
+  "fieldsetEntry": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "type": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "extends": {
+            "$ref": "#/$defs/field-properties/@extends"
+          },
+          "name": {
+            "$ref": "#/$defs/stringOrTranslated"
+          },
+          "label": {
+            "$ref": "#/$defs/field-properties/@label"
+          },
+          "icon": {
+            "$ref": "#/$defs/field-properties/@icon"
+          },
+          "preview": {
+            "oneOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "wysiwyg": {
+            "type": "boolean"
+          },
+          "fields": {
+            "$ref": "#/$defs/wrappers/fields"
+          },
+          "sections": {
+            "$ref": "#/$defs/wrappers/sections"
+          },
+          "columns": {
+            "$ref": "#/$defs/wrappers/columns"
+          },
+          "tabs": {
+            "$ref": "#/$defs/wrappers/tabs"
+          },
+          "fieldsets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/fieldsetsItem"
+            }
+          },
+          "open": {
+            "type": "boolean",
+            "default": true
+          },
+          "translate": {
+            "type": "boolean"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "editable": {
+            "type": "boolean"
+          }
+        }
+      }
+    ]
+  }
+}

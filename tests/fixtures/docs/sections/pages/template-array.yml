@@ -1,0 +1,9 @@
+# Source: https://getkirby.com/docs/reference/panel/sections/pages
+blueprint: section
+type: pages
+template:
+  - article
+  - note
+rawvalues: true
+when:
+  showPages: true

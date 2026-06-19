@@ -1,0 +1,4 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/textarea
+label: Text
+type: textarea
+buttons: false

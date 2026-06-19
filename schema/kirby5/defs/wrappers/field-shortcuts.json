@@ -1,0 +1,14 @@
+{
+  "gap": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "when": {
+        "$ref": "#/$defs/field-properties/@when"
+      },
+      "width": {
+        "$ref": "#/$defs/field-properties/@width"
+      }
+    }
+  }
+}

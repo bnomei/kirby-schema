@@ -1,0 +1,7 @@
+# Source: https://getkirby.com/docs/reference/panel/sections/info
+type: info
+label: Info
+text: |
+  Please double-check the licenses and sources
+  of all images before you upload them to the gallery.
+headline: Info

@@ -1,0 +1,6 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/slug
+label: Identifier
+type: slug
+wizard:
+  field: input
+  text: Generate!

@@ -1,0 +1,64 @@
+# Covers: #/$defs/blueprints/site
+blueprint: site
+icon: page
+extends: fields/base
+title:
+  en: Title
+  de: Title DE
+options: true
+buttons:
+  - preview
+  - '-'
+  - icon: open
+    text:
+      en: Open
+      de: Oeffnen
+    link: /panel/site
+fields:
+  text:
+    type: text
+    label:
+      en: Text
+      de: Text DE
+  toggle:
+    type: toggle
+    text:
+      - 'Off'
+      - 'On'
+sections:
+  content:
+    type: fields
+    fields:
+      text:
+        type: text
+  info:
+    type: info
+    text: Section info
+columns:
+  main:
+    width: 2/3
+    fields:
+      text:
+        type: text
+  sidebar:
+    width: 1/3
+    sections:
+      info:
+        type: info
+        text: Info
+tabs:
+  content:
+    label:
+      en: Content
+      de: Content DE
+    fields:
+      text:
+        type: text
+  seo:
+    icon: search
+    sections:
+      meta:
+        type: fields
+        fields:
+          description:
+            type: textarea

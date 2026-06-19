@@ -1,0 +1,5 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/files#querying-files__querying-files-from-other-pages
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_files/reference-panelfield.txt
+blueprint: field
+type: files
+query: site.find('photography').children.images.filterBy('template', 'cover')

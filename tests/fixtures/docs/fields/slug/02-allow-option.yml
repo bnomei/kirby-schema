@@ -1,0 +1,7 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/slug#allow-option
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_slug/reference-panelfield.txt
+blueprint: field
+label: Class Name
+type: slug
+sync: title
+allow: a-z_

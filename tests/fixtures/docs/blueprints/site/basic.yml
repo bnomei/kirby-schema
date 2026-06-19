@@ -1,0 +1,19 @@
+# Source: https://getkirby.com/docs/reference/panel/blueprints/site
+blueprint: site
+
+icon: home
+
+title:
+  en: Site
+  de: Webseite
+
+options:
+  preview: https://mycustomdomain.com
+  update:
+    '*': false
+    editor: true
+
+fields:
+  text:
+    label: Text
+    type: text

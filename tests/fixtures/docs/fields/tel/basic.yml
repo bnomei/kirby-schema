@@ -1,0 +1,3 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/tel
+label: Phone
+type: tel

@@ -1,0 +1,8 @@
+# Source: https://getkirby.com/docs/guide/blueprints/query-language#querying-the-parent-in-pages-and-files-sections
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/1_guide/7_blueprints/4_query-language/guide.txt
+blueprint: page
+sections:
+  articles:
+    type: pages
+    label: Blog Articles
+    parent: site.find("blog")

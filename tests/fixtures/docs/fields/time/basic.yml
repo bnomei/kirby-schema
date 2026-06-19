@@ -1,0 +1,5 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/time
+label: Time
+type: time
+display: hh:mm A
+notation: 12

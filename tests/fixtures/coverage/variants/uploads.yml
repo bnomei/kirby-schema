@@ -1,0 +1,15 @@
+# Covers: variant/uploads
+blueprint: page
+fields:
+  files:
+    type: files
+    uploads:
+      parent: site.find("uploads")
+      template: image
+  text:
+    type: textarea
+    uploads: false
+sections:
+  files:
+    type: files
+    search: true

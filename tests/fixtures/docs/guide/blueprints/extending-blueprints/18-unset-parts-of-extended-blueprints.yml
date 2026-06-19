@@ -1,0 +1,8 @@
+# Source: https://getkirby.com/docs/guide/blueprints/extending-blueprints#unset-parts-of-extended-blueprints
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/1_guide/7_blueprints/3_extending-blueprints/guide.txt
+blueprint: page
+tabs:
+  seo:
+    extends: tabs/seo
+    fields:
+      seoDescription: false

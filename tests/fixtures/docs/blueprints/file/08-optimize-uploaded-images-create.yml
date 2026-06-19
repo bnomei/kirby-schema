@@ -1,0 +1,9 @@
+# Source: https://getkirby.com/docs/reference/panel/blueprints/file#optimize-uploaded-images-create
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/1_blueprints/0_file/reference-article.txt
+# Docs path: site/blueprints/files/image.yml
+blueprint: file
+title: Image
+create:
+  width: 500
+  height: 500
+  crop: true

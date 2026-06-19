@@ -1,0 +1,42 @@
+# Covers: #/$defs/fields/blocks
+type: blocks
+blueprint: field
+extends: fields/base
+autofocus: true
+default:
+  value: default
+disabled: false
+empty: Nothing here yet
+fieldsets:
+  text:
+    type: group
+    label:
+      en: Text
+      de: Text DE
+    open: true
+    fieldsets:
+      - heading
+      - text
+  media:
+    type: group
+    label: Media
+    fieldsets:
+      - image
+      - gallery:
+          - type: image
+group: blocks
+help:
+  en: Help
+  de: Help DE
+label:
+  en: Label
+  de: Label DE
+max: 10
+min: 1
+pretty: true
+required: true
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

@@ -1,0 +1,5 @@
+# Source: https://getkirby.com/docs/reference/panel/sections/fields
+type: fields
+fields:
+  mytext:
+    type: text

@@ -1,0 +1,7 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/slug
+label: Class Name
+type: slug
+sync: title
+wizard:
+  field: input
+  text: Generate!

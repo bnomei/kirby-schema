@@ -1,0 +1,112 @@
+{
+  "anyOf": [
+    {
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "required": [
+        "extends"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "slug"
+      ]
+    },
+    "blueprint": {
+      "enum": [
+        "field"
+      ]
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "after": {
+      "$ref": "#/$defs/field-properties/@after"
+    },
+    "allow": {
+      "$ref": "#/$defs/field-properties/@slugOption"
+    },
+    "autofocus": {
+      "$ref": "#/$defs/field-properties/@autofocus"
+    },
+    "before": {
+      "$ref": "#/$defs/field-properties/@before"
+    },
+    "default": {
+      "$ref": "#/$defs/field-properties/@default"
+    },
+    "disabled": {
+      "$ref": "#/$defs/field-properties/@disabled"
+    },
+    "font": {
+      "$ref": "#/$defs/field-properties/@font"
+    },
+    "help": {
+      "$ref": "#/$defs/field-properties/@help"
+    },
+    "icon": {
+      "$ref": "#/$defs/field-properties/@icon"
+    },
+    "label": {
+      "$ref": "#/$defs/field-properties/@label"
+    },
+    "maxlength": {
+      "$ref": "#/$defs/field-properties/@maxlength"
+    },
+    "minlength": {
+      "$ref": "#/$defs/field-properties/@minlength"
+    },
+    "path": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "pattern": {
+      "$ref": "#/$defs/field-properties/@pattern"
+    },
+    "placeholder": {
+      "$ref": "#/$defs/field-properties/@placeholder"
+    },
+    "required": {
+      "$ref": "#/$defs/field-properties/@required",
+      "default": false
+    },
+    "sync": {
+      "$ref": "#/$defs/field-properties/@slugOption"
+    },
+    "translate": {
+      "$ref": "#/$defs/field-properties/@translate",
+      "default": true
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    },
+    "width": {
+      "$ref": "#/$defs/field-properties/@width",
+      "default": "1/1"
+    },
+    "wizard": {
+      "oneOf": [
+        {
+          "const": false
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "field": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "text": {
+              "$ref": "#/$defs/nonEmptyString"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+type: group
+fields:
+  headline:
+    type: text
+  summary:
+    type: textarea
+width: 1/2
+when:
+  hasContent: true

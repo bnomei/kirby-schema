@@ -1,0 +1,22 @@
+blueprint: page
+title: Notes
+icon: 📖
+columns:
+  - width: 1/3
+    sections:
+      drafts:
+        extends: sections/notes
+        label: Drafts
+        status: draft
+      unlisted:
+        extends: sections/notes
+        label: In Review
+        status: unlisted
+  - width: 2/3
+    sections:
+      listed:
+        extends: sections/notes
+        label: Published
+        status: listed
+        size: small
+        layout: cards

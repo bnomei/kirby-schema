@@ -1,0 +1,8 @@
+# Covers: variant/options-map
+blueprint: page
+fields:
+  category:
+    type: select
+    options:
+      design: Design
+      architecture: Architecture

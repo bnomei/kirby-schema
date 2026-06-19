@@ -1,0 +1,5 @@
+# Source: https://getkirby.com/docs/reference/panel/sections/pages#sorting__sortable
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/4_sections/0_pages/reference-panelsection.txt
+blueprint: section
+type: pages
+sortable: false

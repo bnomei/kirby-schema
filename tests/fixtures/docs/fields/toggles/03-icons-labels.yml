@@ -1,0 +1,18 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/toggles#icons-labels
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_toggles/reference-panelfield.txt
+blueprint: field
+type: toggles
+label: Icons & Labels
+options:
+  - value: left
+    text: Left
+    icon: text-left
+  - value: center
+    text: Center
+    icon: text-center
+  - value: right
+    text: Right
+    icon: text-right
+  - value: justify
+    text: Justify
+    icon: text-justify

@@ -1,0 +1,7 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/info#themes__disable-theming
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_info/reference-panelfield.txt
+blueprint: field
+label: Info
+type: info
+theme: none
+text: This is a very neutral message.

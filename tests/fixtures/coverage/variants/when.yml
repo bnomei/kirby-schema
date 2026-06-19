@@ -1,0 +1,13 @@
+# Covers: variant/when
+blueprint: page
+fields:
+  title:
+    type: text
+    when:
+      template: article
+      isPublished: true
+sections:
+  drafts:
+    type: pages
+    when:
+      template: article

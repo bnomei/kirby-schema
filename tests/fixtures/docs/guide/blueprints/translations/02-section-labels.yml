@@ -1,0 +1,9 @@
+# Source: https://getkirby.com/docs/guide/blueprints/translations#section-labels
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/1_guide/7_blueprints/6_translations/guide.txt
+blueprint: page
+sections:
+  subpages:
+    type: pages
+    label:
+      en: Articles
+      de: Artikel

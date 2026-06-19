@@ -1,0 +1,24 @@
+# Covers: #/$defs/fields/link
+type: link
+blueprint: field
+extends: fields/base
+autofocus: true
+default:
+  value: default
+disabled: false
+help:
+  en: Help
+  de: Help DE
+label:
+  en: Label
+  de: Label DE
+options:
+  - page
+  - anchor
+  - custom
+required: true
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

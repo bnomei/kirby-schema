@@ -1,0 +1,17 @@
+# Covers: variant/options-list
+blueprint: page
+fields:
+  category:
+    type: select
+    options:
+      type: array
+      options:
+        - design
+        - 42
+        - null
+        - value: premium
+          text:
+            en: Premium
+            de: Premium DE
+          disabled: true
+          info: null

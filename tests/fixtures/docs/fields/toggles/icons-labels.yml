@@ -1,0 +1,16 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/toggles
+type: toggles
+label: Icons & Labels
+options:
+  - value: left
+    text: Left
+    icon: text-left
+  - value: center
+    text: Center
+    icon: text-center
+  - value: right
+    text: Right
+    icon: text-right
+  - value: justify
+    text: Justify
+    icon: text-justify

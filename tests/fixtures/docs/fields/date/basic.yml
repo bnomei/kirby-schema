@@ -1,0 +1,7 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/date
+type: date
+display: MMM YYYY
+step: month
+time:
+  step: 1
+  display: h.mm a

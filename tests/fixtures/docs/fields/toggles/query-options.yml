@@ -1,0 +1,9 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/toggles
+type: toggles
+options:
+  type: query
+  query: site.children
+  text: '{{ item.title }}'
+  value: '{{ item.id }}'
+  info: '{{ item.template }}'
+  icon: '{{ item.icon }}'

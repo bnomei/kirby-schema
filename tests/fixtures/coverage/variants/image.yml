@@ -1,0 +1,15 @@
+# Covers: variant/image
+blueprint: page
+image:
+  back: blue-200
+  icon: image
+fields:
+  cover:
+    type: files
+    image:
+      back: black
+      color: white
+      cover: true
+      icon: image
+      ratio: 16/9
+      query: file

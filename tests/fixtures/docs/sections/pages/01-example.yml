@@ -1,0 +1,15 @@
+# Source: https://getkirby.com/docs/reference/panel/sections/pages#example
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/4_sections/0_pages/reference-panelsection.txt
+blueprint: page
+title: Shop
+sections:
+  drafts:
+    label: Drafts
+    type: pages
+    status: draft
+    templates: product
+  published:
+    label: Published Products
+    type: pages
+    status: listed
+    templates: product

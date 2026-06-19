@@ -1,0 +1,6 @@
+# Source: https://getkirby.com/docs/reference/panel/blueprints/site#custom-preview-url
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/1_blueprints/0_site/reference-article.txt
+blueprint: site
+title: Site
+options:
+  preview: https://mycustomdomain.com

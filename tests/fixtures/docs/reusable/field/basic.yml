@@ -1,0 +1,4 @@
+# Source: https://getkirby.com/docs/guide/blueprints
+blueprint: field
+type: text
+label: Text

@@ -1,0 +1,48 @@
+# Covers: #/$defs/fields/tags
+type: tags
+blueprint: field
+extends: fields/base
+accept: all
+api:
+  fetch: site.children
+  text: '{{ item.title }}'
+  value: '{{ item.id }}'
+  icon: page
+  info: '{{ item.info }}'
+autofocus: true
+default:
+  value: default
+disabled: false
+help:
+  en: Help
+  de: Help DE
+icon: page
+label:
+  en: Label
+  de: Label DE
+layout: cards
+max: 10
+min: 1
+options:
+  draft:
+    en: Draft
+    de: Draft DE
+  listed: Listed
+query:
+  fetch: site.children
+  text: '{{ item.title }}'
+  value: '{{ item.id }}'
+  icon: page
+  info: '{{ item.info }}'
+required: true
+search:
+  min: 2
+  display: Search title
+  info: '{{ item.info }}'
+separator: ','
+sort: true
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

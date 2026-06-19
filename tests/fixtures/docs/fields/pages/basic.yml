@@ -1,0 +1,6 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/pages
+label: Select a related page.
+max: 3
+subpages: false
+type: pages
+width: 1/3

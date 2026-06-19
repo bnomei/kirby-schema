@@ -1,0 +1,5 @@
+# Source: https://getkirby.com/docs/reference/panel/blueprints/page#preview__custom-link__template-string
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/1_blueprints/0_page/reference-article.txt
+blueprint: page
+options:
+  preview: '{{ page.parent.url }}/#{{ page.slug }}'

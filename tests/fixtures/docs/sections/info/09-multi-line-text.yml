@@ -1,0 +1,11 @@
+# Source: https://getkirby.com/docs/reference/panel/sections/info#text__multi-line-text
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/4_sections/0_info/reference-panelsection.txt
+blueprint: section
+type: info
+text: |
+  Dear Edith,
+
+  this is some multi line text with paragraphs.
+
+  Cheers,
+  A. Dmin

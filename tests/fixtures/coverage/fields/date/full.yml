@@ -1,0 +1,41 @@
+# Covers: #/$defs/fields/date
+type: date
+blueprint: field
+extends: fields/base
+after: after text
+autofocus: true
+before: before text
+calendar: true
+default:
+  value: default
+disabled: false
+display: value
+format: value
+help:
+  en: Help
+  de: Help DE
+icon: page
+label:
+  en: Label
+  de: Label DE
+max: '2026-12-31'
+min: '2026-01-01'
+required: true
+step:
+  unit: day
+  size: 1
+time:
+  step:
+    unit: minute
+    size: 15
+  display: HH:mm
+  min: '08:00'
+  max: '18:00'
+  notation: 24
+  times: true
+times: true
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

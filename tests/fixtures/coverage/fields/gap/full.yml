@@ -1,0 +1,8 @@
+# Covers: #/$defs/fields/gap
+type: gap
+blueprint: field
+extends: fields/base
+when:
+  template: article
+  isPublished: true
+width: 1/2

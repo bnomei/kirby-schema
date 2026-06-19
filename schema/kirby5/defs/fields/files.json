@@ -1,0 +1,101 @@
+{
+  "anyOf": [
+    {
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "required": [
+        "extends"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "files"
+      ]
+    },
+    "blueprint": {
+      "enum": [
+        "field"
+      ]
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "default": {
+      "$ref": "#/$defs/field-properties/@default"
+    },
+    "disabled": {
+      "$ref": "#/$defs/field-properties/@disabled"
+    },
+    "empty": {
+      "$ref": "#/$defs/field-properties/@empty"
+    },
+    "help": {
+      "$ref": "#/$defs/field-properties/@help"
+    },
+    "image": {
+      "$ref": "#/$defs/field-properties/@image"
+    },
+    "info": {
+      "$ref": "#/$defs/field-properties/@info"
+    },
+    "label": {
+      "$ref": "#/$defs/field-properties/@label"
+    },
+    "layout": {
+      "$ref": "#/$defs/field-properties/@layout"
+    },
+    "link": {
+      "$ref": "#/$defs/field-properties/@link"
+    },
+    "max": {
+      "$ref": "#/$defs/field-properties/@max"
+    },
+    "min": {
+      "$ref": "#/$defs/field-properties/@min"
+    },
+    "multiple": {
+      "$ref": "#/$defs/field-properties/@multiple",
+      "default": true
+    },
+    "query": {
+      "$ref": "#/$defs/field-properties/@pickerQuery"
+    },
+    "required": {
+      "$ref": "#/$defs/field-properties/@required"
+    },
+    "search": {
+      "$ref": "#/$defs/field-properties/@pickerSearch",
+      "default": true
+    },
+    "size": {
+      "$ref": "#/$defs/field-properties/@size",
+      "default": "auto"
+    },
+    "store": {
+      "$ref": "#/$defs/field-properties/@store"
+    },
+    "text": {
+      "$ref": "#/$defs/field-properties/@text"
+    },
+    "translate": {
+      "$ref": "#/$defs/field-properties/@translate",
+      "default": true
+    },
+    "uploads": {
+      "$ref": "#/$defs/field-properties/@uploads",
+      "default": []
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    },
+    "width": {
+      "$ref": "#/$defs/field-properties/@width"
+    }
+  }
+}

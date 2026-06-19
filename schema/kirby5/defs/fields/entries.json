@@ -1,0 +1,112 @@
+{
+  "anyOf": [
+    {
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "required": [
+        "extends"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "entries"
+      ]
+    },
+    "blueprint": {
+      "enum": [
+        "field"
+      ]
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "autofocus": {
+      "$ref": "#/$defs/field-properties/@autofocus"
+    },
+    "default": {
+      "$ref": "#/$defs/field-properties/@default"
+    },
+    "disabled": {
+      "$ref": "#/$defs/field-properties/@disabled"
+    },
+    "empty": {
+      "$ref": "#/$defs/field-properties/@empty"
+    },
+    "field": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        {
+          "$ref": "#/$defs/fields/color"
+        },
+        {
+          "$ref": "#/$defs/fields/date"
+        },
+        {
+          "$ref": "#/$defs/fields/email"
+        },
+        {
+          "$ref": "#/$defs/fields/number"
+        },
+        {
+          "$ref": "#/$defs/fields/select"
+        },
+        {
+          "$ref": "#/$defs/fields/slug"
+        },
+        {
+          "$ref": "#/$defs/fields/tel"
+        },
+        {
+          "$ref": "#/$defs/fields/text"
+        },
+        {
+          "$ref": "#/$defs/fields/time"
+        },
+        {
+          "$ref": "#/$defs/fields/url"
+        }
+      ]
+    },
+    "help": {
+      "$ref": "#/$defs/field-properties/@help"
+    },
+    "label": {
+      "$ref": "#/$defs/field-properties/@label"
+    },
+    "limit": {
+      "$ref": "#/$defs/field-properties/@limit"
+    },
+    "max": {
+      "$ref": "#/$defs/field-properties/@max"
+    },
+    "min": {
+      "$ref": "#/$defs/field-properties/@min"
+    },
+    "required": {
+      "$ref": "#/$defs/field-properties/@required",
+      "default": false
+    },
+    "sortable": {
+      "$ref": "#/$defs/field-properties/@sortable"
+    },
+    "translate": {
+      "$ref": "#/$defs/field-properties/@translate",
+      "default": true
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    },
+    "width": {
+      "$ref": "#/$defs/field-properties/@width",
+      "default": "1/1"
+    }
+  }
+}

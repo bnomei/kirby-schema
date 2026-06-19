@@ -1,0 +1,8 @@
+# Source: https://getkirby.com/docs/reference/panel/blueprints/user#permissions__pages__example-prevent-deleting-and-creating-pages-and-changing-their-template
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/1_blueprints/0_user/reference-article.txt
+blueprint: user
+permissions:
+  pages:
+    delete: false
+    create: false
+    changeTemplate: false

@@ -1,0 +1,5 @@
+# Source: https://getkirby.com/docs/reference/panel/sections/files
+label: Gallery
+type: files
+template: gallery
+query: page.images

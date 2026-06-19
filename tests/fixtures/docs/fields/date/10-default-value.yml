@@ -1,0 +1,7 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/date#default-value
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_date/reference-panelfield.txt
+blueprint: field
+label: Published on
+type: date
+time: true
+default: today 20:15

@@ -1,0 +1,23 @@
+# Covers: variant/options-api
+blueprint: page
+fields:
+  category:
+    type: tags
+    options: api
+    api:
+      url: https://example.com/api/tags
+      fetch: data
+      query: data.items
+      text: '{{ item.name }}'
+      value: '{{ item.id }}'
+    search:
+      min: 2
+      display:
+        en: Search tags
+        de: Tags suchen
+      info:
+        en: Type to filter
+        de: Tippen zum Filtern
+      placeholder:
+        en: Search
+        de: Suche

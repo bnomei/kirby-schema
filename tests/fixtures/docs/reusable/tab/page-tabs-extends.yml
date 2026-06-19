@@ -1,0 +1,11 @@
+# Source: https://getkirby.com/docs/guide/blueprints
+blueprint: page
+tabs:
+  content:
+    extends: tabs/content
+    label: Content
+    icon: text
+    fields:
+      title:
+        type: text
+  seo: tabs/seo

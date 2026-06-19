@@ -1,0 +1,4 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/pages
+type: pages
+label: Select an item
+limit: 10

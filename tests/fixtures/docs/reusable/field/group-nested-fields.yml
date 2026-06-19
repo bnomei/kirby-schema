@@ -1,0 +1,5 @@
+# Source: https://getkirby.com/docs/guide/blueprints
+type: group
+fields:
+  headline:
+    type: text

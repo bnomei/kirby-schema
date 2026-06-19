@@ -1,0 +1,4 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/tags
+label: Tags
+type: tags
+layout: list

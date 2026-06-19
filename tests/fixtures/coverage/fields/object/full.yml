@@ -1,0 +1,31 @@
+# Covers: #/$defs/fields/object
+type: object
+blueprint: field
+extends: fields/base
+default:
+  value: default
+disabled: false
+empty: Nothing here yet
+fields:
+  text:
+    type: text
+    label:
+      en: Text
+      de: Text DE
+  toggle:
+    type: toggle
+    text:
+      - 'Off'
+      - 'On'
+help:
+  en: Help
+  de: Help DE
+label:
+  en: Label
+  de: Label DE
+required: true
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

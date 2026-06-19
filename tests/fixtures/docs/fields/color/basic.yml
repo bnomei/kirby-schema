@@ -1,0 +1,9 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/color
+type: color
+mode: options
+alpha: true
+options:
+  - '#fff'
+  - '#ccc'
+  - '#666'
+  - '#000'

@@ -1,0 +1,31 @@
+# Covers: #/$defs/fields/list
+type: list
+blueprint: field
+extends: fields/base
+after: after text
+autofocus: true
+before: before text
+default:
+  value: default
+disabled: false
+help:
+  en: Help
+  de: Help DE
+icon: page
+label:
+  en: Label
+  de: Label DE
+marks:
+  - bold
+  - italic
+  - link
+nodes:
+  - paragraph
+  - heading
+placeholder: Placeholder
+required: true
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

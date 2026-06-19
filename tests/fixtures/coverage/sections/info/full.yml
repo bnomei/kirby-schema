@@ -1,0 +1,14 @@
+# Covers: #/$defs/sections/info
+type: info
+blueprint: section
+extends: fields/base
+headline: Headline
+icon: page
+label:
+  en: Label
+  de: Label DE
+text: '{{ item.title }}'
+theme: positive
+when:
+  template: article
+  isPublished: true

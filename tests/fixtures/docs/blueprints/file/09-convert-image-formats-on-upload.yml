@@ -1,0 +1,6 @@
+# Source: https://getkirby.com/docs/reference/panel/blueprints/file#optimize-uploaded-images-create__convert-image-formats-on-upload
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/1_blueprints/0_file/reference-article.txt
+# Docs path: site/blueprints/files/image.yml
+blueprint: file
+create:
+  format: webp

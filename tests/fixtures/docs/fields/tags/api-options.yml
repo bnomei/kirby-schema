@@ -1,0 +1,6 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/tags
+label: Category
+type: tags
+options:
+  type: api
+  url: https://your-options-api.com/options.json

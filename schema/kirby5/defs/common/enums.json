@@ -1,0 +1,26 @@
+{
+  "marks": {
+    "enum": [
+      "bold",
+      "italic",
+      "underline",
+      "strike",
+      "code",
+      "link",
+      "email",
+      "sub",
+      "sup",
+      "clear"
+    ]
+  },
+  "nodes": {
+    "enum": [
+      "paragraph",
+      "heading",
+      "bulletList",
+      "orderedList",
+      "quote",
+      "horizontalRule"
+    ]
+  }
+}

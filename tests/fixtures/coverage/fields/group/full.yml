@@ -1,0 +1,18 @@
+# Covers: #/$defs/fields/group
+type: group
+extends: fields/base
+fields:
+  text:
+    type: text
+    label:
+      en: Text
+      de: Text DE
+  toggle:
+    type: toggle
+    text:
+      - 'Off'
+      - 'On'
+when:
+  template: article
+  isPublished: true
+width: 1/2

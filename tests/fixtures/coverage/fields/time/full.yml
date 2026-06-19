@@ -1,0 +1,32 @@
+# Covers: #/$defs/fields/time
+type: time
+blueprint: field
+extends: fields/base
+after: after text
+autofocus: true
+before: before text
+default:
+  value: default
+disabled: false
+display: value
+format: value
+help:
+  en: Help
+  de: Help DE
+icon: page
+label:
+  en: Label
+  de: Label DE
+max: '23:00'
+min: '08:00'
+notation: 12
+required: true
+step:
+  unit: minute
+  size: 15
+times: true
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

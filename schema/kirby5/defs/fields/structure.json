@@ -1,0 +1,92 @@
+{
+  "anyOf": [
+    {
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "required": [
+        "extends"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "structure"
+      ]
+    },
+    "blueprint": {
+      "enum": [
+        "field"
+      ]
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "batch": {
+      "$ref": "#/$defs/field-properties/@batch"
+    },
+    "columns": {
+      "$ref": "#/$defs/field-properties/@columns"
+    },
+    "default": {
+      "$ref": "#/$defs/field-properties/@default"
+    },
+    "disabled": {
+      "$ref": "#/$defs/field-properties/@disabled"
+    },
+    "duplicate": {
+      "type": "boolean",
+      "default": true
+    },
+    "empty": {
+      "$ref": "#/$defs/field-properties/@empty"
+    },
+    "fields": {
+      "$ref": "#/$defs/wrappers/fields"
+    },
+    "help": {
+      "$ref": "#/$defs/field-properties/@help"
+    },
+    "label": {
+      "$ref": "#/$defs/field-properties/@label"
+    },
+    "limit": {
+      "$ref": "#/$defs/field-properties/@limit"
+    },
+    "max": {
+      "$ref": "#/$defs/field-properties/@max"
+    },
+    "min": {
+      "$ref": "#/$defs/field-properties/@min"
+    },
+    "prepend": {
+      "type": "boolean",
+      "default": null
+    },
+    "required": {
+      "$ref": "#/$defs/field-properties/@required",
+      "default": false
+    },
+    "sortBy": {
+      "$ref": "#/$defs/field-properties/@sortBy"
+    },
+    "sortable": {
+      "$ref": "#/$defs/field-properties/@sortable"
+    },
+    "translate": {
+      "$ref": "#/$defs/field-properties/@translate",
+      "default": true
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    },
+    "width": {
+      "$ref": "#/$defs/field-properties/@width",
+      "default": "1/1"
+    }
+  }
+}

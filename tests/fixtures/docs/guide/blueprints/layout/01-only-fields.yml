@@ -1,0 +1,11 @@
+# Source: https://getkirby.com/docs/guide/blueprints/layout#only-fields
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/1_guide/7_blueprints/1_layout/guide.txt
+blueprint: page
+title: My blueprint
+fields:
+  headline:
+    label: Headline
+    type: text
+  text:
+    label: Text
+    type: textarea

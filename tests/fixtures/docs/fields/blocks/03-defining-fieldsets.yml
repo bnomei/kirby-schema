@@ -1,0 +1,13 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/blocks#defining-fieldsets
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_blocks/reference-panelfield.txt
+blueprint: field
+type: blocks
+fieldsets:
+  - heading
+  - text
+  - list
+  - image
+  - gallery
+  - video
+  - code
+  - markdown

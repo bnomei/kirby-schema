@@ -1,0 +1,8 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/multiselect
+label: Contact person
+type: multiselect
+options:
+  type: query
+  query: site.contactoptions.toStructure
+  text: '{{ item.name }}'
+  value: '{{ item.fediverse }}'

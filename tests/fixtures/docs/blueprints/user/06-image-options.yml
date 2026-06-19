@@ -1,0 +1,7 @@
+# Source: https://getkirby.com/docs/reference/panel/blueprints/user#image-options
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/1_blueprints/0_user/reference-article.txt
+# Docs path: site/blueprints/user/editor.yml
+blueprint: user
+image:
+  back: blue-200
+  icon: 📝

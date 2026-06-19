@@ -1,0 +1,4 @@
+blueprint: page
+title: Error
+options:
+  read: false

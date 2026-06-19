@@ -1,0 +1,6 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/toggles
+label: Category
+type: toggles
+options:
+  type: query
+  query: site.taxonomy.split

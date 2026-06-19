@@ -1,0 +1,53 @@
+blueprint: page
+title: About us
+icon: ☎️
+status:
+  draft: true
+  listed: true
+options:
+  changeSlug: false
+  delete: false
+tabs:
+  content:
+    icon: text
+    label: Content
+    fields:
+      layout:
+        label: Layout
+        type: layout
+        layouts:
+          - 1/1
+          - 1/2, 1/2
+          - 1/3, 1/3, 1/3
+  contact:
+    icon: map
+    label: Contact
+    columns:
+      - width: 1/2
+        fields:
+          address:
+            label: Address
+            type: writer
+            inline: true
+          email:
+            label: Email
+            type: email
+          phone:
+            label: Phone
+            type: tel
+      - width: 1/2
+        fields:
+          social:
+            label: On the web
+            type: structure
+            columns:
+              platform: true
+            fields:
+              platform:
+                label: Platform
+                type: text
+                width: 1/2
+              url:
+                label: URL
+                type: url
+                width: 1/2

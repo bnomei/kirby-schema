@@ -1,0 +1,8 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/multiselect
+label: Category
+type: multiselect
+options:
+  type: query
+  query: site.children.published
+  text: '{{ page.year }}'
+  value: '{{ page.slug }}'

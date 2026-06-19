@@ -1,0 +1,5 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/textarea
+label: Name
+type: textarea
+minlength: 10
+maxlength: 1000

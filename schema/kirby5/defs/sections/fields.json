@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "anyOf": [
+    {
+      "required": [
+        "type",
+        "fields"
+      ]
+    },
+    {
+      "required": [
+        "extends"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "fields"
+      ]
+    },
+    "blueprint": {
+      "const": "section"
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "fields": {
+      "$ref": "#/$defs/wrappers/fields"
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+blueprint: page
+title: Note
+num: date
+icon: 📖
+status:
+  draft:
+    label: Draft
+    text: The note is still in draft mode. It can only be seen by editors with panel access.
+  unlisted:
+    label: In Review
+    text: The note is online and can be visited with the direct URL. The team must still give the final go to publish it.
+  listed:
+    label: Published
+    text: The note is online and listed in the blog
+columns:
+  - width: 2/3
+    fields:
+      text:
+        type: blocks
+  - width: 1/3
+    sections:
+      meta:
+        type: fields
+        fields:
+          cover: fields/cover
+          date:
+            type: date
+            time: true
+            default: now
+          author:
+            type: users
+          tags: true
+      files:
+        type: files
+        template: blocks/image

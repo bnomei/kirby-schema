@@ -1,0 +1,4 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/users
+type: users
+size: full
+info: '{{ user.email }}'

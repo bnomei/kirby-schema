@@ -1,0 +1,60 @@
+# Covers: #/$defs/sections/pages
+type: pages
+blueprint: section
+batch: true
+extends: fields/base
+create:
+  - article
+  - note
+columns:
+  title:
+    label:
+      en: Title
+      de: Title DE
+    align: left
+    width: 1/2
+    value: '{{ item.title }}'
+  visible: true
+empty: Nothing here yet
+flip: true
+headline: Headline
+help:
+  en: Help
+  de: Help DE
+image:
+  back: blue-200
+  color: white
+  cover: true
+  icon: image
+  ratio: 16/9
+  query: page.cover
+info: '{{ item.info }}'
+label:
+  en: Label
+  de: Label DE
+layout: cards
+limit: 10
+max: 10
+min: 1
+page: 2
+parent: site.find("notes")
+query: site.children
+rawvalues: true
+search: true
+size: large
+sortBy: title asc
+sortable: true
+status: drafts
+template:
+  - article
+  - note
+templates:
+  - article
+  - note
+templatesIgnore:
+  - article
+  - note
+text: value
+when:
+  template: article
+  isPublished: true

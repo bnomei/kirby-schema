@@ -1,0 +1,5 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/url
+label: URL
+type: url
+when:
+  something: true

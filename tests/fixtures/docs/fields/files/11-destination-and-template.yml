@@ -1,0 +1,7 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/files#upload-options__destination-and-template
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_files/reference-panelfield.txt
+blueprint: field
+type: files
+uploads:
+  parent: site
+  template: files-upload

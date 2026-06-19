@@ -1,0 +1,7 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/info#themes__available-themes
+# Source file: https://raw.githubusercontent.com/getkirby/getkirby.com/main/content/docs/2_reference/3_panel/3_fields/0_info/reference-panelfield.txt
+blueprint: field
+label: Info
+type: info
+theme: negative
+text: This is a very important page type. Please double-check your content before publishing.

@@ -28,6 +28,9 @@
       "$ref": "#/$defs/fields/gap"
     },
     {
+      "$ref": "#/$defs/fields/group"
+    },
+    {
       "$ref": "#/$defs/fields/headline"
     },
     {
@@ -181,7 +184,9 @@
         "paragraph",
         "heading",
         "bulletList",
-        "orderedList"
+        "orderedList",
+        "quote",
+        "horizontalRule"
       ]
     },
     "nonEmptyString": {
@@ -227,6 +232,9 @@
         },
         "info": {
           "$ref": "#/$defs/nonEmptyString"
+        },
+        "query": {
+          "$ref": "#/$defs/nonEmptyString"
         }
       }
     },
@@ -242,6 +250,124 @@
         }
       }
     },
+    "optionValue": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "optionText": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/stringOrTranslated"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "optionItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/optionValue"
+        },
+        "text": {
+          "$ref": "#/$defs/optionText"
+        },
+        "disabled": {
+          "type": "boolean"
+        },
+        "icon": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "info": {
+          "$ref": "#/$defs/optionText"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "optionsArray": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/optionValue"
+          },
+          {
+            "$ref": "#/$defs/optionItem"
+          }
+        ]
+      }
+    },
+    "optionsMap": {
+      "type": "object",
+      "patternProperties": {
+        ".*": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/optionText"
+            },
+            {
+              "$ref": "#/$defs/optionValue"
+            },
+            {
+              "$ref": "#/$defs/optionItem"
+            }
+          ]
+        }
+      }
+    },
+    "optionsProvider": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "enum": [
+            "array",
+            "api",
+            "query"
+          ]
+        },
+        "options": {
+          "$ref": "#/$defs/optionsArray"
+        },
+        "url": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "query": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "fetch": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "text": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "value": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "icon": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "info": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
     "fieldsetsItem": {
       "oneOf": [
         {
@@ -251,18 +377,95 @@
           "type": "object",
           "patternProperties": {
             ".*": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "$ref": "#/$defs/nonEmptyString"
-                  },
-                  "content": {
-                    "type": "object"
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/fieldsetEntry"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/fieldsetEntry"
                   }
                 }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "fieldsetEntry": {
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "type": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "extends": {
+              "$ref": "#/$defs/field-properties/@extends"
+            },
+            "name": {
+              "$ref": "#/$defs/stringOrTranslated"
+            },
+            "label": {
+              "$ref": "#/$defs/field-properties/@label"
+            },
+            "icon": {
+              "$ref": "#/$defs/field-properties/@icon"
+            },
+            "preview": {
+              "oneOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "$ref": "#/$defs/nonEmptyString"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "wysiwyg": {
+              "type": "boolean"
+            },
+            "fields": {
+              "$ref": "#/$defs/wrappers/fields"
+            },
+            "sections": {
+              "$ref": "#/$defs/wrappers/sections"
+            },
+            "columns": {
+              "$ref": "#/$defs/wrappers/columns"
+            },
+            "tabs": {
+              "$ref": "#/$defs/wrappers/tabs"
+            },
+            "fieldsets": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/fieldsetsItem"
               }
+            },
+            "open": {
+              "type": "boolean",
+              "default": true
+            },
+            "translate": {
+              "type": "boolean"
+            },
+            "disabled": {
+              "type": "boolean"
+            },
+            "editable": {
+              "type": "boolean"
             }
           }
         }
@@ -270,9 +473,6 @@
     },
     "fieldsetsGroup": {
       "type": "object",
-      "required": [
-        "type"
-      ],
       "additionalProperties": false,
       "properties": {
         "type": {
@@ -293,7 +493,10 @@
           "type": "boolean",
           "default": true
         }
-      }
+      },
+      "required": [
+        "type"
+      ]
     },
     "objectWithBooleanOrNonEmptyStringValues": {
       "type": "object",
@@ -315,6 +518,14 @@
       "patternProperties": {
         ".*": {
           "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "objectWithStringOrTranslatedValues": {
+      "type": "object",
+      "patternProperties": {
+        ".*": {
+          "$ref": "#/$defs/stringOrTranslated"
         }
       }
     },
@@ -450,6 +661,12 @@
         },
         "icon": {
           "$ref": "#/$defs/field-properties/@icon"
+        },
+        "dialog": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "drawer": {
+          "$ref": "#/$defs/nonEmptyString"
         }
       }
     },
@@ -476,10 +693,7 @@
         "sections": {
           "$ref": "#/$defs/wrappers/sections"
         }
-      },
-      "required": [
-        "width"
-      ]
+      }
     },
     "tab": {
       "type": "object",
@@ -489,6 +703,9 @@
         },
         "icon": {
           "$ref": "#/$defs/blueprint-properties/@icon"
+        },
+        "extends": {
+          "$ref": "#/$defs/field-properties/@extends"
         },
         "fields": {
           "$ref": "#/$defs/wrappers/fields"
@@ -501,7 +718,7 @@
         }
       },
       "patternProperties": {
-        ".*": {
+        "^(?!label$|icon$|extends$|fields$|sections$|columns$).*$": {
           "anyOf": [
             {
               "$ref": "#/$defs/wrappers/fields"
@@ -513,6 +730,108 @@
               "$ref": "#/$defs/wrappers/columns"
             }
           ]
+        }
+      }
+    },
+    "sectionShortcut": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "extends": {
+          "$ref": "#/$defs/field-properties/@extends"
+        },
+        "batch": {
+          "$ref": "#/$defs/field-properties/@batch"
+        },
+        "create": {
+          "$ref": "#/$defs/field-properties/@create"
+        },
+        "columns": {
+          "$ref": "#/$defs/field-properties/@columns"
+        },
+        "empty": {
+          "$ref": "#/$defs/field-properties/@empty"
+        },
+        "flip": {
+          "$ref": "#/$defs/field-properties/@flip"
+        },
+        "headline": {
+          "$ref": "#/$defs/field-properties/@headline"
+        },
+        "help": {
+          "$ref": "#/$defs/field-properties/@help"
+        },
+        "icon": {
+          "$ref": "#/$defs/field-properties/@icon"
+        },
+        "image": {
+          "$ref": "#/$defs/field-properties/@image"
+        },
+        "info": {
+          "$ref": "#/$defs/field-properties/@info"
+        },
+        "label": {
+          "$ref": "#/$defs/field-properties/@label"
+        },
+        "layout": {
+          "$ref": "#/$defs/field-properties/@layout"
+        },
+        "limit": {
+          "$ref": "#/$defs/field-properties/@limit"
+        },
+        "max": {
+          "$ref": "#/$defs/field-properties/@max"
+        },
+        "min": {
+          "$ref": "#/$defs/field-properties/@min"
+        },
+        "page": {
+          "$ref": "#/$defs/field-properties/@page"
+        },
+        "parent": {
+          "$ref": "#/$defs/field-properties/@parent"
+        },
+        "query": {
+          "$ref": "#/$defs/field-properties/@query"
+        },
+        "rawvalues": {
+          "type": "boolean"
+        },
+        "reports": {
+          "$ref": "#/$defs/blueprint-properties/@reports"
+        },
+        "search": {
+          "$ref": "#/$defs/field-properties/@search"
+        },
+        "size": {
+          "$ref": "#/$defs/field-properties/@size"
+        },
+        "sortBy": {
+          "$ref": "#/$defs/field-properties/@sortBy"
+        },
+        "sortable": {
+          "$ref": "#/$defs/field-properties/@sortable"
+        },
+        "status": {
+          "$ref": "#/$defs/field-properties/@status"
+        },
+        "template": {
+          "$ref": "#/$defs/field-properties/@template"
+        },
+        "templates": {
+          "$ref": "#/$defs/field-properties/@templates"
+        },
+        "templatesIgnore": {
+          "$ref": "#/$defs/field-properties/@templates"
+        },
+        "text": {
+          "$ref": "#/$defs/field-properties/@text"
+        },
+        "uploads": {
+          "$ref": "#/$defs/field-properties/@uploads"
+        },
+        "when": {
+          "$ref": "#/$defs/field-properties/@when"
         }
       }
     },
@@ -546,6 +865,9 @@
               "listed"
             ],
             "default": "draft"
+          },
+          "slug": {
+            "$ref": "#/$defs/stringOrLabelAndText"
           }
         }
       },
@@ -557,11 +879,18 @@
         "default": "zero"
       },
       "@reports": {
-        "type": "array",
-        "minItems": 1,
-        "items": {
-          "$ref": "#/$defs/report"
-        }
+        "oneOf": [
+          {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "$ref": "#/$defs/report"
+            }
+          }
+        ]
       },
       "@status": {
         "type": "object",
@@ -602,65 +931,119 @@
         ]
       },
       "@options": {
-        "type": "object",
-        "properties": {
-          "changeSlug": {
-            "$ref": "#/$defs/booleanOrObject"
+        "oneOf": [
+          {
+            "type": "boolean"
           },
-          "changeStatus": {
-            "$ref": "#/$defs/booleanOrObject"
-          },
-          "changeTemplate": {
-            "$ref": "#/$defs/booleanOrStringArrayUnique"
-          },
-          "changeTitle": {
-            "$ref": "#/$defs/booleanOrObject"
-          },
-          "delete": {
-            "$ref": "#/$defs/booleanOrObject"
-          },
-          "duplicate": {
-            "$ref": "#/$defs/booleanOrObject"
-          },
-          "preview": {
-            "$ref": "#/$defs/booleanOrString"
-          },
-          "read": {
-            "$ref": "#/$defs/booleanOrObject"
-          },
-          "update": {
-            "$ref": "#/$defs/booleanOrObject"
-          },
-          "changeName": {
-            "$ref": "#/$defs/booleanOrObject"
-          },
-          "replace": {
-            "$ref": "#/$defs/booleanOrObject"
+          {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "access": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "changeSlug": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "changeStatus": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "changeTemplate": {
+                "$ref": "#/$defs/booleanOrStringArrayUnique"
+              },
+              "changeTitle": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "create": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "delete": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "duplicate": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "list": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "move": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "preview": {
+                "$ref": "#/$defs/booleanOrString"
+              },
+              "read": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "sort": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "update": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "changeName": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "changeEmail": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "changeLanguage": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "changePassword": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "changeRole": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "replace": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "status": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "template": {
+                "$ref": "#/$defs/booleanOrStringArrayUnique"
+              },
+              "title": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "url": {
+                "$ref": "#/$defs/booleanOrObject"
+              }
+            }
           }
-        }
+        ]
       },
       "@permissions": {
-        "type": "object",
-        "properties": {
-          "access": {
-            "$ref": "#/$defs/booleanOrObject"
+        "oneOf": [
+          {
+            "type": "boolean"
           },
-          "files": {
-            "$ref": "#/$defs/booleanOrObject"
-          },
-          "pages": {
-            "$ref": "#/$defs/booleanOrObject"
-          },
-          "site": {
-            "$ref": "#/$defs/booleanOrObject"
-          },
-          "users": {
-            "$ref": "#/$defs/booleanOrObject"
-          },
-          "user": {
-            "$ref": "#/$defs/booleanOrObject"
+          {
+            "type": "object",
+            "properties": {
+              "access": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "files": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "pages": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "site": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "users": {
+                "$ref": "#/$defs/booleanOrObject"
+              },
+              "user": {
+                "$ref": "#/$defs/booleanOrObject"
+              }
+            }
           }
-        }
+        ]
       },
       "@navigation": {
         "type": "object",
@@ -675,6 +1058,122 @@
             "$ref": "#/$defs/stringOrStringArrayUnique"
           }
         }
+      },
+      "@buttons": {
+        "oneOf": [
+          {
+            "const": false
+          },
+          {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/nonEmptyString"
+                },
+                {
+                  "const": "-"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "properties": {
+                    "component": {
+                      "$ref": "#/$defs/nonEmptyString"
+                    },
+                    "icon": {
+                      "$ref": "#/$defs/field-properties/@icon"
+                    },
+                    "text": {
+                      "$ref": "#/$defs/stringOrTranslated"
+                    },
+                    "title": {
+                      "$ref": "#/$defs/stringOrTranslated"
+                    },
+                    "link": {
+                      "$ref": "#/$defs/nonEmptyString"
+                    },
+                    "dialog": {
+                      "$ref": "#/$defs/nonEmptyString"
+                    },
+                    "drawer": {
+                      "$ref": "#/$defs/nonEmptyString"
+                    },
+                    "theme": {
+                      "$ref": "#/$defs/nonEmptyString"
+                    },
+                    "disabled": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "object",
+            "patternProperties": {
+              ".*": {
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "$ref": "#/$defs/nonEmptyString"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "component": {
+                        "$ref": "#/$defs/nonEmptyString"
+                      },
+                      "icon": {
+                        "$ref": "#/$defs/field-properties/@icon"
+                      },
+                      "text": {
+                        "$ref": "#/$defs/stringOrTranslated"
+                      },
+                      "title": {
+                        "$ref": "#/$defs/stringOrTranslated"
+                      },
+                      "link": {
+                        "$ref": "#/$defs/nonEmptyString"
+                      },
+                      "dialog": {
+                        "$ref": "#/$defs/nonEmptyString"
+                      },
+                      "drawer": {
+                        "$ref": "#/$defs/nonEmptyString"
+                      },
+                      "theme": {
+                        "$ref": "#/$defs/nonEmptyString"
+                      },
+                      "disabled": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "@presetSectionInput": {
+        "oneOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "$ref": "#/$defs/stringOrTranslated"
+          },
+          {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {}
+          }
+        ]
       }
     },
     "blueprints": {
@@ -693,8 +1192,14 @@
           "name": {
             "$ref": "#/$defs/blueprint-properties/@name"
           },
+          "label": {
+            "$ref": "#/$defs/blueprint-properties/@label"
+          },
           "icon": {
             "$ref": "#/$defs/blueprint-properties/@icon"
+          },
+          "extends": {
+            "$ref": "#/$defs/field-properties/@extends"
           },
           "preview": {
             "$ref": "#/$defs/nonEmptyString"
@@ -732,8 +1237,14 @@
           "title": {
             "$ref": "#/$defs/blueprint-properties/@title"
           },
+          "extends": {
+            "$ref": "#/$defs/field-properties/@extends"
+          },
           "accept": {
             "oneOf": [
+              {
+                "const": true
+              },
               {
                 "$ref": "#/$defs/nonEmptyString"
               },
@@ -741,6 +1252,9 @@
                 "type": "object",
                 "properties": {
                   "extension": {
+                    "$ref": "#/$defs/stringOrStringArrayUnique"
+                  },
+                  "mime": {
                     "$ref": "#/$defs/stringOrStringArrayUnique"
                   },
                   "mime ": {
@@ -799,6 +1313,9 @@
           "options": {
             "$ref": "#/$defs/blueprint-properties/@options"
           },
+          "buttons": {
+            "$ref": "#/$defs/blueprint-properties/@buttons"
+          },
           "fields": {
             "$ref": "#/$defs/wrappers/fields"
           },
@@ -828,6 +1345,9 @@
           "preset": {
             "$ref": "#/$defs/blueprint-properties/@preset"
           },
+          "extends": {
+            "$ref": "#/$defs/field-properties/@extends"
+          },
           "title": {
             "$ref": "#/$defs/blueprint-properties/@title"
           },
@@ -851,6 +1371,42 @@
           },
           "navigation": {
             "$ref": "#/$defs/blueprint-properties/@navigation"
+          },
+          "buttons": {
+            "$ref": "#/$defs/blueprint-properties/@buttons"
+          },
+          "pages": {
+            "$ref": "#/$defs/blueprint-properties/@presetSectionInput"
+          },
+          "files": {
+            "$ref": "#/$defs/blueprint-properties/@presetSectionInput"
+          },
+          "drafts": {
+            "$ref": "#/$defs/blueprint-properties/@presetSectionInput"
+          },
+          "unlisted": {
+            "$ref": "#/$defs/blueprint-properties/@presetSectionInput"
+          },
+          "listed": {
+            "$ref": "#/$defs/blueprint-properties/@presetSectionInput"
+          },
+          "templates": {
+            "$ref": "#/$defs/field-properties/@templates"
+          },
+          "sidebar": {
+            "$ref": "#/$defs/wrappers/sections"
+          },
+          "headline": {
+            "$ref": "#/$defs/stringOrTranslated"
+          },
+          "label": {
+            "$ref": "#/$defs/stringOrTranslated"
+          },
+          "layout": {
+            "$ref": "#/$defs/field-properties/@sectionLayout"
+          },
+          "template": {
+            "$ref": "#/$defs/field-properties/@filesSectionTemplate"
           },
           "fields": {
             "$ref": "#/$defs/wrappers/fields"
@@ -881,11 +1437,17 @@
           "icon": {
             "$ref": "#/$defs/blueprint-properties/@icon"
           },
+          "extends": {
+            "$ref": "#/$defs/field-properties/@extends"
+          },
           "title": {
             "$ref": "#/$defs/blueprint-properties/@title"
           },
           "options": {
             "$ref": "#/$defs/blueprint-properties/@options"
+          },
+          "buttons": {
+            "$ref": "#/$defs/blueprint-properties/@buttons"
           },
           "fields": {
             "$ref": "#/$defs/wrappers/fields"
@@ -919,6 +1481,9 @@
           "description": {
             "$ref": "#/$defs/stringOrTranslated"
           },
+          "extends": {
+            "$ref": "#/$defs/field-properties/@extends"
+          },
           "options": {
             "$ref": "#/$defs/blueprint-properties/@options"
           },
@@ -930,6 +1495,9 @@
           },
           "permissions": {
             "$ref": "#/$defs/blueprint-properties/@permissions"
+          },
+          "buttons": {
+            "$ref": "#/$defs/blueprint-properties/@buttons"
           },
           "fields": {
             "$ref": "#/$defs/wrappers/fields"
@@ -963,6 +1531,9 @@
           "icon": {
             "$ref": "#/$defs/blueprint-properties/@icon"
           },
+          "extends": {
+            "$ref": "#/$defs/field-properties/@extends"
+          },
           "fields": {
             "$ref": "#/$defs/wrappers/fields"
           },
@@ -980,7 +1551,7 @@
     },
     "field-properties": {
       "@after": {
-        "$ref": "#/$defs/nonEmptyString"
+        "$ref": "#/$defs/stringOrTranslated"
       },
       "@api": {
         "oneOf": [
@@ -1010,7 +1581,7 @@
         "type": "boolean"
       },
       "@before": {
-        "$ref": "#/$defs/nonEmptyString"
+        "$ref": "#/$defs/stringOrTranslated"
       },
       "@buttons": {
         "oneOf": [
@@ -1040,21 +1611,28 @@
         "type": "object",
         "patternProperties": {
           ".*": {
-            "type": "object",
-            "properties": {
-              "label": {
-                "$ref": "#/$defs/field-properties/@label"
+            "anyOf": [
+              {
+                "type": "boolean"
               },
-              "align": {
-                "$ref": "#/$defs/field-properties/@align"
-              },
-              "width": {
-                "$ref": "#/$defs/fraction"
-              },
-              "value": {
-                "$ref": "#/$defs/field-properties/@value"
+              {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "$ref": "#/$defs/field-properties/@label"
+                  },
+                  "align": {
+                    "$ref": "#/$defs/field-properties/@align"
+                  },
+                  "width": {
+                    "$ref": "#/$defs/fraction"
+                  },
+                  "value": {
+                    "$ref": "#/$defs/field-properties/@value"
+                  }
+                }
               }
-            }
+            ]
           }
         }
       },
@@ -1087,22 +1665,28 @@
         "type": "boolean"
       },
       "@empty": {
-        "$ref": "#/$defs/nonEmptyString",
+        "$ref": "#/$defs/stringOrTranslated",
         "description": "Sets the text for the empty state box"
       },
       "@extends": {
         "$ref": "#/$defs/nonEmptyString"
       },
       "@fieldsets": {
-        "oneOf": [
+        "anyOf": [
           {
             "$ref": "#/$defs/stringArrayUnique"
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/fieldsetsItem"
+            }
           },
           {
             "type": "object",
             "patternProperties": {
               ".*": {
-                "$ref": "#/$defs/fieldsetsGroup"
+                "$ref": "#/$defs/fieldsetEntry"
               }
             }
           }
@@ -1118,7 +1702,7 @@
             "additionalProperties": false,
             "properties": {
               "query": {
-                "$ref": "#/$defs/field-properties/@query"
+                "$ref": "#/$defs/field-properties/@pickerQuery"
               },
               "image": {
                 "$ref": "#/$defs/field-properties/@image"
@@ -1154,7 +1738,7 @@
         }
       },
       "@headline": {
-        "$ref": "#/$defs/nonEmptyString"
+        "$ref": "#/$defs/stringOrTranslated"
       },
       "@help": {
         "$ref": "#/$defs/stringOrTranslated",
@@ -1485,18 +2069,18 @@
         ]
       },
       "@options": {
-        "oneOf": [
+        "anyOf": [
           {
             "$ref": "#/$defs/stringOrStringArrayUnique"
           },
           {
-            "$ref": "#/$defs/objectWithStringValues"
+            "$ref": "#/$defs/optionsArray"
           },
           {
-            "type": "array",
-            "items": {
-              "$ref": "#/$defs/objectWithStringValues"
-            }
+            "$ref": "#/$defs/optionsMap"
+          },
+          {
+            "$ref": "#/$defs/optionsProvider"
           }
         ]
       },
@@ -1514,7 +2098,7 @@
         "description": "A regular expression, which will be used to validate the input"
       },
       "@placeholder": {
-        "$ref": "#/$defs/nonEmptyString"
+        "$ref": "#/$defs/stringOrTranslated"
       },
       "@query": {
         "oneOf": [
@@ -1530,7 +2114,29 @@
         "type": "boolean"
       },
       "@search": {
-        "type": "boolean"
+        "oneOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "min": {
+                "type": "number"
+              },
+              "display": {
+                "$ref": "#/$defs/stringOrTranslated"
+              },
+              "info": {
+                "$ref": "#/$defs/stringOrTranslated"
+              },
+              "placeholder": {
+                "$ref": "#/$defs/stringOrTranslated"
+              }
+            }
+          }
+        ]
       },
       "@separator": {
         "$ref": "#/$defs/nonEmptyString"
@@ -1541,7 +2147,9 @@
           "small",
           "medium",
           "large",
-          "huge"
+          "huge",
+          "auto",
+          "full"
         ],
         "description": "The size option controls the size of cards"
       },
@@ -1587,7 +2195,7 @@
         ]
       },
       "@template": {
-        "$ref": "#/$defs/nonEmptyString",
+        "$ref": "#/$defs/stringOrStringArrayUnique",
         "description": "Filters all files by template and also sets the template, which will be used for all uploads"
       },
       "@templates": {
@@ -1601,7 +2209,7 @@
         ]
       },
       "@text": {
-        "$ref": "#/$defs/nonEmptyString",
+        "$ref": "#/$defs/stringOrTranslated",
         "description": "Setup for the main text in the list or cards"
       },
       "@theme": {
@@ -1612,7 +2220,12 @@
           "negative",
           "warning",
           "notice",
-          "love"
+          "love",
+          "passive",
+          "text",
+          "dark",
+          "code",
+          "empty"
         ]
       },
       "@toolbar": {
@@ -1646,6 +2259,7 @@
           },
           {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
               "parent": {
                 "$ref": "#/$defs/nonEmptyString"
@@ -1653,6 +2267,28 @@
               "template": {
                 "$ref": "#/$defs/nonEmptyString"
               }
+            }
+          },
+          {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/nonEmptyString"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "parent": {
+                      "$ref": "#/$defs/nonEmptyString"
+                    },
+                    "template": {
+                      "$ref": "#/$defs/nonEmptyString"
+                    }
+                  }
+                }
+              ]
             }
           }
         ]
@@ -1677,6 +2313,157 @@
           "3/4"
         ],
         "default": "1/1"
+      },
+      "@pickerQuery": {
+        "$ref": "#/$defs/notRequiredNonEmptyString"
+      },
+      "@pickerSearch": {
+        "type": "boolean"
+      },
+      "@dateTimeBoundary": {
+        "$ref": "#/$defs/notRequiredNonEmptyString"
+      },
+      "@dateTimeStep": {
+        "oneOf": [
+          {
+            "type": "number"
+          },
+          {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "unit": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "size": {
+                "type": "number"
+              }
+            }
+          }
+        ]
+      },
+      "@numericStep": {
+        "oneOf": [
+          {
+            "type": "number"
+          },
+          {
+            "enum": [
+              "any"
+            ]
+          }
+        ]
+      },
+      "@rangeTooltip": {
+        "oneOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "before": {
+                "$ref": "#/$defs/stringOrTranslated"
+              },
+              "after": {
+                "$ref": "#/$defs/stringOrTranslated"
+              }
+            }
+          }
+        ]
+      },
+      "@sectionLayout": {
+        "enum": [
+          "list",
+          "cardlets",
+          "cards",
+          "table"
+        ]
+      },
+      "@filesSectionCreate": {
+        "type": "boolean"
+      },
+      "@pagesSectionCreate": {
+        "oneOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          {
+            "$ref": "#/$defs/stringArrayUnique"
+          }
+        ]
+      },
+      "@pagesSectionStatus": {
+        "enum": [
+          "draft",
+          "drafts",
+          "unlisted",
+          "listed",
+          "published",
+          "all"
+        ]
+      },
+      "@filesSectionTemplate": {
+        "$ref": "#/$defs/notRequiredNonEmptyString"
+      },
+      "@linkOptions": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "url",
+            "page",
+            "file",
+            "email",
+            "tel",
+            "anchor",
+            "custom"
+          ]
+        },
+        "uniqueItems": true,
+        "minItems": 1
+      },
+      "@toggleText": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/stringOrTranslated"
+          },
+          {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 2,
+            "items": {
+              "$ref": "#/$defs/stringOrTranslated"
+            }
+          }
+        ]
+      },
+      "@slugOption": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "const": false
+          }
+        ]
+      },
+      "@statsSize": {
+        "enum": [
+          "small",
+          "medium",
+          "large",
+          "huge"
+        ]
       }
     },
     "fields": {
@@ -1722,6 +2509,9 @@
           },
           "fieldsets": {
             "$ref": "#/$defs/field-properties/@fieldsets"
+          },
+          "group": {
+            "$ref": "#/$defs/nonEmptyString"
           },
           "help": {
             "$ref": "#/$defs/field-properties/@help"
@@ -1783,6 +2573,9 @@
           },
           "extends": {
             "$ref": "#/$defs/field-properties/@extends"
+          },
+          "batch": {
+            "$ref": "#/$defs/field-properties/@batch"
           },
           "api": {
             "$ref": "#/$defs/field-properties/@api"
@@ -1957,7 +2750,7 @@
           },
           "calendar": {
             "type": "boolean",
-            "default": false
+            "default": true
           },
           "default": {
             "$ref": "#/$defs/field-properties/@default"
@@ -1981,17 +2774,17 @@
             "$ref": "#/$defs/field-properties/@label"
           },
           "max": {
-            "$ref": "#/$defs/field-properties/@max"
+            "$ref": "#/$defs/field-properties/@dateTimeBoundary"
           },
           "min": {
-            "$ref": "#/$defs/field-properties/@min"
+            "$ref": "#/$defs/field-properties/@dateTimeBoundary"
           },
           "required": {
             "$ref": "#/$defs/field-properties/@required",
             "default": false
           },
           "step": {
-            "$ref": "#/$defs/field-properties/@step"
+            "$ref": "#/$defs/field-properties/@dateTimeStep"
           },
           "time": {
             "oneOf": [
@@ -2003,14 +2796,33 @@
                 "additionalProperties": false,
                 "properties": {
                   "step": {
-                    "$ref": "#/$defs/field-properties/@step"
+                    "$ref": "#/$defs/field-properties/@dateTimeStep"
                   },
                   "display": {
                     "$ref": "#/$defs/nonEmptyString"
+                  },
+                  "min": {
+                    "$ref": "#/$defs/field-properties/@dateTimeBoundary"
+                  },
+                  "max": {
+                    "$ref": "#/$defs/field-properties/@dateTimeBoundary"
+                  },
+                  "notation": {
+                    "enum": [
+                      12,
+                      24
+                    ],
+                    "default": 24
+                  },
+                  "times": {
+                    "type": "boolean"
                   }
                 }
               }
             ]
+          },
+          "times": {
+            "type": "boolean"
           },
           "translate": {
             "$ref": "#/$defs/field-properties/@translate",
@@ -2084,6 +2896,9 @@
           "label": {
             "$ref": "#/$defs/field-properties/@label"
           },
+          "link": {
+            "$ref": "#/$defs/field-properties/@link"
+          },
           "maxlength": {
             "$ref": "#/$defs/field-properties/@maxlength"
           },
@@ -2154,8 +2969,14 @@
           "disabled": {
             "$ref": "#/$defs/field-properties/@disabled"
           },
+          "empty": {
+            "$ref": "#/$defs/field-properties/@empty"
+          },
           "field": {
             "anyOf": [
+              {
+                "$ref": "#/$defs/nonEmptyString"
+              },
               {
                 "$ref": "#/$defs/fields/color"
               },
@@ -2286,16 +3107,16 @@
           },
           "multiple": {
             "$ref": "#/$defs/field-properties/@multiple",
-            "default": false
+            "default": true
           },
           "query": {
-            "$ref": "#/$defs/field-properties/@query"
+            "$ref": "#/$defs/field-properties/@pickerQuery"
           },
           "required": {
             "$ref": "#/$defs/field-properties/@required"
           },
           "search": {
-            "$ref": "#/$defs/field-properties/@search",
+            "$ref": "#/$defs/field-properties/@pickerSearch",
             "default": true
           },
           "size": {
@@ -2377,7 +3198,7 @@
         "properties": {
           "type": {
             "enum": [
-              "gap"
+              "group"
             ]
           },
           "extends": {
@@ -2428,10 +3249,6 @@
           "label": {
             "$ref": "#/$defs/field-properties/@label"
           },
-          "numbered": {
-            "type": "boolean",
-            "default": false
-          },
           "when": {
             "$ref": "#/$defs/field-properties/@when"
           },
@@ -2463,6 +3280,12 @@
           },
           "extends": {
             "$ref": "#/$defs/field-properties/@extends"
+          },
+          "default": {
+            "$ref": "#/$defs/field-properties/@default"
+          },
+          "translate": {
+            "$ref": "#/$defs/field-properties/@translate"
           }
         }
       },
@@ -2496,6 +3319,9 @@
           },
           "help": {
             "$ref": "#/$defs/field-properties/@help"
+          },
+          "icon": {
+            "$ref": "#/$defs/field-properties/@icon"
           },
           "label": {
             "$ref": "#/$defs/field-properties/@label"
@@ -2543,18 +3369,86 @@
           "extends": {
             "$ref": "#/$defs/field-properties/@extends"
           },
+          "autofocus": {
+            "$ref": "#/$defs/field-properties/@autofocus"
+          },
+          "default": {
+            "$ref": "#/$defs/field-properties/@default"
+          },
+          "disabled": {
+            "$ref": "#/$defs/field-properties/@disabled"
+          },
+          "empty": {
+            "$ref": "#/$defs/field-properties/@empty"
+          },
+          "fieldsets": {
+            "$ref": "#/$defs/field-properties/@fieldsets"
+          },
+          "group": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "help": {
+            "$ref": "#/$defs/field-properties/@help"
+          },
           "label": {
             "$ref": "#/$defs/field-properties/@label"
           },
           "layouts": {
             "$ref": "#/$defs/stringArrayUnique"
           },
-          "fieldsets": {
-            "$ref": "#/$defs/field-properties/@fieldsets"
+          "max": {
+            "$ref": "#/$defs/field-properties/@max"
+          },
+          "min": {
+            "$ref": "#/$defs/field-properties/@min"
+          },
+          "pretty": {
+            "type": "boolean",
+            "default": false
+          },
+          "required": {
+            "$ref": "#/$defs/field-properties/@required",
+            "default": false
+          },
+          "selector": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "size": {
+                "enum": [
+                  "small",
+                  "medium",
+                  "large",
+                  "huge"
+                ],
+                "default": "medium"
+              },
+              "columns": {
+                "type": "number",
+                "default": 3
+              }
+            }
           },
           "settings": {
-            "type": "object",
-            "description": "--- TODO ---"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          },
+          "translate": {
+            "$ref": "#/$defs/field-properties/@translate",
+            "default": true
+          },
+          "when": {
+            "$ref": "#/$defs/field-properties/@when"
+          },
+          "width": {
+            "$ref": "#/$defs/field-properties/@width",
+            "default": "1/1"
           }
         }
       },
@@ -2585,6 +3479,12 @@
           },
           "extends": {
             "$ref": "#/$defs/field-properties/@extends"
+          },
+          "when": {
+            "$ref": "#/$defs/field-properties/@when"
+          },
+          "width": {
+            "$ref": "#/$defs/field-properties/@width"
           }
         }
       },
@@ -2632,7 +3532,7 @@
             "$ref": "#/$defs/field-properties/@label"
           },
           "options": {
-            "$ref": "#/$defs/field-properties/@options"
+            "$ref": "#/$defs/field-properties/@linkOptions"
           },
           "required": {
             "$ref": "#/$defs/field-properties/@required",
@@ -2894,7 +3794,7 @@
             "default": false
           },
           "step": {
-            "$ref": "#/$defs/field-properties/@step"
+            "$ref": "#/$defs/field-properties/@numericStep"
           },
           "translate": {
             "$ref": "#/$defs/field-properties/@translate",
@@ -3037,14 +3937,14 @@
             "$ref": "#/$defs/field-properties/@multiple"
           },
           "query": {
-            "$ref": "#/$defs/field-properties/@query"
+            "$ref": "#/$defs/field-properties/@pickerQuery"
           },
           "required": {
             "$ref": "#/$defs/field-properties/@required",
             "default": false
           },
           "search": {
-            "$ref": "#/$defs/field-properties/@search",
+            "$ref": "#/$defs/field-properties/@pickerSearch",
             "default": true
           },
           "store": {
@@ -3209,11 +4109,10 @@
             "default": false
           },
           "step": {
-            "$ref": "#/$defs/field-properties/@step"
+            "$ref": "#/$defs/field-properties/@numericStep"
           },
           "tooltip": {
-            "type": "boolean",
-            "default": true
+            "$ref": "#/$defs/field-properties/@rangeTooltip"
           },
           "translate": {
             "$ref": "#/$defs/field-properties/@translate",
@@ -3335,7 +4234,7 @@
             "$ref": "#/$defs/field-properties/@after"
           },
           "allow": {
-            "$ref": "#/$defs/nonEmptyString"
+            "$ref": "#/$defs/field-properties/@slugOption"
           },
           "autofocus": {
             "$ref": "#/$defs/field-properties/@autofocus"
@@ -3381,7 +4280,7 @@
             "default": false
           },
           "sync": {
-            "$ref": "#/$defs/nonEmptyString"
+            "$ref": "#/$defs/field-properties/@slugOption"
           },
           "translate": {
             "$ref": "#/$defs/field-properties/@translate",
@@ -3395,16 +4294,23 @@
             "default": "1/1"
           },
           "wizard": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "field": {
-                "$ref": "#/$defs/nonEmptyString"
+            "oneOf": [
+              {
+                "const": false
               },
-              "text": {
-                "$ref": "#/$defs/nonEmptyString"
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "field": {
+                    "$ref": "#/$defs/nonEmptyString"
+                  },
+                  "text": {
+                    "$ref": "#/$defs/nonEmptyString"
+                  }
+                }
               }
-            }
+            ]
           }
         }
       },
@@ -3435,6 +4341,9 @@
           },
           "extends": {
             "$ref": "#/$defs/field-properties/@extends"
+          },
+          "batch": {
+            "$ref": "#/$defs/field-properties/@batch"
           },
           "columns": {
             "$ref": "#/$defs/field-properties/@columns"
@@ -3472,7 +4381,7 @@
           },
           "prepend": {
             "type": "boolean",
-            "default": true
+            "default": null
           },
           "required": {
             "$ref": "#/$defs/field-properties/@required",
@@ -3526,6 +4435,9 @@
           "headline": {
             "$ref": "#/$defs/field-properties/@headline"
           },
+          "help": {
+            "$ref": "#/$defs/field-properties/@help"
+          },
           "label": {
             "$ref": "#/$defs/field-properties/@label"
           },
@@ -3533,7 +4445,7 @@
             "$ref": "#/$defs/blueprint-properties/@reports"
           },
           "size": {
-            "$ref": "#/$defs/field-properties/@size",
+            "$ref": "#/$defs/field-properties/@statsSize",
             "default": "large"
           }
         }
@@ -3891,7 +4803,7 @@
           },
           "spellcheck": {
             "$ref": "#/$defs/field-properties/@spellcheck",
-            "default": false
+            "default": true
           },
           "translate": {
             "$ref": "#/$defs/field-properties/@translate",
@@ -3967,10 +4879,10 @@
             "$ref": "#/$defs/field-properties/@label"
           },
           "max": {
-            "$ref": "#/$defs/field-properties/@max"
+            "$ref": "#/$defs/field-properties/@dateTimeBoundary"
           },
           "min": {
-            "$ref": "#/$defs/field-properties/@min"
+            "$ref": "#/$defs/field-properties/@dateTimeBoundary"
           },
           "notation": {
             "enum": [
@@ -3984,7 +4896,10 @@
             "default": false
           },
           "step": {
-            "$ref": "#/$defs/field-properties/@step"
+            "$ref": "#/$defs/field-properties/@dateTimeStep"
+          },
+          "times": {
+            "type": "boolean"
           },
           "translate": {
             "$ref": "#/$defs/field-properties/@translate",
@@ -4056,17 +4971,7 @@
             "default": false
           },
           "text": {
-            "oneOf": [
-              {
-                "$ref": "#/$defs/stringArrayUnique"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/$defs/translated"
-                }
-              }
-            ]
+            "$ref": "#/$defs/field-properties/@toggleText"
           },
           "translate": {
             "$ref": "#/$defs/field-properties/@translate",
@@ -4221,6 +5126,9 @@
           "label": {
             "$ref": "#/$defs/field-properties/@label"
           },
+          "link": {
+            "$ref": "#/$defs/field-properties/@link"
+          },
           "maxlength": {
             "$ref": "#/$defs/field-properties/@maxlength"
           },
@@ -4291,6 +5199,9 @@
           "image": {
             "$ref": "#/$defs/field-properties/@image"
           },
+          "info": {
+            "$ref": "#/$defs/field-properties/@info"
+          },
           "label": {
             "$ref": "#/$defs/field-properties/@label"
           },
@@ -4311,13 +5222,13 @@
             "default": true
           },
           "query": {
-            "$ref": "#/$defs/field-properties/@query"
+            "$ref": "#/$defs/field-properties/@pickerQuery"
           },
           "required": {
             "$ref": "#/$defs/field-properties/@required"
           },
           "search": {
-            "$ref": "#/$defs/field-properties/@search",
+            "$ref": "#/$defs/field-properties/@pickerSearch",
             "default": true
           },
           "size": {
@@ -4442,9 +5353,18 @@
     "sections": {
       "fields": {
         "type": "object",
-        "required": [
-          "type",
-          "fields"
+        "anyOf": [
+          {
+            "required": [
+              "type",
+              "fields"
+            ]
+          },
+          {
+            "required": [
+              "extends"
+            ]
+          }
         ],
         "additionalProperties": false,
         "properties": {
@@ -4456,8 +5376,14 @@
           "blueprint": {
             "const": "section"
           },
+          "extends": {
+            "$ref": "#/$defs/field-properties/@extends"
+          },
           "fields": {
             "$ref": "#/$defs/wrappers/fields"
+          },
+          "when": {
+            "$ref": "#/$defs/field-properties/@when"
           }
         }
       },
@@ -4490,6 +5416,15 @@
           "batch": {
             "$ref": "#/$defs/field-properties/@batch"
           },
+          "extends": {
+            "$ref": "#/$defs/field-properties/@extends"
+          },
+          "columns": {
+            "$ref": "#/$defs/field-properties/@columns"
+          },
+          "create": {
+            "$ref": "#/$defs/field-properties/@filesSectionCreate"
+          },
           "empty": {
             "$ref": "#/$defs/field-properties/@empty"
           },
@@ -4513,7 +5448,7 @@
             "$ref": "#/$defs/field-properties/@label"
           },
           "layout": {
-            "$ref": "#/$defs/field-properties/@layout",
+            "$ref": "#/$defs/field-properties/@sectionLayout",
             "default": "list"
           },
           "limit": {
@@ -4533,14 +5468,17 @@
             "$ref": "#/$defs/field-properties/@parent"
           },
           "query": {
-            "$ref": "#/$defs/nonEmptyString"
+            "$ref": "#/$defs/field-properties/@pickerQuery"
+          },
+          "rawvalues": {
+            "type": "boolean"
           },
           "size": {
             "$ref": "#/$defs/field-properties/@size",
             "default": "auto"
           },
           "search": {
-            "$ref": "#/$defs/field-properties/@search"
+            "$ref": "#/$defs/field-properties/@pickerSearch"
           },
           "sortBy": {
             "$ref": "#/$defs/field-properties/@sortBy"
@@ -4549,15 +5487,15 @@
             "$ref": "#/$defs/field-properties/@sortable",
             "default": true
           },
-          "status": {
-            "$ref": "#/$defs/field-properties/@status"
-          },
           "template": {
-            "$ref": "#/$defs/field-properties/@template"
+            "$ref": "#/$defs/field-properties/@filesSectionTemplate"
           },
           "text": {
             "$ref": "#/$defs/nonEmptyString",
             "default": "'{{ page.title }}'"
+          },
+          "when": {
+            "$ref": "#/$defs/field-properties/@when"
           }
         }
       },
@@ -4587,8 +5525,14 @@
               "section"
             ]
           },
+          "extends": {
+            "$ref": "#/$defs/field-properties/@extends"
+          },
           "headline": {
             "$ref": "#/$defs/field-properties/@headline"
+          },
+          "icon": {
+            "$ref": "#/$defs/field-properties/@icon"
           },
           "label": {
             "$ref": "#/$defs/field-properties/@label"
@@ -4599,6 +5543,9 @@
           "theme": {
             "$ref": "#/$defs/field-properties/@theme",
             "default": "info"
+          },
+          "when": {
+            "$ref": "#/$defs/field-properties/@when"
           }
         }
       },
@@ -4631,8 +5578,11 @@
           "batch": {
             "$ref": "#/$defs/field-properties/@batch"
           },
+          "extends": {
+            "$ref": "#/$defs/field-properties/@extends"
+          },
           "create": {
-            "$ref": "#/$defs/field-properties/@create"
+            "$ref": "#/$defs/field-properties/@pagesSectionCreate"
           },
           "columns": {
             "$ref": "#/$defs/field-properties/@columns"
@@ -4660,7 +5610,7 @@
             "$ref": "#/$defs/field-properties/@label"
           },
           "layout": {
-            "$ref": "#/$defs/field-properties/@layout",
+            "$ref": "#/$defs/field-properties/@sectionLayout",
             "default": "list"
           },
           "limit": {
@@ -4680,10 +5630,13 @@
             "$ref": "#/$defs/field-properties/@parent"
           },
           "query": {
-            "$ref": "#/$defs/field-properties/@query"
+            "$ref": "#/$defs/field-properties/@pickerQuery"
+          },
+          "rawvalues": {
+            "type": "boolean"
           },
           "search": {
-            "$ref": "#/$defs/field-properties/@search"
+            "$ref": "#/$defs/field-properties/@pickerSearch"
           },
           "size": {
             "$ref": "#/$defs/field-properties/@size",
@@ -4697,7 +5650,7 @@
             "default": true
           },
           "status": {
-            "$ref": "#/$defs/field-properties/@status"
+            "$ref": "#/$defs/field-properties/@pagesSectionStatus"
           },
           "template": {
             "$ref": "#/$defs/field-properties/@template"
@@ -4711,6 +5664,9 @@
           "text": {
             "$ref": "#/$defs/nonEmptyString",
             "default": "'{{ page.title }}'"
+          },
+          "when": {
+            "$ref": "#/$defs/field-properties/@when"
           }
         }
       },
@@ -4740,6 +5696,9 @@
               "section"
             ]
           },
+          "extends": {
+            "$ref": "#/$defs/field-properties/@extends"
+          },
           "headline": {
             "$ref": "#/$defs/field-properties/@headline"
           },
@@ -4750,8 +5709,11 @@
             "$ref": "#/$defs/blueprint-properties/@reports"
           },
           "size": {
-            "$ref": "#/$defs/field-properties/@size",
+            "$ref": "#/$defs/field-properties/@statsSize",
             "default": "large"
+          },
+          "when": {
+            "$ref": "#/$defs/field-properties/@when"
           }
         }
       }
@@ -4760,118 +5722,18 @@
       "fields": {
         "type": "object",
         "patternProperties": {
-          ".*": {
+          "^gap$": {
             "anyOf": [
               {
-                "$ref": "#/$defs/nonEmptyString",
-                "description": "shorthand version of extends property"
+                "$ref": "#/$defs/fieldShortcuts/gap"
               },
               {
-                "$ref": "#/$defs/fields/blocks"
-              },
-              {
-                "$ref": "#/$defs/fields/checkboxes"
-              },
-              {
-                "$ref": "#/$defs/fields/color"
-              },
-              {
-                "$ref": "#/$defs/fields/date"
-              },
-              {
-                "$ref": "#/$defs/fields/email"
-              },
-              {
-                "$ref": "#/$defs/fields/entries"
-              },
-              {
-                "$ref": "#/$defs/fields/files"
-              },
-              {
-                "$ref": "#/$defs/fields/gap"
-              },
-              {
-                "$ref": "#/$defs/fields/headline"
-              },
-              {
-                "$ref": "#/$defs/fields/hidden"
-              },
-              {
-                "$ref": "#/$defs/fields/info"
-              },
-              {
-                "$ref": "#/$defs/fields/layout"
-              },
-              {
-                "$ref": "#/$defs/fields/line"
-              },
-              {
-                "$ref": "#/$defs/fields/link"
-              },
-              {
-                "$ref": "#/$defs/fields/list"
-              },
-              {
-                "$ref": "#/$defs/fields/multiselect"
-              },
-              {
-                "$ref": "#/$defs/fields/number"
-              },
-              {
-                "$ref": "#/$defs/fields/object"
-              },
-              {
-                "$ref": "#/$defs/fields/pages"
-              },
-              {
-                "$ref": "#/$defs/fields/radio"
-              },
-              {
-                "$ref": "#/$defs/fields/range"
-              },
-              {
-                "$ref": "#/$defs/fields/select"
-              },
-              {
-                "$ref": "#/$defs/fields/slug"
-              },
-              {
-                "$ref": "#/$defs/fields/structure"
-              },
-              {
-                "$ref": "#/$defs/fields/stats"
-              },
-              {
-                "$ref": "#/$defs/fields/tags"
-              },
-              {
-                "$ref": "#/$defs/fields/tel"
-              },
-              {
-                "$ref": "#/$defs/fields/text"
-              },
-              {
-                "$ref": "#/$defs/fields/textarea"
-              },
-              {
-                "$ref": "#/$defs/fields/time"
-              },
-              {
-                "$ref": "#/$defs/fields/toggle"
-              },
-              {
-                "$ref": "#/$defs/fields/toggles"
-              },
-              {
-                "$ref": "#/$defs/fields/url"
-              },
-              {
-                "$ref": "#/$defs/fields/users"
-              },
-              {
-                "$ref": "#/$defs/fields/writer"
+                "$ref": "#/$defs/wrapperField"
               }
             ]
+          },
+          "^(?!gap$).*": {
+            "$ref": "#/$defs/wrapperField"
           }
         }
       },
@@ -4879,10 +5741,16 @@
         "type": "object",
         "patternProperties": {
           ".*": {
-            "oneOf": [
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
               {
                 "$ref": "#/$defs/nonEmptyString",
                 "description": "shorthand version of extends property"
+              },
+              {
+                "$ref": "#/$defs/sectionShortcut"
               },
               {
                 "$ref": "#/$defs/sections/info"
@@ -4925,7 +5793,155 @@
         "type": "object",
         "patternProperties": {
           ".*": {
-            "$ref": "#/$defs/tab"
+            "anyOf": [
+              {
+                "enum": [
+                  false
+                ]
+              },
+              {
+                "$ref": "#/$defs/nonEmptyString",
+                "description": "shorthand version of extends property"
+              },
+              {
+                "$ref": "#/$defs/tab"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "wrapperField": {
+      "anyOf": [
+        {
+          "enum": [
+            false
+          ]
+        },
+        {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "shorthand version of extends property"
+        },
+        {
+          "$ref": "#/$defs/fields/blocks"
+        },
+        {
+          "$ref": "#/$defs/fields/checkboxes"
+        },
+        {
+          "$ref": "#/$defs/fields/color"
+        },
+        {
+          "$ref": "#/$defs/fields/date"
+        },
+        {
+          "$ref": "#/$defs/fields/email"
+        },
+        {
+          "$ref": "#/$defs/fields/entries"
+        },
+        {
+          "$ref": "#/$defs/fields/files"
+        },
+        {
+          "$ref": "#/$defs/fields/gap"
+        },
+        {
+          "$ref": "#/$defs/fields/group"
+        },
+        {
+          "$ref": "#/$defs/fields/headline"
+        },
+        {
+          "$ref": "#/$defs/fields/hidden"
+        },
+        {
+          "$ref": "#/$defs/fields/info"
+        },
+        {
+          "$ref": "#/$defs/fields/layout"
+        },
+        {
+          "$ref": "#/$defs/fields/line"
+        },
+        {
+          "$ref": "#/$defs/fields/link"
+        },
+        {
+          "$ref": "#/$defs/fields/list"
+        },
+        {
+          "$ref": "#/$defs/fields/multiselect"
+        },
+        {
+          "$ref": "#/$defs/fields/number"
+        },
+        {
+          "$ref": "#/$defs/fields/object"
+        },
+        {
+          "$ref": "#/$defs/fields/pages"
+        },
+        {
+          "$ref": "#/$defs/fields/radio"
+        },
+        {
+          "$ref": "#/$defs/fields/range"
+        },
+        {
+          "$ref": "#/$defs/fields/select"
+        },
+        {
+          "$ref": "#/$defs/fields/slug"
+        },
+        {
+          "$ref": "#/$defs/fields/structure"
+        },
+        {
+          "$ref": "#/$defs/fields/stats"
+        },
+        {
+          "$ref": "#/$defs/fields/tags"
+        },
+        {
+          "$ref": "#/$defs/fields/tel"
+        },
+        {
+          "$ref": "#/$defs/fields/text"
+        },
+        {
+          "$ref": "#/$defs/fields/textarea"
+        },
+        {
+          "$ref": "#/$defs/fields/time"
+        },
+        {
+          "$ref": "#/$defs/fields/toggle"
+        },
+        {
+          "$ref": "#/$defs/fields/toggles"
+        },
+        {
+          "$ref": "#/$defs/fields/url"
+        },
+        {
+          "$ref": "#/$defs/fields/users"
+        },
+        {
+          "$ref": "#/$defs/fields/writer"
+        }
+      ]
+    },
+    "fieldShortcuts": {
+      "gap": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "when": {
+            "$ref": "#/$defs/field-properties/@when"
+          },
+          "width": {
+            "$ref": "#/$defs/field-properties/@width"
           }
         }
       }

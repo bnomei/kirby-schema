@@ -1,0 +1,8 @@
+# Source: https://getkirby.com/docs/reference/panel/sections/info
+blueprint: section
+type: info
+icon: info
+theme: passive
+text: Read this first
+when:
+  showInfo: true

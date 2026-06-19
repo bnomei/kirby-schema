@@ -1,0 +1,42 @@
+# Covers: #/$defs/fields/textarea
+type: textarea
+blueprint: field
+extends: fields/base
+autofocus: true
+buttons:
+  - headlines
+  - bold
+  - '|'
+  - link
+counter: true
+default:
+  value: default
+disabled: false
+files:
+  query: site.files
+  image:
+    back: black
+    icon: image
+    query: file
+font: monospace
+help:
+  en: Help
+  de: Help DE
+icon: page
+label:
+  en: Label
+  de: Label DE
+maxlength: 120
+minlength: 2
+placeholder: Placeholder
+required: true
+size: large
+spellcheck: false
+translate: false
+uploads:
+  parent: site.find("uploads")
+  template: image
+when:
+  template: article
+  isPublished: true
+width: 1/2

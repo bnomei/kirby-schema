@@ -1,0 +1,41 @@
+# Covers: #/$defs/fields/checkboxes
+type: checkboxes
+blueprint: field
+extends: fields/base
+batch: true
+api:
+  fetch: site.children
+  text: '{{ item.title }}'
+  value: '{{ item.id }}'
+  icon: page
+  info: '{{ item.info }}'
+autofocus: true
+columns: 1
+default:
+  value: default
+disabled: false
+help:
+  en: Help
+  de: Help DE
+label:
+  en: Label
+  de: Label DE
+max: 10
+min: 1
+options:
+  draft:
+    en: Draft
+    de: Draft DE
+  listed: Listed
+query:
+  fetch: site.children
+  text: '{{ item.title }}'
+  value: '{{ item.id }}'
+  icon: page
+  info: '{{ item.info }}'
+required: true
+translate: false
+when:
+  template: article
+  isPublished: true
+width: 1/2

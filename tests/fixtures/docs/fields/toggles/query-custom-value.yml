@@ -1,0 +1,8 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/toggles
+label: Category
+type: toggles
+options:
+  type: query
+  query: site.children.published
+  text: '{{ page.year }}'
+  value: '{{ page.slug }}'

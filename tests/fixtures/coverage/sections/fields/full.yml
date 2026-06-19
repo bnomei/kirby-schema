@@ -1,0 +1,18 @@
+# Covers: #/$defs/sections/fields
+type: fields
+blueprint: section
+extends: fields/base
+fields:
+  text:
+    type: text
+    label:
+      en: Text
+      de: Text DE
+  toggle:
+    type: toggle
+    text:
+      - 'Off'
+      - 'On'
+when:
+  template: article
+  isPublished: true

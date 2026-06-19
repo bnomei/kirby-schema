@@ -1,0 +1,5 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://getkirby.com/schema/blueprints.schema.json",
+  "title": "JSON schema for Kirby 5 CMS blueprint files"
+}

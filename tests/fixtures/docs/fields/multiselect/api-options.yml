@@ -1,0 +1,6 @@
+# Source: https://getkirby.com/docs/reference/panel/fields/multiselect
+label: Category
+type: multiselect
+options:
+  type: api
+  url: https://your-options-api.com/options.json
