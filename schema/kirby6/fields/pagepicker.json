@@ -1,0 +1,116 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "pagepicker"
+      ]
+    },
+    "blueprint": {
+      "enum": [
+        "field"
+      ]
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "label": {
+      "$ref": "#/$defs/field-properties/@label"
+    },
+    "help": {
+      "$ref": "#/$defs/field-properties/@help"
+    },
+    "default": {
+      "$ref": "#/$defs/field-properties/@default"
+    },
+    "translate": {
+      "$ref": "#/$defs/field-properties/@translate"
+    },
+    "width": {
+      "$ref": "#/$defs/field-properties/@width"
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    },
+    "autofocus": {
+      "$ref": "#/$defs/field-properties/@autofocus"
+    },
+    "disabled": {
+      "$ref": "#/$defs/field-properties/@disabled"
+    },
+    "empty": {
+      "$ref": "#/$defs/field-properties/@empty"
+    },
+    "link": {
+      "$ref": "#/$defs/field-properties/@link"
+    },
+    "multiple": {
+      "$ref": "#/$defs/field-properties/@multiple"
+    },
+    "required": {
+      "$ref": "#/$defs/field-properties/@required"
+    },
+    "size": {
+      "$ref": "#/$defs/field-properties/@size"
+    },
+    "store": {
+      "$ref": "#/$defs/field-properties/@store"
+    },
+    "image": {
+      "$ref": "#/$defs/field-properties/@modelImage"
+    },
+    "info": {
+      "type": "string"
+    },
+    "layout": {
+      "enum": [
+        "list",
+        "cards",
+        "cardlets"
+      ]
+    },
+    "max": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "min": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "picker": {
+      "$ref": "#/$defs/field-properties/@pagePicker"
+    },
+    "query": {
+      "$ref": "#/$defs/field-properties/@pickerQuery"
+    },
+    "search": {
+      "type": "boolean"
+    },
+    "text": {
+      "type": "string"
+    },
+    "validate": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "subpages": {
+      "type": "boolean"
+    },
+    "name": {
+      "$ref": "#/$defs/nonEmptyString"
+    }
+  }
+}

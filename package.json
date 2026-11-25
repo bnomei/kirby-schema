@@ -1,15 +1,16 @@
 {
   "name": "kirby3-schema",
-  "version": "5.4.0",
+  "version": "6.0.0",
   "description": "",
   "main": "index.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "build:schema": "node scripts/build-kirby5-schema.js",
-    "check:schema": "node scripts/build-kirby5-schema.js --check",
-    "test": "jest"
+    "build:schema": "node scripts/build-kirby6-schema.js",
+    "check:schema": "node scripts/build-kirby6-schema.js --check",
+    "pretest": "npm run check:schema",
+    "test": "jest --roots tests/kirby6"
   },
   "repository": {
     "type": "git",

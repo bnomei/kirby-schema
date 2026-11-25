@@ -1,0 +1,74 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "checkboxes"
+      ]
+    },
+    "blueprint": {
+      "enum": [
+        "field"
+      ]
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "batch": {
+      "$ref": "#/$defs/field-properties/@batch"
+    },
+    "autofocus": {
+      "$ref": "#/$defs/field-properties/@autofocus"
+    },
+    "columns": {
+      "type": "integer",
+      "minimum": 1,
+      "default": 1
+    },
+    "default": {
+      "$ref": "#/$defs/field-properties/@default"
+    },
+    "disabled": {
+      "$ref": "#/$defs/field-properties/@disabled"
+    },
+    "help": {
+      "$ref": "#/$defs/field-properties/@help"
+    },
+    "label": {
+      "$ref": "#/$defs/field-properties/@label"
+    },
+    "max": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "min": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "options": {
+      "$ref": "#/$defs/field-properties/@options"
+    },
+    "required": {
+      "$ref": "#/$defs/field-properties/@required",
+      "default": false
+    },
+    "translate": {
+      "$ref": "#/$defs/field-properties/@translate",
+      "default": true
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    },
+    "width": {
+      "$ref": "#/$defs/field-properties/@width",
+      "default": "1/1"
+    },
+    "validate": {
+      "$ref": "#/$defs/field-properties/@validate"
+    },
+    "name": {
+      "$ref": "#/$defs/nonEmptyString"
+    }
+  },
+  "type": "object"
+}

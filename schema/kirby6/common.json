@@ -1,0 +1,778 @@
+{
+  "arrayOrBooleanOrNumberOrObjectOrString": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "type": "boolean"
+      },
+      {
+        "type": "number"
+      },
+      {
+        "type": "array"
+      },
+      {
+        "type": "object"
+      }
+    ]
+  },
+  "marks": {
+    "enum": [
+      "bold",
+      "italic",
+      "underline",
+      "strike",
+      "code",
+      "link",
+      "email",
+      "sub",
+      "sup",
+      "clear"
+    ]
+  },
+  "nodes": {
+    "enum": [
+      "paragraph",
+      "heading",
+      "bulletList",
+      "orderedList",
+      "quote",
+      "horizontalRule"
+    ]
+  },
+  "nonEmptyString": {
+    "type": "string",
+    "minLength": 1
+  },
+  "notRequiredNonEmptyString": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "type": "null"
+      }
+    ]
+  },
+  "stringArrayUnique": {
+    "type": "array",
+    "uniqueItems": true,
+    "minItems": 1,
+    "items": {
+      "$ref": "#/$defs/nonEmptyString"
+    }
+  },
+  "queryObject": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "url": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "fetch": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "text": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "value": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "icon": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "info": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "query": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    }
+  },
+  "textValuePair": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "text": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "value": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    }
+  },
+  "optionValue": {
+    "type": [
+      "string",
+      "number",
+      "null"
+    ]
+  },
+  "optionText": {
+    "anyOf": [
+      {
+        "$ref": "#/$defs/stringOrTranslated"
+      },
+      {
+        "const": false
+      },
+      {
+        "type": "null"
+      }
+    ]
+  },
+  "optionItem": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "value": {
+        "$ref": "#/$defs/optionValue"
+      },
+      "text": {
+        "$ref": "#/$defs/optionText"
+      },
+      "disabled": {
+        "type": "boolean"
+      },
+      "icon": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "info": {
+        "$ref": "#/$defs/optionText"
+      }
+    },
+    "required": [
+      "value"
+    ]
+  },
+  "optionsArray": {
+    "type": "array",
+    "items": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/optionValue"
+        },
+        {
+          "$ref": "#/$defs/optionItem"
+        }
+      ]
+    }
+  },
+  "optionsMap": {
+    "type": "object",
+    "additionalProperties": {
+      "if": {
+        "type": "object",
+        "required": [
+          "value"
+        ]
+      },
+      "then": {
+        "$ref": "#/$defs/optionItem"
+      },
+      "else": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/optionValue"
+          },
+          {
+            "$ref": "#/$defs/optionText"
+          }
+        ]
+      }
+    }
+  },
+  "optionsProvider": {
+    "oneOf": [
+      {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "options"
+        ],
+        "properties": {
+          "type": {
+            "const": "array"
+          },
+          "options": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/optionsArray"
+              },
+              {
+                "$ref": "#/$defs/optionsMap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "url"
+        ],
+        "properties": {
+          "type": {
+            "const": "api"
+          },
+          "url": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "query": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "fetch": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "text": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "value": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "icon": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "info": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      },
+      {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "const": "query"
+          },
+          "query": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "fetch": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "text": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "value": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "icon": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "info": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "anyOf": [
+          {
+            "required": [
+              "query"
+            ]
+          },
+          {
+            "required": [
+              "fetch"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "fieldsetsItem": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "type": "object",
+        "patternProperties": {
+          ".*": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/fieldsetEntry"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/fieldsetEntry"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "fieldsetEntry": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "type": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "extends": {
+            "$ref": "#/$defs/field-properties/@extends"
+          },
+          "name": {
+            "$ref": "#/$defs/stringOrTranslated"
+          },
+          "label": {
+            "$ref": "#/$defs/field-properties/@label"
+          },
+          "icon": {
+            "$ref": "#/$defs/field-properties/@icon"
+          },
+          "preview": {
+            "oneOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "wysiwyg": {
+            "type": "boolean"
+          },
+          "fields": {
+            "$ref": "#/$defs/wrappers/fields"
+          },
+          "sections": {
+            "$ref": "#/$defs/wrappers/sections"
+          },
+          "columns": {
+            "$ref": "#/$defs/wrappers/columns"
+          },
+          "tabs": {
+            "$ref": "#/$defs/wrappers/tabs"
+          },
+          "fieldsets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/fieldsetsItem"
+            }
+          },
+          "open": {
+            "type": "boolean",
+            "default": true
+          },
+          "translate": {
+            "type": "boolean"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "editable": {
+            "type": "boolean"
+          }
+        }
+      }
+    ]
+  },
+  "fieldsetsGroup": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "type": {
+        "enum": [
+          "group"
+        ]
+      },
+      "label": {
+        "$ref": "#/$defs/field-properties/@label"
+      },
+      "fieldsets": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/fieldsetsItem"
+        }
+      },
+      "open": {
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "required": [
+      "type"
+    ]
+  },
+  "objectWithBooleanOrNonEmptyStringValues": {
+    "type": "object",
+    "patternProperties": {
+      ".*": {
+        "oneOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        ]
+      }
+    }
+  },
+  "objectWithStringValues": {
+    "type": "object",
+    "patternProperties": {
+      ".*": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    }
+  },
+  "objectWithStringOrTranslatedValues": {
+    "type": "object",
+    "patternProperties": {
+      ".*": {
+        "$ref": "#/$defs/stringOrTranslated"
+      }
+    }
+  },
+  "stringOrStringArrayUnique": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "$ref": "#/$defs/stringArrayUnique"
+      }
+    ]
+  },
+  "booleanOrString": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "type": "string"
+      }
+    ]
+  },
+  "booleanOrObject": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "type": "object"
+      }
+    ]
+  },
+  "booleanOrStringArrayUnique": {
+    "oneOf": [
+      {
+        "type": "boolean"
+      },
+      {
+        "$ref": "#/$defs/stringArrayUnique"
+      }
+    ]
+  },
+  "stringOrNumber": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "type": "number"
+      }
+    ]
+  },
+  "translated": {
+    "type": "object",
+    "patternProperties": {
+      "[a-z]{2}": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        ]
+      }
+    }
+  },
+  "stringOrTranslated": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      {
+        "$ref": "#/$defs/translated"
+      }
+    ]
+  },
+  "stringOrLabelAndText": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/booleanOrString"
+      },
+      {
+        "type": "object",
+        "properties": {
+          "label": {
+            "$ref": "#/$defs/field-properties/@label"
+          },
+          "text": {
+            "$ref": "#/$defs/stringOrTranslated"
+          }
+        }
+      }
+    ]
+  },
+  "numberInPixel": {
+    "type": "number",
+    "exclusiveMinimum": 0,
+    "description": "in px"
+  },
+  "numberInBytes": {
+    "type": "number",
+    "exclusiveMinimum": 0,
+    "description": "in bytes"
+  },
+  "fraction": {
+    "$ref": "#/$defs/nonEmptyString"
+  },
+  "field": {
+    "type": "object",
+    "properties": {
+      "label": {
+        "$ref": "#/$defs/field-properties/@label"
+      }
+    }
+  },
+  "report": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "label": {
+        "$ref": "#/$defs/stringOrTranslated"
+      },
+      "value": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/stringOrTranslated"
+          },
+          {
+            "type": "number"
+          }
+        ]
+      },
+      "info": {
+        "$ref": "#/$defs/stringOrTranslated"
+      },
+      "link": {
+        "$ref": "#/$defs/field-properties/@linkUrl"
+      },
+      "theme": {
+        "$ref": "#/$defs/field-properties/@theme"
+      },
+      "icon": {
+        "$ref": "#/$defs/field-properties/@icon"
+      },
+      "dialog": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "drawer": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    },
+    "required": [
+      "label",
+      "value"
+    ]
+  },
+  "section": {
+    "type": "object",
+    "properties": {
+      "sec-label": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    }
+  },
+  "column": {
+    "properties": {
+      "width": {
+        "$ref": "#/$defs/fraction"
+      },
+      "sticky": {
+        "type": "boolean",
+        "default": false
+      },
+      "fields": {
+        "$ref": "#/$defs/wrappers/fields"
+      },
+      "sections": {
+        "$ref": "#/$defs/wrappers/sections"
+      }
+    },
+    "type": "object"
+  },
+  "tab": {
+    "type": "object",
+    "properties": {
+      "label": {
+        "$ref": "#/$defs/field-properties/@label"
+      },
+      "icon": {
+        "$ref": "#/$defs/blueprint-properties/@icon"
+      },
+      "extends": {
+        "$ref": "#/$defs/field-properties/@extends"
+      },
+      "fields": {
+        "$ref": "#/$defs/wrappers/fields"
+      },
+      "sections": {
+        "$ref": "#/$defs/wrappers/sections"
+      },
+      "columns": {
+        "$ref": "#/$defs/wrappers/columns"
+      }
+    },
+    "patternProperties": {
+      "^(?!label$|icon$|extends$|fields$|sections$|columns$).*$": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/wrappers/fields"
+          },
+          {
+            "$ref": "#/$defs/wrappers/sections"
+          },
+          {
+            "$ref": "#/$defs/wrappers/columns"
+          }
+        ]
+      }
+    }
+  },
+  "sections": {
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "enum": [
+            "fields"
+          ]
+        },
+        "blueprint": {
+          "const": "section"
+        },
+        "extends": {
+          "$ref": "#/$defs/field-properties/@extends"
+        },
+        "fields": {
+          "$ref": "#/$defs/wrappers/fields"
+        },
+        "when": {
+          "$ref": "#/$defs/field-properties/@when"
+        }
+      }
+    }
+  },
+  "wrappers": {
+    "fields": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/fieldMap"
+        },
+        {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              {
+                "$ref": "#/$defs/wrapperFieldDefinition"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "columns": {
+      "oneOf": [
+        {
+          "type": "object",
+          "patternProperties": {
+            ".*": {
+              "$ref": "#/$defs/column"
+            }
+          }
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/column"
+          }
+        }
+      ]
+    },
+    "tabs": {
+      "type": "object",
+      "patternProperties": {
+        ".*": {
+          "anyOf": [
+            {
+              "enum": [
+                false
+              ]
+            },
+            {
+              "$ref": "#/$defs/nonEmptyString",
+              "description": "shorthand version of extends property"
+            },
+            {
+              "$ref": "#/$defs/tab"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "pageStatus": {
+    "anyOf": [
+      {
+        "$ref": "#/$defs/booleanOrString"
+      },
+      {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "$ref": "#/$defs/stringOrTranslated"
+          },
+          "text": {
+            "$ref": "#/$defs/stringOrTranslated"
+          },
+          "icon": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "theme": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      }
+    ]
+  }
+}

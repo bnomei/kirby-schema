@@ -1,0 +1,32 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "hidden"
+      ]
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "default": {
+      "$ref": "#/$defs/field-properties/@default"
+    },
+    "translate": {
+      "$ref": "#/$defs/field-properties/@translate"
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    },
+    "width": {
+      "$ref": "#/$defs/field-properties/@width"
+    },
+    "name": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "blueprint": {
+      "const": "field"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,319 @@
+{
+  "block": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "blueprint": {
+        "enum": [
+          "block"
+        ]
+      },
+      "name": {
+        "$ref": "#/$defs/blueprint-properties/@name"
+      },
+      "label": {
+        "$ref": "#/$defs/blueprint-properties/@label"
+      },
+      "icon": {
+        "$ref": "#/$defs/blueprint-properties/@icon"
+      },
+      "extends": {
+        "$ref": "#/$defs/field-properties/@extends"
+      },
+      "preview": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "wysiwyg": {
+        "type": "boolean",
+        "default": false
+      },
+      "fields": {
+        "$ref": "#/$defs/fieldMap"
+      },
+      "sections": {
+        "$ref": "#/$defs/wrappers/sections"
+      },
+      "columns": {
+        "$ref": "#/$defs/wrappers/columns"
+      },
+      "tabs": {
+        "$ref": "#/$defs/wrappers/tabs"
+      }
+    }
+  },
+  "file": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "blueprint": {
+        "enum": [
+          "file"
+        ]
+      },
+      "title": {
+        "$ref": "#/$defs/blueprint-properties/@title"
+      },
+      "extends": {
+        "$ref": "#/$defs/field-properties/@extends"
+      },
+      "accept": {
+        "oneOf": [
+          {
+            "const": true
+          },
+          {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "extension": {
+                "$ref": "#/$defs/stringOrStringArrayUnique"
+              },
+              "mime": {
+                "$ref": "#/$defs/stringOrStringArrayUnique"
+              },
+              "mime ": {
+                "$ref": "#/$defs/stringOrStringArrayUnique"
+              },
+              "maxheight": {
+                "$ref": "#/$defs/numberInPixel"
+              },
+              "maxsize": {
+                "$ref": "#/$defs/numberInBytes"
+              },
+              "maxwidth": {
+                "$ref": "#/$defs/numberInPixel"
+              },
+              "minheight": {
+                "$ref": "#/$defs/numberInPixel"
+              },
+              "minsize": {
+                "$ref": "#/$defs/numberInBytes"
+              },
+              "minwidth": {
+                "$ref": "#/$defs/numberInPixel"
+              },
+              "orientation": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "type": {
+                "$ref": "#/$defs/stringOrStringArrayUnique"
+              }
+            }
+          }
+        ]
+      },
+      "create": {
+        "type": "object",
+        "properties": {
+          "width": {
+            "$ref": "#/$defs/numberInPixel"
+          },
+          "height": {
+            "$ref": "#/$defs/numberInPixel"
+          },
+          "crop": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
+      "image": {
+        "$ref": "#/$defs/blueprint-properties/@image"
+      },
+      "focus": {
+        "type": "boolean",
+        "default": true
+      },
+      "options": {
+        "$ref": "#/$defs/blueprint-properties/@options"
+      },
+      "buttons": {
+        "$ref": "#/$defs/blueprint-properties/@buttons"
+      },
+      "fields": {
+        "$ref": "#/$defs/fieldMap"
+      },
+      "sections": {
+        "$ref": "#/$defs/wrappers/sections"
+      },
+      "columns": {
+        "$ref": "#/$defs/wrappers/columns"
+      },
+      "tabs": {
+        "$ref": "#/$defs/wrappers/tabs"
+      }
+    }
+  },
+  "page": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "blueprint": {
+        "enum": [
+          "page"
+        ]
+      },
+      "extends": {
+        "$ref": "#/$defs/field-properties/@extends"
+      },
+      "title": {
+        "$ref": "#/$defs/blueprint-properties/@title"
+      },
+      "create": {
+        "$ref": "#/$defs/blueprint-properties/@create"
+      },
+      "num": {
+        "$ref": "#/$defs/blueprint-properties/@num"
+      },
+      "status": {
+        "$ref": "#/$defs/blueprint-properties/@status"
+      },
+      "icon": {
+        "$ref": "#/$defs/blueprint-properties/@icon"
+      },
+      "image": {
+        "$ref": "#/$defs/blueprint-properties/@image"
+      },
+      "options": {
+        "$ref": "#/$defs/blueprint-properties/@options"
+      },
+      "navigation": {
+        "$ref": "#/$defs/blueprint-properties/@navigation"
+      },
+      "buttons": {
+        "$ref": "#/$defs/blueprint-properties/@buttons"
+      },
+      "fields": {
+        "$ref": "#/$defs/fieldMap"
+      },
+      "sections": {
+        "$ref": "#/$defs/wrappers/sections"
+      },
+      "columns": {
+        "$ref": "#/$defs/wrappers/columns"
+      },
+      "tabs": {
+        "$ref": "#/$defs/wrappers/tabs"
+      }
+    }
+  },
+  "site": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "blueprint": {
+        "enum": [
+          "site"
+        ]
+      },
+      "icon": {
+        "$ref": "#/$defs/blueprint-properties/@icon"
+      },
+      "extends": {
+        "$ref": "#/$defs/field-properties/@extends"
+      },
+      "title": {
+        "$ref": "#/$defs/blueprint-properties/@title"
+      },
+      "options": {
+        "$ref": "#/$defs/blueprint-properties/@options"
+      },
+      "buttons": {
+        "$ref": "#/$defs/blueprint-properties/@buttons"
+      },
+      "fields": {
+        "$ref": "#/$defs/fieldMap"
+      },
+      "sections": {
+        "$ref": "#/$defs/wrappers/sections"
+      },
+      "columns": {
+        "$ref": "#/$defs/wrappers/columns"
+      },
+      "tabs": {
+        "$ref": "#/$defs/wrappers/tabs"
+      }
+    }
+  },
+  "user": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "blueprint": {
+        "enum": [
+          "user"
+        ]
+      },
+      "title": {
+        "$ref": "#/$defs/stringOrTranslated"
+      },
+      "description": {
+        "$ref": "#/$defs/stringOrTranslated"
+      },
+      "extends": {
+        "$ref": "#/$defs/field-properties/@extends"
+      },
+      "options": {
+        "$ref": "#/$defs/blueprint-properties/@options"
+      },
+      "home": {
+        "$ref": "#/$defs/blueprint-properties/@home"
+      },
+      "image": {
+        "$ref": "#/$defs/blueprint-properties/@image"
+      },
+      "permissions": {
+        "$ref": "#/$defs/blueprint-properties/@permissions"
+      },
+      "buttons": {
+        "$ref": "#/$defs/blueprint-properties/@buttons"
+      },
+      "fields": {
+        "$ref": "#/$defs/fieldMap"
+      },
+      "sections": {
+        "$ref": "#/$defs/wrappers/sections"
+      },
+      "columns": {
+        "$ref": "#/$defs/wrappers/columns"
+      },
+      "tabs": {
+        "$ref": "#/$defs/wrappers/tabs"
+      }
+    }
+  },
+  "tab": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "blueprint": {
+        "enum": [
+          "tab"
+        ]
+      },
+      "label": {
+        "$ref": "#/$defs/blueprint-properties/@label"
+      },
+      "icon": {
+        "$ref": "#/$defs/blueprint-properties/@icon"
+      },
+      "extends": {
+        "$ref": "#/$defs/field-properties/@extends"
+      },
+      "fields": {
+        "$ref": "#/$defs/wrappers/fields"
+      },
+      "sections": {
+        "$ref": "#/$defs/wrappers/sections"
+      },
+      "columns": {
+        "$ref": "#/$defs/wrappers/columns"
+      },
+      "tabs": {
+        "$ref": "#/$defs/wrappers/tabs"
+      }
+    }
+  }
+}

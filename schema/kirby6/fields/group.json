@@ -1,0 +1,29 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "group"
+      ]
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "fields": {
+      "$ref": "#/$defs/wrappers/fields"
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    },
+    "width": {
+      "$ref": "#/$defs/field-properties/@width"
+    },
+    "name": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "blueprint": {
+      "const": "field"
+    }
+  },
+  "type": "object"
+}

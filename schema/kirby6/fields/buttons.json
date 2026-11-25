@@ -1,0 +1,120 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "buttons"
+      ]
+    },
+    "blueprint": {
+      "enum": [
+        "field"
+      ]
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "label": {
+      "$ref": "#/$defs/field-properties/@label"
+    },
+    "help": {
+      "$ref": "#/$defs/field-properties/@help"
+    },
+    "default": {
+      "$ref": "#/$defs/field-properties/@default"
+    },
+    "translate": {
+      "$ref": "#/$defs/field-properties/@translate"
+    },
+    "width": {
+      "$ref": "#/$defs/field-properties/@width"
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    },
+    "buttons": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "$ref": "#/$defs/stringOrTranslated"
+              },
+              "title": {
+                "$ref": "#/$defs/stringOrTranslated"
+              },
+              "icon": {
+                "$ref": "#/$defs/field-properties/@icon"
+              },
+              "link": {
+                "type": "string"
+              },
+              "target": {
+                "type": "string"
+              },
+              "dialog": {
+                "type": "string"
+              },
+              "drawer": {
+                "type": "string"
+              },
+              "theme": {
+                "type": "string"
+              },
+              "disabled": {
+                "type": "boolean"
+              },
+              "badge": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "$ref": "#/$defs/stringOrNumber"
+                  },
+                  "theme": {
+                    "type": "string"
+                  }
+                }
+              },
+              "class": {
+                "type": "string"
+              },
+              "component": {
+                "type": "string"
+              },
+              "current": {
+                "$ref": "#/$defs/booleanOrString"
+              },
+              "dropdown": {
+                "type": "boolean"
+              },
+              "responsive": {
+                "$ref": "#/$defs/booleanOrString"
+              },
+              "size": {
+                "type": "string"
+              },
+              "style": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "variant": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "name": {
+      "$ref": "#/$defs/nonEmptyString"
+    }
+  }
+}

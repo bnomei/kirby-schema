@@ -1,0 +1,122 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "filelist"
+      ]
+    },
+    "blueprint": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "extends": {
+      "$ref": "#/$defs/field-properties/@extends"
+    },
+    "label": {
+      "$ref": "#/$defs/field-properties/@label"
+    },
+    "help": {
+      "$ref": "#/$defs/field-properties/@help"
+    },
+    "default": {
+      "$ref": "#/$defs/field-properties/@default"
+    },
+    "translate": {
+      "$ref": "#/$defs/field-properties/@translate"
+    },
+    "width": {
+      "$ref": "#/$defs/field-properties/@width"
+    },
+    "when": {
+      "$ref": "#/$defs/field-properties/@when"
+    },
+    "batch": {
+      "$ref": "#/$defs/field-properties/@batch"
+    },
+    "empty": {
+      "$ref": "#/$defs/field-properties/@empty"
+    },
+    "flip": {
+      "$ref": "#/$defs/field-properties/@flip"
+    },
+    "parent": {
+      "$ref": "#/$defs/field-properties/@parent"
+    },
+    "size": {
+      "$ref": "#/$defs/field-properties/@size"
+    },
+    "sortBy": {
+      "$ref": "#/$defs/field-properties/@sortBy"
+    },
+    "sortable": {
+      "$ref": "#/$defs/field-properties/@sortable"
+    },
+    "columns": {
+      "$ref": "#/$defs/field-properties/@modelListColumns"
+    },
+    "image": {
+      "$ref": "#/$defs/field-properties/@modelImage"
+    },
+    "info": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "#/$defs/translated"
+        },
+        {
+          "const": false
+        }
+      ]
+    },
+    "layout": {
+      "$ref": "#/$defs/field-properties/@sectionLayout"
+    },
+    "limit": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "min": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "query": {
+      "$ref": "#/$defs/field-properties/@pickerQuery"
+    },
+    "search": {
+      "type": "boolean"
+    },
+    "text": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "#/$defs/translated"
+        },
+        {
+          "const": false
+        }
+      ]
+    },
+    "template": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "create": {
+      "type": "boolean"
+    },
+    "name": {
+      "$ref": "#/$defs/nonEmptyString"
+    }
+  }
+}
